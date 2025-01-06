@@ -1,5 +1,5 @@
 {
-  "name": "qalqa-ui",
+  "name": "qalqa-ui-container",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,14 +7,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build-comps": "cd src/components && npm run build",
+    "publish-comps": "cd src/components && npm run publish"
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "sass": "^1.83.1"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
     "@eslint/js": "^9.17.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "outDir": "./dist/components",
+    "esModuleInterop": true
+  },
+  "include": [
+    "*" // Включаем только компоненты
+  ],
+  "exclude": [
+    "node_modules" // Исключаем node_modules
+  ]
+}

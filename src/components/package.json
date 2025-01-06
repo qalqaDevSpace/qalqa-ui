@@ -1,0 +1,31 @@
+{
+  "name": "qalqa-ui",
+  "version": "0.0.0",
+  "main": "dist/components/index.js",
+  "module": "dist/components/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.components.json",
+    "publish": "npm run build && npm publish"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "sass": "^1.83.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.0",
+    "@vitejs/plugin-react": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "library"
+  ],
+  "author": "qalqa",
+  "license": "MIT"
+}

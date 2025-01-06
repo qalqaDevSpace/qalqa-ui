@@ -1,0 +1,7 @@
+/src/*
+!/src/components
+/dist/*
+/node_modules
+/vite.config.ts
+/package.json
+/tsconfig.json
