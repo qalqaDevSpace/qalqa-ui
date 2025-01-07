@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "dist/components/index.js",
   "module": "dist/components/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/model/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.components.json",
     "publish": "npm run build && npm publish"
