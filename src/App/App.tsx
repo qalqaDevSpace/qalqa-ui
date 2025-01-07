@@ -1,7 +1,10 @@
+import { Button } from "../components-lib";
+import styles from "./App.module.css";
+
 function App() {
   return (
     <>
-      <div className="container">
+      <div className={styles.container}>
         <h1>Test Stand for component</h1>
         <h2>BaseStyles of elements</h2>
         <h3>Title 3</h3>
@@ -23,6 +26,7 @@ function App() {
           <li>Ordered List item 2</li>
         </ol>
       </div>
+      <Button label="Click Me"></Button>
     </>
   );
 }
