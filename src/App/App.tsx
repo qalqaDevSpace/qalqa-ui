@@ -25,8 +25,8 @@ function App() {
           <li>Ordered List item 1</li>
           <li>Ordered List item 2</li>
         </ol>
+        <Button label="Click Me"></Button>
       </div>
-      <Button label="Click Me"></Button>
     </>
   );
 }

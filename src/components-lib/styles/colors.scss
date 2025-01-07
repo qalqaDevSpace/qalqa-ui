@@ -1,45 +1,69 @@
 :root {
+  //TODO: Add user-defined primary color, it might be bright
+
+  //DARK COLORS
   //static colors>
   //-accent colors
-  //TODO: Add user-defined primary color, it might be bright
-  --qc-accent-primary-light: #6864f4;
-  --qc-accent-primary-dark: #888cfc;
-  --qc-accent-secondary-light: #e044ec;
-  --qc-accent-secondary-dark: #ec7cff;
+  --qc-accent-primary: #a78bfa;
+  --qc-accent-secondary: #ec7cff;
 
   //-text-colors
-  --qc-text-primary-light: #111827;
-  --qc-text-primary-dark: #fff;
-  --qc-text-secondary-light: #6b7280;
-  --qc-text-secondary-dark: #9ca3af;
+  --qc-text-primary: #fff;
+  --qc-text-secondary: #9ca3af;
+  --qc-text-accent-primary: var(--qc-bg-primary);
 
   //-bg-colors
-  --qc-bg-primary-light: #f9fafb;
-  --qc-bg-primary-dark: #030712;
-  --qc-bg-secondary-light: #fff;
-  --qc-bg-secondary-dark: #111827;
-  --qc-bg-transparent-light: rgba(255, 255, 255, 0.7);
-  --qc-bg-transparent-dark: rgba(17, 24, 39, 0.7);
+  --qc-bg-primary: #030712;
+  --qc-bg-secondary: #111827;
+  --qc-bg-transparent: rgba(17, 24, 39, 0.7);
 
   //-border
-  --qc-border-primary-light: #e5e7eb;
-  --qc-border-primary-dark: #374151;
-  --qc-border-secondary-light: #e5e7eb;
-  --qc-border-secondary-dark: #fff3;
+  --qc-border-primary: #374151;
+  --qc-border-secondary: #fff3;
 
   //user-actions>
   //-hover
+  --qc-hover-accent-primary: #c4b5fd;
+  --qc-hover-bg-secondary: #1f2937;
+  --qc-hover-text-secondary: #d1d5db;
   //-active
+  --qc-active-accent-primary: #d4cbfa;
   //-focus
+  --qc-focus: var(--qc-accent-primary);
 
   //special comps colors>
   //-error
+  --qc-error: #ff7484;
   //-warning
+  --qc-warning: #ffce51;
   //-success
-
-  --qc-accent-primary: var(--qc-accent-primary-dark);
-  --qc-text-primary: var(--qc-text-primary-dark);
-  --qc-bg-primary: var(--qc-bg-primary-dark);
+  --qc-success: #38d49c;
 }
-@media (preferred-color-scheme: light) {
+@media (prefers-color-scheme: light) {
+  :root {
+    //LIGHT COLORS
+    //static colors>
+    //-accent colors
+    --qc-accent-primary: #8b5cf6;
+    --qc-accent-secondary: #e044ec;
+
+    //-text-colors
+    --qc-text-primary: #111827;
+    --qc-text-secondary: #6b7280;
+
+    //-bg-colors
+    --qc-bg-primary: #f9fafb;
+    --qc-bg-secondary: #fff;
+    --qc-bg-transparent: rgba(255, 255, 255, 0.7);
+    --qc-border-primary: #e5e7eb;
+    --qc-border-secondary: #e5e7eb;
+
+    //user-actions>
+    //-hover
+    --qc-hover-accent-primary: #7c3aed;
+    --qc-hover-bg-secondary: #f3f4f6;
+    --qc-hover-text-secondary: #374151;
+    //-active
+    --qc-active-accent-primary: #6a25e2;
+  }
 }

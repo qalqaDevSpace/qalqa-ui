@@ -1,3 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
-  --font-family: "JetBrains Mono";
+  // Font families
+  --qff-primary: "Montserrat", serif;
+  --qff-mono: "JetBrains Mono", monospace;
+
+  // Font weights
+  --qfw-thin: 100;
+  --qfw-extralight: 200;
+  --qfw-light: 300;
+  --qfw-regular: 400;
+  --qfw-medium: 500;
+  --qfw-semibold: 600;
+  --qfw-bold: 700;
+  --qfw-extrabold: 800;
 }
