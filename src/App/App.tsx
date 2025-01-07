@@ -5,7 +5,15 @@ function App() {
   return (
     <>
       <div className={styles.container}>
-        <Button label="Click Me"></Button>
+        <Button
+          label="Click Me"
+          type="primary"
+          shadow
+          weight="bold"
+          size="xl"
+          icon="home"
+          iconPosition="right"
+        />
       </div>
     </>
   );
