@@ -1,3 +1,45 @@
 :root {
-  --black: #000000;
+  //static colors>
+  //-accent colors
+  //TODO: Add user-defined primary color, it might be bright
+  --qc-accent-primary-light: #6864f4;
+  --qc-accent-primary-dark: #888cfc;
+  --qc-accent-secondary-light: #e044ec;
+  --qc-accent-secondary-dark: #ec7cff;
+
+  //-text-colors
+  --qc-text-primary-light: #111827;
+  --qc-text-primary-dark: #fff;
+  --qc-text-secondary-light: #6b7280;
+  --qc-text-secondary-dark: #9ca3af;
+
+  //-bg-colors
+  --qc-bg-primary-light: #f9fafb;
+  --qc-bg-primary-dark: #030712;
+  --qc-bg-secondary-light: #fff;
+  --qc-bg-secondary-dark: #111827;
+  --qc-bg-transparent-light: rgba(255, 255, 255, 0.7);
+  --qc-bg-transparent-dark: rgba(17, 24, 39, 0.7);
+
+  //-border
+  --qc-border-primary-light: #e5e7eb;
+  --qc-border-primary-dark: #374151;
+  --qc-border-secondary-light: #e5e7eb;
+  --qc-border-secondary-dark: #fff3;
+
+  //user-actions>
+  //-hover
+  //-active
+  //-focus
+
+  //special comps colors>
+  //-error
+  //-warning
+  //-success
+
+  --qc-accent-primary: var(--qc-accent-primary-dark);
+  --qc-text-primary: var(--qc-text-primary-dark);
+  --qc-bg-primary: var(--qc-bg-primary-dark);
+}
+@media (preferred-color-scheme: light) {
 }
