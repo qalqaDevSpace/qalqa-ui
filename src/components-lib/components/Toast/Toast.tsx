@@ -54,6 +54,7 @@ const Toast = ({
   return (
     <div className={toastClasses}>
       <i className={`material-icons ` + styles.icon}>{getIcon(type)}</i>
+
       <div className={styles.content}>
         <h3 className={styles.title}>
           {type.slice(0, 1).toUpperCase() + type.slice(1)}
@@ -61,6 +62,12 @@ const Toast = ({
         <p className={styles.text}>{message ? message : "No message"}</p>
         <ProgressBar duration={trueDuration} type={type} />
       </div>
+      <button
+        className={clsx(styles.button, styles[type])}
+        onClick={() => setIsVisible(false)}
+      >
+        x
+      </button>
     </div>
   );
 };

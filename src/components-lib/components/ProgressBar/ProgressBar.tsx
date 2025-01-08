@@ -16,20 +16,19 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
-    setTimeout(() => {
-      if (duration > 0) {
-        const step = 100 / (duration * 10);
-        interval = setInterval(() => {
-          setProgress((prev) => {
-            if (prev <= 0) {
-              clearInterval(interval);
-              return 0;
-            }
-            return prev - step;
-          });
-        }, 100);
-      }
-    }, 1000);
+
+    if (duration > 0) {
+      const step = 100 / ((duration - 0.5) * 10);
+      interval = setInterval(() => {
+        setProgress((prev) => {
+          if (prev <= 0) {
+            clearInterval(interval);
+            return 0;
+          }
+          return prev - step;
+        });
+      }, 100);
+    }
 
     return () => clearInterval(interval);
   }, [duration]);

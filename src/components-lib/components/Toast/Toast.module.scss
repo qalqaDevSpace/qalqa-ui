@@ -5,8 +5,8 @@
   z-index: 9999;
   display: flex;
   justify-content: center;
-  padding: 1rem 2rem;
-  gap: 1.5rem;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
   border-radius: 10px;
   overflow: hidden;
   backdrop-filter: blur(10px);
@@ -17,45 +17,54 @@
   align-items: center;
   translate: scale(0);
   transition: all 0.3s ease-in-out, transform 0.3s ease-in-out;
+  user-select: none;
 
   &.visible {
     max-height: 100px;
     max-width: 100%;
-    font-size: var(--qfs-base);
+    font-size: var(--qfs-sm);
     opacity: 1;
     translate: scale(1);
     .title {
-      font-size: var(--qfs-xl);
+      font-size: var(--qfs-base);
     }
   }
-}
+  .button {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    &.success {
+      color: var(--qc-success);
+    }
+    &.warning {
+      color: var(--qc-warning);
+    }
+    &.error {
+      color: var(--qc-error);
+    }
+    &.info {
+      color: var(--qc-info);
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+  .title {
+    margin: 0;
+  }
 
-.title {
-  margin: 0;
-}
+  .text {
+    margin: 0;
+  }
 
-.text {
-  margin: 0;
-}
-
-.icon {
-  font-size: 36px;
-}
-
-.progressbar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  border-radius: 0px 0px 10px 10px;
-  background-color: var(--qc-success);
+  .icon {
+    font-size: 36px;
+  }
 }
 
 .t-success {
