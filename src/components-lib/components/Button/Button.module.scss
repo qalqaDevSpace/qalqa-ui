@@ -196,6 +196,7 @@
 
 .text.t-primary:active {
   background-color: var(--qc-active-accent-primary-tr);
+  transition: background-color 0.1s ease;
 }
 
 .text.t-secondary:hover {
@@ -204,6 +205,7 @@
 
 .text.t-secondary:active {
   background-color: var(--qc-text-secondary-tr-sm);
+  transition: background-color 0.1s ease;
 }
 
 .text.t-success {
@@ -278,6 +280,7 @@
 
 .outlined.t-primary:active {
   background-color: var(--qc-active-accent-primary-tr);
+  transition: background-color 0.1s ease;
 }
 
 .outlined.t-secondary:hover {
@@ -286,6 +289,7 @@
 
 .outlined.t-secondary:active {
   background-color: var(--qc-text-secondary-tr-sm);
+  transition: background-color 0.1s ease;
 }
 
 .outlined.t-success {
