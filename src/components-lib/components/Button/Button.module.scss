@@ -1,5 +1,4 @@
 .button {
-  padding: 0.5rem 1rem;
   outline: 2px solid transparent;
   border: none;
   line-height: 26px;
@@ -7,30 +6,36 @@
   cursor: pointer;
   font-family: var(--qff-primary);
   transition: outline 0.1s ease, background 0.2s ease-in-out;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 0.2rem;
-}
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
 
-.button-label {
-  text-decoration: inherit;
-  color: inherit;
-  font-size: inherit;
-  user-select: none;
-}
+  .button-label {
+    text-align: center;
+    text-decoration: inherit;
+    color: inherit;
+    font-size: inherit;
+    user-select: none;
+  }
 
-.icon {
-  margin-bottom: 2px;
-  user-select: none;
+  .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: inherit;
+    user-select: none;
+  }
 }
 
 .icon-left {
-  flex-direction: row;
+  left: 1rem; /* Расстояние от левого края кнопки */
 }
 
 .icon-right {
-  flex-direction: row-reverse;
+  right: 1rem; /* Расстояние от правого края кнопки */
 }
 
 .t-primary {
@@ -389,12 +394,12 @@
 
 .s-md {
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 10px 30px;
 }
 
 .s-xl {
   font-size: 20px;
-  padding: 15px 30px;
+  padding: 15px 40px;
 }
 
 .w-thin {

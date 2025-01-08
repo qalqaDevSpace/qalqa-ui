@@ -3,5 +3,6 @@
     flex-direction: column;
     gap: 1rem;
     background-color: var(--qc-bg-primary);
-    padding: 100px;
+    padding-top: 100px;
+    width: 100%;
 }

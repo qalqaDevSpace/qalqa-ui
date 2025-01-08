@@ -1,4 +1,4 @@
-import React, { KeyboardEvent } from "react";
+import { KeyboardEvent } from "react";
 import { ButtonProps } from "../../model/ButtonModel";
 import styles from "./Button.module.scss";
 import clsx from "clsx";
@@ -27,8 +27,6 @@ const Button = ({
     {
       [styles.disabled]: disabled,
       [styles.shadow]: shadow,
-      [styles["icon-left"]]: icon && iconPosition === "left",
-      [styles["icon-right"]]: icon && iconPosition === "right",
     }
   );
 
@@ -45,9 +43,15 @@ const Button = ({
       className={buttonClasses}
       tabIndex={0}
     >
-      {icon && variant !== "link" ? (
-        <i className={`material-icons ` + styles.icon}>{icon}</i>
-      ) : null}
+      {icon && variant !== "link" && (
+        <i
+          className={`material-symbols-outlined ${styles.icon} ${
+            iconPosition === "left" ? styles["icon-left"] : styles["icon-right"]
+          }`}
+        >
+          {icon}
+        </i>
+      )}
       {link && href ? (
         <a className={styles["button-label"]} href={href}>
           {label}
