@@ -14,6 +14,7 @@ const Button = ({
   href,
   iconPosition = "left",
   weight = "regular",
+  onClick,
 }: ButtonProps) => {
   //FIXME: Добавить более строгую обработку пропсов, чтобы нельзя было в теории запихнуть type в size и т.д.
   const buttonClasses = clsx(
@@ -30,7 +31,7 @@ const Button = ({
     }
   );
   return (
-    <div className={buttonClasses}>
+    <div onClick={onClick} className={buttonClasses}>
       {icon ? <i className={`material-icons ` + styles.icon}>{icon}</i> : null}
       {link && href ? (
         <a className={styles["button-label"]} href={href}>
