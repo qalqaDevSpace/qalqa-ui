@@ -43,6 +43,7 @@
 
 .t-primary:not(.link, .text, .outlined):active {
   background-color: var(--qc-active-accent-primary);
+  transition: background-color 0.1s ease;
 }
 
 .t-secondary:not(.link, .text, .outlined) {
@@ -59,6 +60,60 @@
 .t-secondary:not(.link, .text, .outlined):active {
   background-color: var(--qc-active-bg-secondary);
   color: var(--qc-text-primary);
+  transition: background-color 0.1s, color 0.1s ease;
+}
+
+.t-success:not(.link, .text, .outlined) {
+  background-color: var(--qc-success-btn);
+}
+
+.t-success:not(.link, .text, .outlined):hover {
+  background-color: var(--qc-hover-success);
+}
+
+.t-success:not(.link, .text, .outlined):active {
+  background-color: var(--qc-active-success);
+  transition: background-color 0.1s ease;
+}
+
+.t-error:not(.link, .text, .outlined) {
+  background-color: var(--qc-error-btn);
+}
+
+.t-error:not(.link, .text, .outlined):hover {
+  background-color: var(--qc-hover-error);
+}
+
+.t-error:not(.link, .text, .outlined):active {
+  background-color: var(--qc-active-error);
+  transition: background-color 0.1s ease;
+}
+
+.t-warning:not(.link, .text, .outlined) {
+  background-color: var(--qc-warning-btn);
+}
+
+.t-warning:not(.link, .text, .outlined):hover {
+  background-color: var(--qc-hover-warning);
+}
+
+.t-warning:not(.link, .text, .outlined):active {
+  background-color: var(--qc-active-warning);
+  transition: background-color 0.1s ease;
+}
+
+.t-info:not(.link, .text, .outlined) {
+  background-color: var(--qc-info);
+  color: var(--qc-text-accent-primary);
+}
+
+.t-info:not(.link, .text, .outlined):hover {
+  background-color: var(--qc-hover-info);
+}
+
+.t-info:not(.link, .text, .outlined):active {
+  background-color: var(--qc-active-info);
+  transition: background-color 0.1s ease;
 }
 
 .button:focus-visible {
@@ -68,7 +123,6 @@
 
 .link {
   transition: color 0.1s ease-in-out;
-  padding: 0;
   background-color: transparent;
   border: none;
 }
@@ -89,6 +143,38 @@
 .link.t-secondary:hover {
   color: var(--qc-hover-text-secondary);
   text-decoration: underline;
+}
+
+.link.t-success {
+  color: var(--qc-success);
+}
+
+.link.t-success:hover {
+  color: var(--qc-hover-success);
+}
+
+.link.t-error {
+  color: var(--qc-error);
+}
+
+.link.t-error:hover {
+  color: var(--qc-hover-error);
+}
+
+.link.t-warning {
+  color: var(--qc-warning);
+}
+
+.link.t-warning:hover {
+  color: var(--qc-hover-warning);
+}
+
+.link.t-info {
+  color: var(--qc-info);
+}
+
+.link.t-info:hover {
+  color: var(--qc-hover-info);
 }
 
 .text {
@@ -120,6 +206,58 @@
   background-color: var(--qc-text-secondary-tr-sm);
 }
 
+.text.t-success {
+  color: var(--qc-success);
+}
+
+.text.t-success:hover {
+  background-color: var(--qc-hover-success-tr);
+}
+
+.text.t-success:active {
+  background-color: var(--qc-active-success-tr);
+  transition: background-color 0.1s ease;
+}
+
+.text.t-error {
+  color: var(--qc-error);
+}
+
+.text.t-error:hover {
+  background-color: var(--qc-hover-error-tr);
+}
+
+.text.t-error:active {
+  background-color: var(--qc-active-error-tr);
+  transition: background-color 0.1s ease;
+}
+
+.text.t-warning {
+  color: var(--qc-warning);
+}
+
+.text.t-warning:hover {
+  background-color: var(--qc-hover-warning-tr);
+}
+
+.text.t-warning:active {
+  background-color: var(--qc-active-warning-tr);
+  transition: background-color 0.1s ease;
+}
+
+.text.t-info {
+  color: var(--qc-info);
+}
+
+.text.t-info:hover {
+  background-color: var(--qc-hover-info-tr);
+}
+
+.text.t-info:active {
+  background-color: var(--qc-active-info-tr);
+  transition: background-color 0.1s ease;
+}
+
 .outlined {
   background-color: transparent;
 }
@@ -148,6 +286,62 @@
 
 .outlined.t-secondary:active {
   background-color: var(--qc-text-secondary-tr-sm);
+}
+
+.outlined.t-success {
+  color: var(--qc-success);
+  border: 1px solid var(--qc-success);
+}
+
+.outlined.t-success:hover {
+  background-color: var(--qc-hover-success-tr);
+}
+
+.outlined.t-success:active {
+  background-color: var(--qc-active-success-tr);
+  transition: background-color 0.1s ease;
+}
+
+.outlined.t-error {
+  color: var(--qc-error);
+  border: 1px solid var(--qc-error);
+}
+
+.outlined.t-error:hover {
+  background-color: var(--qc-hover-error-tr);
+}
+
+.outlined.t-error:active {
+  background-color: var(--qc-active-error-tr);
+  transition: background-color 0.1s ease;
+}
+
+.outlined.t-warning {
+  color: var(--qc-warning);
+  border: 1px solid var(--qc-warning);
+}
+
+.outlined.t-warning:hover {
+  background-color: var(--qc-hover-warning-tr);
+}
+
+.outlined.t-warning:active {
+  background-color: var(--qc-active-warning-tr);
+  transition: background-color 0.1s ease;
+}
+
+.outlined.t-info {
+  color: var(--qc-info);
+  border: 1px solid var(--qc-info);
+}
+
+.outlined.t-info:hover {
+  background-color: var(--qc-hover-info-tr);
+}
+
+.outlined.t-info:active {
+  background-color: var(--qc-active-info-tr);
+  transition: background-color 0.1s ease;
 }
 
 .shadow:not(.outlined, .link) {

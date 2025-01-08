@@ -32,7 +32,9 @@ const Button = ({
   );
   return (
     <div onClick={onClick} className={buttonClasses} tabIndex={0}>
-      {icon ? <i className={`material-icons ` + styles.icon}>{icon}</i> : null}
+      {icon && variant !== "link" ? (
+        <i className={`material-icons ` + styles.icon}>{icon}</i>
+      ) : null}
       {link && href ? (
         <a className={styles["button-label"]} href={href}>
           {label}

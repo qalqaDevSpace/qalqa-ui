@@ -1,6 +1,6 @@
 interface IBaseButtonProps {
     label: string;
-    type?: 'primary' | 'secondary';
+    type?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
     size?: 'sm' | 'md' | 'xl';
     disabled?: boolean;
     shadow?: boolean;
