@@ -8,33 +8,29 @@ function App() {
     addToast({
       type: "success",
       message: "This is a success message!",
-      duration: 3,
-      position: "top-right",
+      duration: 10,
     });
   };
 
   const showError = () => {
     addToast({
       type: "error",
-      message: "This is a error messagddddde!",
+      message: "This is a error message!",
       duration: 3,
-      position: "top-right",
     });
   };
   const showWarning = () => {
     addToast({
       type: "warning",
-      message: "This is a error messagddddde!",
+      message: "This is a warning message!",
       duration: 3,
-      position: "top-right",
     });
   };
   const showInfo = () => {
     addToast({
       type: "info",
-      message: "This is a error messagddddde!",
+      message: "This is a info message!",
       duration: 3,
-      position: "top-right",
     });
   };
   return (
