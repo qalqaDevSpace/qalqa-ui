@@ -15,6 +15,7 @@ interface IBaseButtonProps {
         | 'semibold'
         | 'bold'
         | 'extrabold';
+    onClick?: () => void;
 }
 
 interface ILinkButtonProps extends IBaseButtonProps {

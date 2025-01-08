@@ -3,6 +3,7 @@
     flex-direction: column;
     /* background-color: #232323;
     color: white; */
+    gap: 1rem;
     background-color: var(--qc-bg-primary);
     padding: 100px;
 }

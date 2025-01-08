@@ -10,6 +10,8 @@
   --qc-accent-secondary-tr: rgba(235, 124, 255, 0.2);
   --qc-accent-primary-tr-sm: rgba(167, 139, 250, 0.3);
   --qc-accent-secondary-tr-sm: rgba(235, 124, 255, 0.3);
+  --qc-accent-primary-tr-xsm: rgba(167, 139, 250, 0.2);
+  --qc-accent-secondary-tr-xsm: rgba(235, 124, 255, 0.2);
 
   //-text-colors
   --qc-text-primary: #fff;
@@ -42,10 +44,24 @@
   //special comps colors>
   //-error
   --qc-error: #ff7484;
+  --qc-error-tr-xsm: rgba(255, 116, 132, 0.4);
+  --qc-error-tr-sm: rgba(255, 116, 132, 0.3);
+  --qc-error-tr: rgba(255, 116, 132, 0.2);
   //-warning
   --qc-warning: #ffce51;
+  --qc-warning-tr-xsm: rgba(255, 206, 81, 0.4);
+  --qc-warning-tr-sm: rgba(255, 206, 81, 0.3);
+  --qc-warning-tr: rgba(255, 206, 81, 0.2);
   //-success
   --qc-success: #38d49c;
+  --qc-success-tr-xsm: rgba(56, 212, 155, 0.4);
+  --qc-success-tr-sm: rgba(56, 212, 155, 0.3);
+  --qc-success-tr: rgba(56, 212, 155, 0.2);
+  //-info
+  --qc-info: var(--qc-accent-primary);
+  --qc-info-tr-xsm: var(--qc-accent-primary-tr-xsm);
+  --qc-info-tr-sm: var(--qc-accent-primary-tr-sm);
+  --qc-info-tr: var(--qc-accent-primary-tr);
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -58,6 +74,8 @@
     --qc-accent-secondary-tr: rgba(225, 68, 236, 0.2);
     --qc-accent-primary-tr-sm: rgba(138, 92, 246, 0.3);
     --qc-accent-secondary-tr-sm: rgba(225, 68, 236, 0.3);
+    --qc-accent-primary-tr-sm: rgba(138, 92, 246, 0.2);
+    --qc-accent-secondary-tr-sm: rgba(225, 68, 236, 0.2);
 
     //-text-colors
     --qc-text-primary: #111827;
