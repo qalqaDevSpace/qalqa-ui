@@ -40,30 +40,18 @@ function App() {
           label="Success"
           type="success"
           icon="check_circle"
-          iconPosition="right"
           onClick={showSuccess}
         />
-        <Button
-          label="Error"
-          type="error"
-          icon="error"
-          iconPosition="right"
-          onClick={showError}
-        />
+        <Button label="Error" type="error" icon="error" onClick={showError} />
         <Button
           label="Warning"
           type="warning"
           icon="warning"
-          iconPosition="right"
           onClick={showWarning}
         />
-        <Button
-          label="Info"
-          type="info"
-          icon="info"
-          iconPosition="right"
-          onClick={showInfo}
-        />
+        <Button label="Info" type="info" icon="info" onClick={showInfo} />
+        <Button label="Primary" onClick={showInfo} />
+        <Button label="Secondary" type="secondary" onClick={showInfo} />
       </div>
     </>
   );

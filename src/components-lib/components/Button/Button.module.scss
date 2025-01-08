@@ -1,11 +1,12 @@
 .button {
   padding: 0.5rem 1rem;
-  outline: 1px solid transparent;
+  outline: 2px solid transparent;
   border: none;
+  line-height: 26px;
   border-radius: 10px;
   cursor: pointer;
   font-family: var(--qff-primary);
-  transition: outline 0.05s ease, background 0.2s ease-in-out;
+  transition: outline 0.1s ease, background 0.2s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,6 +47,10 @@
   transition: background-color 0.1s ease;
 }
 
+.t-primary:not(.link, .text, .outlined):focus-visible {
+  outline: 2px solid var(--qc-focus-primary);
+}
+
 .t-secondary:not(.link, .text, .outlined) {
   background-color: var(--qc-bg-secondary);
   color: var(--qc-text-secondary);
@@ -63,6 +68,10 @@
   transition: background-color 0.1s, color 0.1s ease;
 }
 
+.t-secondary:not(.link, .text, .outlined):focus-visible {
+  outline: 2px solid var(--qc-focus-secondary);
+}
+
 .t-success:not(.link, .text, .outlined) {
   background-color: var(--qc-success-btn);
 }
@@ -74,6 +83,10 @@
 .t-success:not(.link, .text, .outlined):active {
   background-color: var(--qc-active-success);
   transition: background-color 0.1s ease;
+}
+
+.t-success:not(.link, .text, .outlined):focus-visible {
+  outline: 2px solid var(--qc-focus-success);
 }
 
 .t-error:not(.link, .text, .outlined) {
@@ -89,6 +102,10 @@
   transition: background-color 0.1s ease;
 }
 
+.t-error:not(.link, .text, .outlined):focus-visible {
+  outline: 2px solid var(--qc-focus-error);
+}
+
 .t-warning:not(.link, .text, .outlined) {
   background-color: var(--qc-warning-btn);
 }
@@ -100,6 +117,10 @@
 .t-warning:not(.link, .text, .outlined):active {
   background-color: var(--qc-active-warning);
   transition: background-color 0.1s ease;
+}
+
+.t-warning:not(.link, .text, .outlined):focus-visible {
+  outline: 2px solid var(--qc-focus-warning);
 }
 
 .t-info:not(.link, .text, .outlined) {
@@ -116,8 +137,11 @@
   transition: background-color 0.1s ease;
 }
 
+.t-info:not(.link, .text, .outlined):focus-visible {
+  outline: 2px solid var(--qc-focus-info);
+}
+
 .button:focus-visible {
-  outline: 2px solid var(--qc-focus);
   outline-offset: 2px;
 }
 

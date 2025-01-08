@@ -60,7 +60,12 @@
   --qc-active-error-tr: var(--qc-error-tr-xsm);
   --qc-active-info-tr: var(--qc-accent-primary-tr-xsm);
   //-focus
-  --qc-focus: var(--qc-accent-primary);
+  --qc-focus-primary: var(--qc-accent-primary);
+  --qc-focus-secondary: var(--qc-text-secondary);
+  --qc-focus-success: var(--qc-success-btn);
+  --qc-focus-error: var(--qc-error-btn);
+  --qc-focus-warning: var(--qc-warning-btn);
+  --qc-focus-info: var(--qc-info);
 
   //special comps colors>
   //-error
