@@ -36,8 +36,11 @@
   --qc-hover-accent-primary: #c4b5fd;
   --qc-hover-bg-secondary: #1f2937;
   --qc-hover-text-secondary: #d1d5db;
+  --qc-hover-accent-primary-tr: var(--qc-accent-primary-tr);
   //-active
   --qc-active-accent-primary: #d4cbfa;
+  --qc-active-bg-secondary: #273242;
+  --qc-active-accent-primary-tr: var(--qc-accent-primary-tr-sm);
   //-focus
   --qc-focus: var(--qc-accent-primary);
 

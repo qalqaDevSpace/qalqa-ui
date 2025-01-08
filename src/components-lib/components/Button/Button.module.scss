@@ -44,10 +44,20 @@
   background-color: var(--qc-active-accent-primary);
 }
 
-.t-secondary {
+.t-secondary:not(.link, .text, .outlined) {
   background-color: var(--qc-bg-secondary);
-  color: var(--qc-text-primary);
+  color: var(--qc-text-secondary);
   border: var(--qc-border-primary) 1px solid;
+}
+
+.t-secondary:not(.link, .text, .outlined):hover {
+  background-color: var(--qc-hover-bg-secondary);
+  color: var(--qc-hover-text-secondary);
+}
+
+.t-secondary:not(.link, .text, .outlined):active {
+  background-color: var(--qc-active-bg-secondary);
+  color: var(--qc-text-primary);
 }
 
 .button:focus-visible {
@@ -66,7 +76,7 @@
   color: var(--qc-accent-primary);
 }
 
-.link.secondary {
+.link.t-secondary {
   color: var(--qc-text-secondary);
 }
 
@@ -75,7 +85,7 @@
   text-decoration: underline;
 }
 
-.link.secondary:hover {
+.link.t-secondary:hover {
   color: var(--qc-hover-text-secondary);
   text-decoration: underline;
 }
@@ -89,16 +99,24 @@
   color: var(--qc-accent-primary);
 }
 
-.text.secondary {
+.text.t-secondary {
   color: var(--qc-text-secondary);
 }
 
 .text.t-primary:hover {
-  background-color: var(--qc-accent-primary-tr);
+  background-color: var(--qc-hover-accent-primary-tr);
 }
 
-.text.secondary:hover {
-  background-color: var(--qc-bg-tr);
+.text.t-primary:active {
+  background-color: var(--qc-active-accent-primary-tr);
+}
+
+.text.t-secondary:hover {
+  background-color: var(--qc-text-secondary-tr);
+}
+
+.text.t-secondary:active {
+  background-color: var(--qc-text-secondary-tr-sm);
 }
 
 .outlined {
@@ -110,7 +128,7 @@
   border: var(--qc-accent-primary) 1px solid;
 }
 
-.outlined.secondary {
+.outlined.t-secondary {
   color: var(--qc-text-secondary);
   border: var(--qc-text-secondary) 1px solid;
 }
@@ -119,8 +137,16 @@
   background-color: var(--qc-accent-primary-tr);
 }
 
-.outlined.secondary:hover {
+.outlined.t-primary:active {
+  background-color: var(--qc-active-accent-primary-tr);
+}
+
+.outlined.t-secondary:hover {
   background-color: var(--qc-text-secondary-tr);
+}
+
+.outlined.t-secondary:active {
+  background-color: var(--qc-text-secondary-tr-sm);
 }
 
 .shadow:not(.outlined, .link) {

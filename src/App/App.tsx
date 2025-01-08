@@ -49,6 +49,7 @@ function App() {
         <Button
           label="Error"
           variant="text"
+          type="secondary"
           shadow
           icon="error"
           iconPosition="right"
@@ -57,6 +58,7 @@ function App() {
         <Button
           label="Warning"
           variant="outlined"
+          type="secondary"
           icon="warning"
           iconPosition="right"
           onClick={showWarning}
