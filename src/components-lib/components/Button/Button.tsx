@@ -1,3 +1,4 @@
+import React, { KeyboardEvent } from "react";
 import { ButtonProps } from "../../model/ButtonModel";
 import styles from "./Button.module.scss";
 import clsx from "clsx";
@@ -30,8 +31,20 @@ const Button = ({
       [styles["icon-right"]]: icon && iconPosition === "right",
     }
   );
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Enter") {
+      onClick ? onClick() : null;
+    }
+  };
+
   return (
-    <div onClick={onClick} className={buttonClasses} tabIndex={0}>
+    <div
+      onClick={onClick}
+      onKeyDown={handleKeyDown}
+      className={buttonClasses}
+      tabIndex={0}
+    >
       {icon && variant !== "link" ? (
         <i className={`material-icons ` + styles.icon}>{icon}</i>
       ) : null}
