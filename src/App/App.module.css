@@ -5,4 +5,5 @@
     background-color: var(--qc-bg-primary);
     padding-top: 100px;
     width: 100%;
+    color: var(--qc-text-primary);
 }

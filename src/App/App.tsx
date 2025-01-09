@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { Button } from "../components-lib";
+import Dropdown from "../components-lib/components/Dropdown/Dropdown";
 import { useToast } from "../components-lib/components/ToastProvider/ToastProvider";
+import { IDropdownItem } from "../components-lib/model/DropdownModel";
 import styles from "./App.module.css";
 
 function App() {
@@ -33,6 +36,17 @@ function App() {
       duration: 3,
     });
   };
+
+  const items = [
+    { id: "1", label: "Item 1", value: "Item 1" },
+    { id: "2", label: "Item 2", value: "Item 2" },
+    { id: "3", label: "Item 3", value: "Item 3" },
+  ];
+
+  const [selectedItem, setSelectedItem] = useState<IDropdownItem | null>(null);
+  const handleDropdownChange = (selectedItem: IDropdownItem | undefined) => {
+    setSelectedItem(selectedItem || null);
+  };
   return (
     <>
       <div className={styles.container}>
@@ -52,6 +66,16 @@ function App() {
         <Button label="Info" type="info" icon="info" onClick={showInfo} />
         <Button label="Primary" onClick={showInfo} />
         <Button label="Secondary" type="secondary" onClick={showInfo} />
+        <Dropdown
+          label="Nigga"
+          items={items}
+          onChange={handleDropdownChange}
+          // autoClosing
+          // hideSelectedFromList
+          // excludeSelected
+          clearButton
+        />
+        <p>Selected: {selectedItem ? selectedItem.label : "None"}</p>
       </div>
     </>
   );

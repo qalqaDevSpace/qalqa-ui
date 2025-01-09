@@ -1,22 +1,36 @@
 interface IBaseButtonProps {
     label: string;
-    type?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
-    size?: 'sm' | 'md' | 'xl';
+    type?: ButtonType;
+    size?: ButtonSize;
     disabled?: boolean;
     shadow?: boolean;
     icon?: string;
-    iconPosition?: 'left' | 'right';
-    weight?:
-        | 'thin'
-        | 'extralight'
-        | 'light'
-        | 'regular'
-        | 'medium'
-        | 'semibold'
-        | 'bold'
-        | 'extrabold';
+    iconPosition?: ButtonIconPosition;
+    weight?: ButtonWeight;
     onClick?: () => void;
 }
+
+type ButtonType =
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'info';
+
+type ButtonWeight =
+    | 'thin'
+    | 'extralight'
+    | 'light'
+    | 'regular'
+    | 'medium'
+    | 'semibold'
+    | 'bold'
+    | 'extrabold';
+
+type ButtonSize = 'sm' | 'md' | 'xl';
+
+type ButtonIconPosition = 'left' | 'right';
 
 interface ILinkButtonProps extends IBaseButtonProps {
     link: true;
