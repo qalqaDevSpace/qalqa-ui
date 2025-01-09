@@ -23,6 +23,7 @@
   //-bg-colors
   --qc-bg-primary: #030712;
   --qc-bg-secondary: #111827;
+  --qc-bg-card: var(--qc-bg-secondary);
   --qc-bg-tr: rgba(17, 24, 39, 0.7);
   --qc-bg-shadow: 0 3px 1px -2px rgba(200, 200, 200, 0.2),
     0 2px 2px 0 rgba(200, 200, 200, 0.14), 0 1px 5px 0 rgba(200, 200, 200, 0.12);
@@ -30,6 +31,7 @@
   //-border
   --qc-border-primary: #374151;
   --qc-border-secondary: #fff3;
+  --qc-card-border: 1px solid transparent;
 
   //user-actions>
   //-hover
@@ -46,6 +48,8 @@
   --qc-hover-warning-tr: var(--qc-warning-tr);
   --qc-hover-error-tr: var(--qc-error-tr);
   --qc-hover-info-tr: var(--qc-accent-primary-tr);
+
+  --qc-hover-bg-item: #1f2937;
 
   //-active
   --qc-active-accent-primary: #d4cbfa;
@@ -120,6 +124,7 @@
     --qc-border-secondary: #e5e7eb;
     --qc-bg-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
       0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    --qc-border-card: 1px solid var(--qc-border-secondary);
 
     //user-actions>
     //-hover
@@ -131,6 +136,7 @@
     --qc-hover-warning: #fcb23a;
     --qc-hover-error: #fe7d8c;
     --qc-hover-info: var(--qc-hover-accent-primary);
+    --qc-hover-bg-item: #f3f4f6;
     //-active
     --qc-active-accent-primary: #6a25e2;
     --qc-active-success: #2fb282;
