@@ -16,13 +16,13 @@
     box-sizing: border-box;
     justify-content: space-between;
     z-index: 101;
-    transition: all 0.2s ease-in-out;
+    transition: outline 0.1s ease, all 0.2s ease-in-out;
     box-shadow: 0 0 0px var(--qc-accent-primary);
+    outline-offset: 2px;
     &:hover {
       background-color: var(--qc-hover-bg-secondary);
     }
     &:focus-visible {
-      outline-offset: 2px;
       outline: 2px solid var(--qc-accent-primary);
     }
   }

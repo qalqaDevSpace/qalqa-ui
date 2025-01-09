@@ -23,7 +23,7 @@ const Dropdown = ({
   const [filteredItems, setFilteredItems] = useState<IDropdownItem[]>(items);
   const [, setHiddenItems] = useState<IDropdownItem[]>([]);
 
-  const handleSelect = (item: IDropdownItem) => {
+  const selectDropdownItem = (item: IDropdownItem) => {
     setSelectedItem(item);
     onChange?.(item);
 
@@ -47,22 +47,18 @@ const Dropdown = ({
   const filterItemsByLabel = (array: IDropdownItem[]): IDropdownItem[] => {
     return array.sort((a, b) => a.label.localeCompare(b.label));
   };
-  useEffect(() => {
-    excludeSelected && selectedItem && removeItem(selectedItem);
-  }, [selectedItem]);
 
-  const handleOpenMenu = () => {
+  const openMenu = () => {
     setIsVisible(!isVisible);
   };
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLSpanElement>) => {
+  const enterKeyDown = (event: KeyboardEvent, action: () => void) => {
     if (event.key === "Enter") {
-      handleOpenMenu();
+      action();
     }
   };
 
-  const handleClear = (event: IHandleClearEvent) => {
-    event.stopPropagation();
+  const clear = () => {
     if (hideSelectedFromList && selectedItem) {
       setFilteredItems((prev) => filterItemsByLabel([...prev, selectedItem]));
       setSelectedItem(undefined);
@@ -72,12 +68,34 @@ const Dropdown = ({
   };
 
   useEffect(() => {
+    excludeSelected && selectedItem && removeItem(selectedItem);
+  }, [selectedItem]);
+
+  useEffect(() => {
     if (!isVisible) {
       setTimeout(() => setIsHidden(isVisible), 300);
     } else {
       setIsHidden(isVisible);
     }
   }, [isVisible]);
+
+  const handleKeyDownOpenMenu = (event: KeyboardEvent<HTMLSpanElement>) => {
+    enterKeyDown(event, openMenu);
+  };
+  const handleKeyDownSelectItem = (
+    item: IDropdownItem,
+    event: KeyboardEvent<HTMLLIElement>
+  ) => {
+    enterKeyDown(event, () => selectDropdownItem(item));
+  };
+  const handleKeyDownClear = (event: KeyboardEvent<HTMLSpanElement>) => {
+    event.stopPropagation();
+    enterKeyDown(event, () => clear());
+  };
+  const handleClear = (event: IHandleClearEvent) => {
+    event.stopPropagation();
+    clear();
+  };
 
   return (
     <div
@@ -87,15 +105,17 @@ const Dropdown = ({
       })}
     >
       <span
-        onClick={handleOpenMenu}
+        onClick={openMenu}
         className={styles.input}
         tabIndex={0}
-        onKeyDown={handleKeyDown}
+        onKeyDown={handleKeyDownOpenMenu}
       >
         {clearButton && (
           <i
             onClick={handleClear}
+            onKeyDown={handleKeyDownClear}
             className={`material-symbols-outlined ` + styles.clear}
+            tabIndex={0}
           >
             cancel
           </i>
@@ -113,11 +133,13 @@ const Dropdown = ({
             {filteredItems.length !== 0 ? (
               filteredItems.map((item: IDropdownItem) => (
                 <li
-                  onClick={() => handleSelect(item)}
+                  onClick={() => selectDropdownItem(item)}
                   key={item.id}
                   className={clsx(styles.item, {
                     [styles.selected]: item.id === selectedItem?.id,
                   })}
+                  tabIndex={0}
+                  onKeyDown={(event) => handleKeyDownSelectItem(item, event)}
                 >
                   <span className={styles.text}>{item.label}</span>
                 </li>

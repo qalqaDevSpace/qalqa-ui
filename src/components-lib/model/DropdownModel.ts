@@ -17,4 +17,6 @@ export interface IDropdownItem {
     hidden?: boolean;
 }
 
-export interface IHandleClearEvent extends React.MouseEvent<HTMLSpanElement> {}
+export type IHandleClearEvent =
+    | React.MouseEvent<HTMLSpanElement>
+    | React.KeyboardEvent<HTMLSpanElement>;
