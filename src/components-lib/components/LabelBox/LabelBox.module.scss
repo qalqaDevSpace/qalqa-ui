@@ -5,6 +5,24 @@
   font-family: var(--qff-primary);
   color: var(--qc-text-secondary);
 
+  &.s-sm {
+    .label {
+      font-size: var(--qfs-sm);
+    }
+  }
+
+  &.s-md {
+    .label {
+      font-size: var(--qfs-base);
+    }
+  }
+
+  &.s-xl {
+    .label {
+      font-size: var(--qfs-xl);
+    }
+  }
+
   .label {
     transition: top 0.2s ease-in-out;
     position: absolute;

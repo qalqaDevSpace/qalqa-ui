@@ -17,6 +17,7 @@ const Dropdown = ({
   isSmartLabel,
   smartLabelVariant,
   clearButton,
+  size,
   disabled,
   onChange,
 }: DropdownProps) => {
@@ -103,7 +104,7 @@ const Dropdown = ({
 
   return (
     <div
-      className={clsx(styles.dropdown, {
+      className={clsx(styles.dropdown, styles[`s-${size}`], {
         [styles.opened]: isVisible,
         [styles.placeholder]: !selectedItem,
         [styles.smartLabel]: isSmartLabel && selectedItem,
@@ -114,6 +115,7 @@ const Dropdown = ({
         <LabelBox
           simulateFocus={!!selectedItem}
           //TODO: найти более оптимальное решение
+          size={size}
           position="center"
           label={label}
           variants={smartLabelVariant}

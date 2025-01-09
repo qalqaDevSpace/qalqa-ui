@@ -7,6 +7,7 @@ const LabelBox: React.FC<ILabelBoxBaseProps> = ({
   children,
   variants = "basic",
   label,
+  size = "md",
   position = "left",
   simulateFocus,
 }: ILabelBoxBaseProps) => {
@@ -17,7 +18,7 @@ const LabelBox: React.FC<ILabelBoxBaseProps> = ({
 
   return (
     <div
-      className={clsx(styles.box, {
+      className={clsx(styles.box, styles[`s-${size}`], {
         [styles.focus]: focus,
         [styles.on]: variants === "on",
         [styles.left]: position === "left",

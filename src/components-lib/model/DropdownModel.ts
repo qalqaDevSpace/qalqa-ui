@@ -9,8 +9,11 @@ interface IBaseDropdownProps {
     excludeSelected?: boolean;
     hideSelectedFromList?: boolean;
     clearButton?: boolean;
+    size?: DropdownSize;
     onChange?: (selectedItem: IDropdownItem | undefined) => void;
 }
+
+type DropdownSize = 'sm' | 'md' | 'xl';
 
 export interface IDropdownItem {
     id: string;

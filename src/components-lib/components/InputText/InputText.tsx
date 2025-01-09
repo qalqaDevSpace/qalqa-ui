@@ -3,6 +3,7 @@ import { InputProps } from "../../model/InputModel";
 import generateId from "../../utils/generateIDs";
 import LabelBox from "../LabelBox/LabelBox";
 import styles from "./InputText.module.scss";
+import clsx from "clsx";
 
 const InputText = ({
   id,
@@ -10,6 +11,7 @@ const InputText = ({
   labelText,
   labelVariant,
   placeholder,
+  size,
   icon,
   iconAction,
   onInput,
@@ -24,14 +26,15 @@ const InputText = ({
   };
 
   return (
-    <div className={styles.box}>
+    <>
       {label ? (
         <LabelBox
           label={labelText}
+          size={size}
           variants={labelVariant}
           simulateFocus={focus}
         >
-          <div className={styles.input}>
+          <div className={clsx(styles.input, styles[`s-${size}`])}>
             <input
               id={checkedId}
               onFocus={() => setFocus(true)}
@@ -51,7 +54,7 @@ const InputText = ({
           </div>
         </LabelBox>
       ) : (
-        <div className={styles.input}>
+        <div className={clsx(styles.input, styles[`s-${size}`])}>
           <input
             className={styles.default}
             placeholder={placeholder}
@@ -67,7 +70,7 @@ const InputText = ({
           )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 

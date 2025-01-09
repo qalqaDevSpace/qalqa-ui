@@ -68,17 +68,24 @@ function App() {
           icon="warning"
           onClick={showWarning}
         />
-        <Button label="Info" type="info" icon="info" onClick={showInfo} />
-        <Button label="Primary" onClick={showInfo} />
+        <Button
+          label="Info"
+          type="info"
+          size="sm"
+          icon="info"
+          onClick={showInfo}
+        />
+        <Button label="Primary" size="xl" onClick={showInfo} />
         <Button label="Secondary" type="secondary" onClick={showInfo} />
         <Dropdown
           label="Nigga"
           items={items}
           onChange={handleDropdownChange}
+          size="sm"
           // autoClosing
           // hideSelectedFromList
           // excludeSelected
-          isSmartLabel
+          // isSmartLabel
           // smartLabelVariant="on"
           //FIXME: сделать обработку hover-а и фокуса на smartLabel
           // disabled
@@ -86,9 +93,11 @@ function App() {
         />
         <p>Selected: {selectedItem ? selectedItem.label : "None"}</p>
         <InputText
-          label
-          labelText="Damn"
+          // label
+          // labelText="Damn"
+          placeholder="123"
           icon="home"
+          size="sm"
           iconAction={() => console.log("123")}
           onInput={handleInput}
         />

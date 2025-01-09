@@ -11,6 +11,43 @@
   transition: all 0.2s ease-in-out;
   position: relative;
 
+  .default {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    color: var(--qc-text-primary);
+    padding: 12.25px 15px;
+    line-height: 24px;
+    border-radius: 10px;
+    position: relative;
+    &:focus {
+      outline: 2px solid var(--qc-accent-primary);
+      box-shadow: 0 0 5px var(--qc-accent-primary);
+    }
+  }
+
+  &.s-sm {
+    .default {
+      font-size: var(--qfs-sm);
+      padding: 8.75px 10px;
+    }
+  }
+
+  &.s-md {
+    .default {
+      font-size: var(--qfs-md);
+      padding: 12.25px 15px;
+    }
+  }
+
+  &.s-xl {
+    .default {
+      font-size: var(--qfs-xl);
+      padding: 14.75px 10px;
+    }
+  }
+
   .icon {
     position: absolute;
     right: 15px;
@@ -42,21 +79,5 @@
       (var(--qc-bg-secondary) 70%, transparent 100%)
     );
     border-radius: 0 10px 10px 0;
-  }
-}
-
-.default {
-  background-color: transparent;
-  border: none;
-  width: 100%;
-  height: 100%;
-  color: var(--qc-text-primary);
-  padding: 10px 15px;
-  line-height: 26px;
-  border-radius: 10px;
-  position: relative;
-  &:focus {
-    outline: 2px solid var(--qc-accent-primary);
-    box-shadow: 0 0 5px var(--qc-accent-primary);
   }
 }

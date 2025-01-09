@@ -3,7 +3,10 @@ import { LabelPosition, LabelVariant } from './LabelBoxModel';
 interface IInputBaseProps {
     id?: string;
     onInput?: (value: string | undefined) => void;
+    size?: InputSize;
 }
+
+type InputSize = 'sm' | 'md' | 'xl';
 
 interface IInputLabel extends IInputBaseProps {
     label?: true;
