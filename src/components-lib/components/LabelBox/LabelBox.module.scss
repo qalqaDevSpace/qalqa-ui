@@ -11,6 +11,7 @@
     top: 50%;
     padding: 0 2px;
     pointer-events: none;
+    z-index: 999;
     border-radius: 2px;
   }
   &.left {

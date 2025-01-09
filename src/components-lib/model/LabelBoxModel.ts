@@ -17,6 +17,6 @@ interface ILabelEnabledFocus extends ILabelBoxBaseProps {
 }
 
 export type LabelVariant = 'basic' | 'on';
-type LabelPosition = 'left' | 'center' | 'right';
+export type LabelPosition = 'left' | 'center' | 'right';
 
 export type LabelBoxProps = ILabelDisabledFocus | ILabelEnabledFocus;

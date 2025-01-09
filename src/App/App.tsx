@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, LabelBox } from "../components-lib";
+import { Button, InputText } from "../components-lib";
 import Dropdown from "../components-lib/components/Dropdown/Dropdown";
 import { useToast } from "../components-lib/components/ToastProvider/ToastProvider";
 import { IDropdownItem } from "../components-lib/model/DropdownModel";
@@ -44,8 +44,13 @@ function App() {
   ];
 
   const [selectedItem, setSelectedItem] = useState<IDropdownItem | null>(null);
+  const [printed, setPrinted] = useState<string | null>();
   const handleDropdownChange = (selectedItem: IDropdownItem | undefined) => {
     setSelectedItem(selectedItem || null);
+  };
+
+  const handleInput = (value: string | undefined) => {
+    setPrinted(value || null);
   };
   return (
     <>
@@ -76,13 +81,18 @@ function App() {
           isSmartLabel
           // smartLabelVariant="on"
           //FIXME: сделать обработку hover-а и фокуса на smartLabel
-          disabled
+          // disabled
           clearButton
         />
         <p>Selected: {selectedItem ? selectedItem.label : "None"}</p>
-        <LabelBox id="1" label="Label" variants="on">
-          <input className={styles.input} type="text" />
-        </LabelBox>
+        <InputText
+          label
+          labelText="Damn"
+          icon="home"
+          iconAction={() => console.log("123")}
+          onInput={handleInput}
+        />
+        <p>Printed: {printed}</p>
       </div>
     </>
   );
