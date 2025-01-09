@@ -1,6 +1,7 @@
 import { LabelVariant } from './LabelBoxModel';
 
 interface IBaseDropdownProps {
+    id?: string;
     label: string;
     items: IDropdownItem[];
     disabled?: boolean;
@@ -8,7 +9,6 @@ interface IBaseDropdownProps {
     excludeSelected?: boolean;
     hideSelectedFromList?: boolean;
     clearButton?: boolean;
-
     onChange?: (selectedItem: IDropdownItem | undefined) => void;
 }
 

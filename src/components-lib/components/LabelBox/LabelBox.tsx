@@ -4,6 +4,7 @@ import styles from "./LabelBox.module.scss";
 import { useEffect, useState } from "react";
 
 const LabelBox: React.FC<LabelBoxProps> = ({
+  id,
   children,
   variants = "basic",
   label,
@@ -26,17 +27,17 @@ const LabelBox: React.FC<LabelBoxProps> = ({
         [styles.right]: position === "right",
       })}
     >
-      <label htmlFor="children" className={clsx(styles.label)}>
+      <label htmlFor={id} className={clsx(styles.label)}>
         {label}
       </label>
 
       {disableFocusActions ? (
-        <div id="children" className={styles.children}>
+        <div id={id} className={styles.children}>
           {children}
         </div>
       ) : (
         <div
-          id="children"
+          id={id}
           className={styles.children}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}

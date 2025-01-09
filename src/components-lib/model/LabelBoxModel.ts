@@ -1,4 +1,5 @@
 interface ILabelBoxBaseProps {
+    id: string;
     children: React.ReactNode;
     label: string;
     variants?: LabelVariant;

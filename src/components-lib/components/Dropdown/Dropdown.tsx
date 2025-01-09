@@ -7,8 +7,10 @@ import {
 import styles from "./Dropdown.module.scss";
 import clsx from "clsx";
 import LabelBox from "../LabelBox/LabelBox";
+import generateId from "../../utils/generateIDs";
 
 const Dropdown = ({
+  id,
   label,
   items,
   autoClosing,
@@ -25,6 +27,8 @@ const Dropdown = ({
 
   const [filteredItems, setFilteredItems] = useState<IDropdownItem[]>(items);
   const [, setHiddenItems] = useState<IDropdownItem[]>([]);
+
+  const checkedId = id ? id : generateId();
 
   const selectDropdownItem = (item: IDropdownItem) => {
     setSelectedItem(item);
@@ -110,10 +114,10 @@ const Dropdown = ({
     >
       {isSmartLabel ? (
         <LabelBox
+          id={checkedId}
           disableFocusActions
-          simulateFocus={
-            selectedItem !== undefined ? selectedItem || isVisible : false
-          }
+          simulateFocus={!!selectedItem}
+          //TODO: найти более оптимальное решение
           position="center"
           label={label}
           variants={smartLabelVariant}

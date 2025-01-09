@@ -74,10 +74,12 @@ function App() {
           // hideSelectedFromList
           // excludeSelected
           isSmartLabel
+          // smartLabelVariant="on"
+          //FIXME: сделать обработку hover-а и фокуса на smartLabel
           clearButton
         />
         <p>Selected: {selectedItem ? selectedItem.label : "None"}</p>
-        <LabelBox label="Label" variants="on">
+        <LabelBox id="1" label="Label" variants="on">
           <input className={styles.input} type="text" />
         </LabelBox>
       </div>
