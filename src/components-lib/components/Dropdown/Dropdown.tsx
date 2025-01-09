@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, KeyboardEvent } from "react";
 import {
   IDropdownItem,
   IDropdownProps,
@@ -55,6 +55,12 @@ const Dropdown = ({
     setIsVisible(!isVisible);
   };
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLSpanElement>) => {
+    if (event.key === "Enter") {
+      handleOpenMenu();
+    }
+  };
+
   const handleClear = (event: IHandleClearEvent) => {
     event.stopPropagation();
     if (hideSelectedFromList && selectedItem) {
@@ -80,7 +86,12 @@ const Dropdown = ({
         [styles.placeholder]: !selectedItem,
       })}
     >
-      <span onClick={handleOpenMenu} className={styles.input}>
+      <span
+        onClick={handleOpenMenu}
+        className={styles.input}
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+      >
         {clearButton && (
           <i
             onClick={handleClear}
