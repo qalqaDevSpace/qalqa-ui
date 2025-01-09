@@ -76,6 +76,7 @@ function App() {
           isSmartLabel
           // smartLabelVariant="on"
           //FIXME: сделать обработку hover-а и фокуса на smartLabel
+          disabled
           clearButton
         />
         <p>Selected: {selectedItem ? selectedItem.label : "None"}</p>

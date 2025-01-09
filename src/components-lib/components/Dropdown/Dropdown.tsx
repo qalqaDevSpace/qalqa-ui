@@ -19,6 +19,7 @@ const Dropdown = ({
   isSmartLabel,
   smartLabelVariant,
   clearButton,
+  disabled,
   onChange,
 }: DropdownProps) => {
   const [selectedItem, setSelectedItem] = useState<IDropdownItem>();
@@ -60,7 +61,7 @@ const Dropdown = ({
   };
 
   const enterKeyDown = (event: KeyboardEvent, action: () => void) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && !disabled) {
       action();
     }
   };
@@ -110,6 +111,7 @@ const Dropdown = ({
         [styles.opened]: isVisible,
         [styles.placeholder]: !selectedItem,
         [styles.smartLabel]: isSmartLabel && selectedItem,
+        [styles.disabled]: disabled,
       })}
     >
       {isSmartLabel ? (
@@ -125,7 +127,7 @@ const Dropdown = ({
           <span
             onClick={openMenu}
             className={styles.input}
-            tabIndex={0}
+            tabIndex={disabled ? -1 : 0}
             onKeyDown={handleKeyDownOpenMenu}
           >
             {clearButton && (
@@ -133,7 +135,7 @@ const Dropdown = ({
                 onClick={handleClear}
                 onKeyDown={handleKeyDownClear}
                 className={`material-symbols-outlined ` + styles.clear}
-                tabIndex={0}
+                tabIndex={selectedItem && !disabled ? 0 : -1}
               >
                 cancel
               </i>

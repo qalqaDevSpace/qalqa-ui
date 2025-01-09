@@ -2,6 +2,12 @@
   font-family: var(--qff-primary);
   position: relative;
 
+  &.disabled {
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
   .input {
     display: inline-flex;
     align-items: center;
