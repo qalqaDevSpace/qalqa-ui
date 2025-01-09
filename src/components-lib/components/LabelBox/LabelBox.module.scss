@@ -1,0 +1,27 @@
+.box {
+  position: relative;
+  transition: color 0.1s ease-in-out;
+  padding-top: 1.25rem;
+  font-family: var(--qff-primary);
+  color: var(--qc-text-secondary);
+  .label {
+    transition: top 0.2s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+  &.focus {
+    color: var(--qc-text-primary);
+    .label {
+      top: 0%;
+    }
+    &.on {
+      .label {
+        background-color: var(--qc-bg-secondary);
+        top: 20%;
+      }
+    }
+  }
+}

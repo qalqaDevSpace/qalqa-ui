@@ -4,6 +4,25 @@
     gap: 1rem;
     background-color: var(--qc-bg-primary);
     padding-top: 100px;
+    /* font-family: var(--qff-primary); */
     width: 100%;
-    color: var(--qc-text-primary);
+    /* color: var(--qc-text-primary); */
 }
+
+/* .input {
+    display: inline-flex;
+    align-items: center;
+    color: var(--qc-text-primary);
+    background-color: var(--qc-bg-secondary);
+    padding: 10px 15px;
+    line-height: 26px;
+    border-radius: 10px;
+    border: var(--qc-border-card);
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+.input:focus {
+    outline: none;
+} */

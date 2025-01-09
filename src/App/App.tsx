@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "../components-lib";
+import { Button, LabelBox } from "../components-lib";
 import Dropdown from "../components-lib/components/Dropdown/Dropdown";
 import { useToast } from "../components-lib/components/ToastProvider/ToastProvider";
 import { IDropdownItem } from "../components-lib/model/DropdownModel";
@@ -76,6 +76,9 @@ function App() {
           clearButton
         />
         <p>Selected: {selectedItem ? selectedItem.label : "None"}</p>
+        <LabelBox variants="on">
+          <input className={styles.input} type="text" />
+        </LabelBox>
       </div>
     </>
   );
