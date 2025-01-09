@@ -12,6 +12,7 @@
   box-sizing: border-box;
   width: 100%;
   position: relative;
+  color: var(--qc-text-accent-primary);
 
   .button-label {
     text-align: center;
@@ -40,7 +41,7 @@
 
 .t-primary {
   background-color: var(--qc-accent-primary);
-  color: var(--qc-text-accent-primary);
+  color: var(--qc-text-inverted);
 }
 
 .t-primary:not(.link, .text, .outlined):hover {
@@ -130,7 +131,7 @@
 
 .t-info:not(.link, .text, .outlined) {
   background-color: var(--qc-info);
-  color: var(--qc-text-accent-primary);
+  color: var(--qc-text-inverted);
 }
 
 .t-info:not(.link, .text, .outlined):hover {

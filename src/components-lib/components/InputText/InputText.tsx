@@ -27,14 +27,13 @@ const InputText = ({
     <div className={styles.box}>
       {label ? (
         <LabelBox
-          id={checkedId}
           label={labelText}
           variants={labelVariant}
-          disableFocusActions
           simulateFocus={focus}
         >
           <div className={styles.input}>
             <input
+              id={checkedId}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(input ? true : false)}
               className={styles.default}

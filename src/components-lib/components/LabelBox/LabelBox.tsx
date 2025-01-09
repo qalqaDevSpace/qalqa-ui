@@ -1,17 +1,15 @@
 import clsx from "clsx";
-import { LabelBoxProps } from "../../model/LabelBoxModel";
+import { ILabelBoxBaseProps } from "../../model/LabelBoxModel";
 import styles from "./LabelBox.module.scss";
 import { useEffect, useState } from "react";
 
-const LabelBox: React.FC<LabelBoxProps> = ({
-  id,
+const LabelBox: React.FC<ILabelBoxBaseProps> = ({
   children,
   variants = "basic",
   label,
   position = "left",
-  disableFocusActions = false,
   simulateFocus,
-}: LabelBoxProps) => {
+}: ILabelBoxBaseProps) => {
   const [focus, setFocus] = useState<boolean>(false);
   useEffect(() => {
     simulateFocus !== undefined ? setFocus(simulateFocus) : null;
@@ -27,24 +25,9 @@ const LabelBox: React.FC<LabelBoxProps> = ({
         [styles.right]: position === "right",
       })}
     >
-      <label htmlFor={id} className={clsx(styles.label)}>
-        {label}
-      </label>
+      <span className={clsx(styles.label)}>{label}</span>
 
-      {disableFocusActions ? (
-        <div id={id} className={styles.children}>
-          {children}
-        </div>
-      ) : (
-        <div
-          id={id}
-          className={styles.children}
-          onFocus={() => setFocus(true)}
-          onBlur={() => setFocus(false)}
-        >
-          {children}
-        </div>
-      )}
+      <>{children}</>
     </div>
   );
 };

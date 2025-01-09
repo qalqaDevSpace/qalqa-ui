@@ -16,6 +16,7 @@
   //-text-colors
   --qc-text-primary: #fff;
   --qc-text-secondary: #9ca3af;
+  --qc-text-inverted: #111827;
   --qc-text-secondary-tr: rgba(156, 163, 176, 0.2);
   --qc-text-secondary-tr-sm: rgba(156, 163, 176, 0.3);
   --qc-text-accent-primary: var(--qc-bg-primary);
@@ -114,6 +115,8 @@
     //-text-colors
     --qc-text-primary: #111827;
     --qc-text-secondary: #6b7280;
+    --qc-text-inverted: #fff;
+    --qc-text-accent-primary: var(--qc-text-primary);
 
     //-bg-colors
     --qc-bg-primary: #f9fafb;
