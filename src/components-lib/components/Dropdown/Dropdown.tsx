@@ -7,7 +7,7 @@ import {
 import styles from "./Dropdown.module.scss";
 import clsx from "clsx";
 
-const Dropdown: React.FC<IDropdownProps> = ({
+const Dropdown = ({
   label,
   items,
   autoClosing,
