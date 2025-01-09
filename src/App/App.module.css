@@ -9,7 +9,7 @@
     /* color: var(--qc-text-primary); */
 }
 
-/* .input {
+.input {
     display: inline-flex;
     align-items: center;
     color: var(--qc-text-primary);
@@ -25,4 +25,4 @@
 }
 .input:focus {
     outline: none;
-} */
+}

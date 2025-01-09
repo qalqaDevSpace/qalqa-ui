@@ -4,13 +4,32 @@
   padding-top: 1.25rem;
   font-family: var(--qff-primary);
   color: var(--qc-text-secondary);
+
   .label {
     transition: top 0.2s ease-in-out;
     position: absolute;
     top: 50%;
-    left: 10%;
     padding: 0 2px;
+    pointer-events: none;
     border-radius: 2px;
+  }
+  &.left {
+    .label {
+      left: 10%;
+    }
+  }
+
+  &.center {
+    .label {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.right {
+    .label {
+      right: 0%;
+    }
   }
   &.focus {
     color: var(--qc-text-primary);

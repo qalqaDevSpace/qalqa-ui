@@ -1,11 +1,12 @@
 import { useEffect, useState, KeyboardEvent } from "react";
 import {
   IDropdownItem,
-  IDropdownProps,
+  DropdownProps,
   IHandleClearEvent,
 } from "../../model/DropdownModel";
 import styles from "./Dropdown.module.scss";
 import clsx from "clsx";
+import LabelBox from "../LabelBox/LabelBox";
 
 const Dropdown = ({
   label,
@@ -13,9 +14,11 @@ const Dropdown = ({
   autoClosing,
   excludeSelected,
   hideSelectedFromList,
+  isSmartLabel,
+  smartLabelVariant,
   clearButton,
   onChange,
-}: IDropdownProps) => {
+}: DropdownProps) => {
   const [selectedItem, setSelectedItem] = useState<IDropdownItem>();
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isHidden, setIsHidden] = useState<boolean>(isVisible);
@@ -102,31 +105,68 @@ const Dropdown = ({
       className={clsx(styles.dropdown, {
         [styles.opened]: isVisible,
         [styles.placeholder]: !selectedItem,
+        [styles.smartLabel]: isSmartLabel && selectedItem,
       })}
     >
-      <span
-        onClick={openMenu}
-        className={styles.input}
-        tabIndex={0}
-        onKeyDown={handleKeyDownOpenMenu}
-      >
-        {clearButton && (
-          <i
-            onClick={handleClear}
-            onKeyDown={handleKeyDownClear}
-            className={`material-symbols-outlined ` + styles.clear}
+      {isSmartLabel ? (
+        <LabelBox
+          disableFocusActions
+          simulateFocus={
+            selectedItem !== undefined ? selectedItem || isVisible : false
+          }
+          position="center"
+          label={label}
+          variants={smartLabelVariant}
+        >
+          <span
+            onClick={openMenu}
+            className={styles.input}
             tabIndex={0}
+            onKeyDown={handleKeyDownOpenMenu}
           >
-            cancel
+            {clearButton && (
+              <i
+                onClick={handleClear}
+                onKeyDown={handleKeyDownClear}
+                className={`material-symbols-outlined ` + styles.clear}
+                tabIndex={0}
+              >
+                cancel
+              </i>
+            )}
+            <p className={styles["input-text"]}>
+              {selectedItem && selectedItem.label}
+            </p>
+            <i className={`material-symbols-outlined ` + styles.icon}>
+              keyboard_arrow_down
+            </i>
+          </span>
+        </LabelBox>
+      ) : (
+        <span
+          onClick={openMenu}
+          className={styles.input}
+          tabIndex={0}
+          onKeyDown={handleKeyDownOpenMenu}
+        >
+          {clearButton && (
+            <i
+              onClick={handleClear}
+              onKeyDown={handleKeyDownClear}
+              className={`material-symbols-outlined ` + styles.clear}
+              tabIndex={0}
+            >
+              cancel
+            </i>
+          )}
+          <p className={styles["input-text"]}>
+            {selectedItem ? selectedItem.label : label}
+          </p>
+          <i className={`material-symbols-outlined ` + styles.icon}>
+            keyboard_arrow_down
           </i>
-        )}
-        <p className={styles["input-text"]}>
-          {selectedItem ? selectedItem.label : label}
-        </p>
-        <i className={`material-symbols-outlined ` + styles.icon}>
-          keyboard_arrow_down
-        </i>
-      </span>
+        </span>
+      )}
       {isHidden && (
         <div className={styles.menu}>
           <ul className={styles.list}>

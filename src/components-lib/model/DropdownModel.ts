@@ -1,4 +1,6 @@
-export interface IDropdownProps {
+import { LabelVariant } from './LabelBoxModel';
+
+interface IBaseDropdownProps {
     label: string;
     items: IDropdownItem[];
     disabled?: boolean;
@@ -6,6 +8,7 @@ export interface IDropdownProps {
     excludeSelected?: boolean;
     hideSelectedFromList?: boolean;
     clearButton?: boolean;
+
     onChange?: (selectedItem: IDropdownItem | undefined) => void;
 }
 
@@ -16,6 +19,18 @@ export interface IDropdownItem {
     disabled?: boolean;
     hidden?: boolean;
 }
+
+interface ISmartLabelProps extends IBaseDropdownProps {
+    isSmartLabel?: true;
+    smartLabelVariant?: LabelVariant;
+}
+
+interface INoSmartLabelProps extends IBaseDropdownProps {
+    isSmartLabel?: false;
+    smartLabelVariant?: never;
+}
+
+export type DropdownProps = ISmartLabelProps | INoSmartLabelProps;
 
 export type IHandleClearEvent =
     | React.MouseEvent<HTMLSpanElement>

@@ -73,10 +73,11 @@ function App() {
           // autoClosing
           // hideSelectedFromList
           // excludeSelected
+          isSmartLabel
           clearButton
         />
         <p>Selected: {selectedItem ? selectedItem.label : "None"}</p>
-        <LabelBox variants="on">
+        <LabelBox label="Label" variants="on">
           <input className={styles.input} type="text" />
         </LabelBox>
       </div>

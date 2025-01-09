@@ -2,13 +2,17 @@
   font-family: var(--qff-primary);
   position: relative;
 
+  &.smartLabel {
+    // padding-top: 20px;
+  }
+
   .input {
     display: inline-flex;
     align-items: center;
     color: var(--qc-text-primary);
     background-color: var(--qc-bg-secondary);
     padding: 10px 15px;
-    line-height: 26px;
+    line-height: 24px;
     border-radius: 10px;
     border: var(--qc-border-card);
     cursor: pointer;
