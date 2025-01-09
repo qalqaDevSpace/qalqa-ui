@@ -48,12 +48,16 @@
     &.selected {
       color: var(--qc-accent-primary);
       background-color: var(--qc-accent-primary-tr);
-      &:hover {
+      &:hover,
+      &:focus-visible {
         background-color: var(--qc-accent-primary-tr-sm);
+        outline: none;
       }
     }
-    &:hover {
+    &:hover,
+    &:focus-visible {
       background-color: var(--qc-hover-bg-item);
+      outline: none;
     }
   }
 
@@ -88,9 +92,11 @@
     z-index: 200;
     user-select: none;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       color: var(--qc-accent-primary);
       background-color: var(--qc-accent-primary-tr);
+      outline: none;
     }
   }
 
