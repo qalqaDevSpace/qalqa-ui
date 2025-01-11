@@ -8,4 +8,5 @@ body {
 
 .some-style {
   display: flex;
+  flex-direction: row;
 }
