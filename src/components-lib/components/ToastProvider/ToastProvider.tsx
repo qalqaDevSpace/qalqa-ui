@@ -1,15 +1,9 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { useState } from 'react';
+import { ToastContext } from './ToastContext';
 import Toast from '../Toast/Toast';
 import { IToastProps, ToastPosition } from '../../model/ToastModel';
 import styles from './ToastProvider.module.scss';
 import clsx from 'clsx';
-
-interface ToastContextProps {
-	addToast: (toast: Omit<IToastProps, 'id'>) => void;
-	removeToast: (id: string) => void;
-}
-
-const ToastContext = createContext<ToastContextProps | undefined>(undefined);
 
 const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
@@ -43,14 +37,6 @@ const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
 			</div>
 		</ToastContext.Provider>
 	);
-};
-
-export const useToast = (): ToastContextProps => {
-	const context = useContext(ToastContext);
-	if (!context) {
-		throw new Error('useToast must be used within a ToastProvider');
-	}
-	return context;
 };
 
 export default ToastProvider;

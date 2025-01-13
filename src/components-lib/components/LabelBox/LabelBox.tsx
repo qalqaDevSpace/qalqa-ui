@@ -12,8 +12,9 @@ const LabelBox: React.FC<ILabelBoxBaseProps> = ({
 	simulateFocus,
 }: ILabelBoxBaseProps) => {
 	const [focus, setFocus] = useState<boolean>(false);
+
 	useEffect(() => {
-		simulateFocus !== undefined ? setFocus(simulateFocus) : null;
+		setFocus(simulateFocus ?? false);
 	}, [simulateFocus]);
 
 	return (

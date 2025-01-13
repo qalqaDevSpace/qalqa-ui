@@ -42,7 +42,9 @@ const Dropdown = ({
 			setHiddenItems((prev) => [...prev, item]);
 		}
 
-		autoClosing && setIsVisible(false);
+		if (autoClosing) {
+			setIsVisible(false);
+		}
 	};
 
 	const removeItem = (item: IDropdownItem) => {
@@ -73,8 +75,10 @@ const Dropdown = ({
 	};
 
 	useEffect(() => {
-		excludeSelected && selectedItem && removeItem(selectedItem);
-	}, [selectedItem]);
+		if (excludeSelected && selectedItem) {
+			removeItem(selectedItem);
+		}
+	}, [excludeSelected, selectedItem]);
 
 	useEffect(() => {
 		if (!isVisible) {

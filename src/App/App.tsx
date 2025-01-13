@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, InputText } from '../components-lib';
 import Dropdown from '../components-lib/components/Dropdown/Dropdown';
-import { useToast } from '../components-lib/components/ToastProvider/ToastProvider';
+import useToast from '../components-lib/components/ToastProvider/ToastContext';
 import { IDropdownItem } from '../components-lib/model/DropdownModel';
 import styles from './App.module.css';
 
@@ -82,10 +82,10 @@ function App() {
 					items={items}
 					onChange={handleDropdownChange}
 					size="sm"
-					// autoClosing
+					autoClosing
 					// hideSelectedFromList
 					// excludeSelected
-					// isSmartLabel
+					isSmartLabel
 					// smartLabelVariant="on"
 					//FIXME: сделать обработку hover-а и фокуса на smartLabel
 					// disabled
