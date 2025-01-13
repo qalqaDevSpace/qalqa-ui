@@ -1,436 +1,440 @@
 .button {
-  outline: 2px solid transparent;
-  border: none;
-  line-height: 26px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: var(--qff-primary);
-  transition: outline 0.1s ease, background 0.2s ease-in-out;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  width: 100%;
-  position: relative;
-  color: var(--qc-text-accent-primary);
+	outline: 2px solid transparent;
+	border: none;
+	line-height: 26px;
+	border-radius: 10px;
+	cursor: pointer;
+	font-family: var(--qff-primary);
+	transition:
+		outline 0.1s ease,
+		background 0.2s ease-in-out;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	width: 100%;
+	position: relative;
+	color: var(--qc-text-accent-primary);
 
-  .button-label {
-    text-align: center;
-    text-decoration: inherit;
-    color: inherit;
-    font-size: inherit;
-    user-select: none;
-  }
+	.button-label {
+		text-align: center;
+		text-decoration: inherit;
+		color: inherit;
+		font-size: inherit;
+		user-select: none;
+	}
 
-  .icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: inherit;
-    user-select: none;
-  }
+	.icon {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: inherit;
+		user-select: none;
+	}
 }
 
 .icon-left {
-  left: 1rem; /* Расстояние от левого края кнопки */
+	left: 1rem; /* Расстояние от левого края кнопки */
 }
 
 .icon-right {
-  right: 1rem; /* Расстояние от правого края кнопки */
+	right: 1rem; /* Расстояние от правого края кнопки */
 }
 
 .t-primary {
-  background-color: var(--qc-accent-primary);
-  color: var(--qc-text-inverted);
+	background-color: var(--qc-accent-primary);
+	color: var(--qc-text-inverted);
 }
 
 .t-primary:not(.link, .text, .outlined):hover {
-  background-color: var(--qc-hover-accent-primary);
+	background-color: var(--qc-hover-accent-primary);
 }
 
 .t-primary:not(.link, .text, .outlined):active {
-  background-color: var(--qc-active-accent-primary);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-accent-primary);
+	transition: background-color 0.1s ease;
 }
 
 .t-primary:not(.link, .text, .outlined):focus-visible {
-  outline: 2px solid var(--qc-focus-primary);
+	outline: 2px solid var(--qc-focus-primary);
 }
 
 .t-secondary:not(.link, .text, .outlined) {
-  background-color: var(--qc-bg-secondary);
-  color: var(--qc-text-secondary);
-  border: var(--qc-border-primary) 1px solid;
+	background-color: var(--qc-bg-secondary);
+	color: var(--qc-text-secondary);
+	border: var(--qc-border-primary) 1px solid;
 }
 
 .t-secondary:not(.link, .text, .outlined):hover {
-  background-color: var(--qc-hover-bg-secondary);
-  color: var(--qc-hover-text-secondary);
+	background-color: var(--qc-hover-bg-secondary);
+	color: var(--qc-hover-text-secondary);
 }
 
 .t-secondary:not(.link, .text, .outlined):active {
-  background-color: var(--qc-active-bg-secondary);
-  color: var(--qc-text-primary);
-  transition: background-color 0.1s, color 0.1s ease;
+	background-color: var(--qc-active-bg-secondary);
+	color: var(--qc-text-primary);
+	transition:
+		background-color 0.1s,
+		color 0.1s ease;
 }
 
 .t-secondary:not(.link, .text, .outlined):focus-visible {
-  outline: 2px solid var(--qc-focus-secondary);
+	outline: 2px solid var(--qc-focus-secondary);
 }
 
 .t-success:not(.link, .text, .outlined) {
-  background-color: var(--qc-success-btn);
+	background-color: var(--qc-success-btn);
 }
 
 .t-success:not(.link, .text, .outlined):hover {
-  background-color: var(--qc-hover-success);
+	background-color: var(--qc-hover-success);
 }
 
 .t-success:not(.link, .text, .outlined):active {
-  background-color: var(--qc-active-success);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-success);
+	transition: background-color 0.1s ease;
 }
 
 .t-success:not(.link, .text, .outlined):focus-visible {
-  outline: 2px solid var(--qc-focus-success);
+	outline: 2px solid var(--qc-focus-success);
 }
 
 .t-error:not(.link, .text, .outlined) {
-  background-color: var(--qc-error-btn);
+	background-color: var(--qc-error-btn);
 }
 
 .t-error:not(.link, .text, .outlined):hover {
-  background-color: var(--qc-hover-error);
+	background-color: var(--qc-hover-error);
 }
 
 .t-error:not(.link, .text, .outlined):active {
-  background-color: var(--qc-active-error);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-error);
+	transition: background-color 0.1s ease;
 }
 
 .t-error:not(.link, .text, .outlined):focus-visible {
-  outline: 2px solid var(--qc-focus-error);
+	outline: 2px solid var(--qc-focus-error);
 }
 
 .t-warning:not(.link, .text, .outlined) {
-  background-color: var(--qc-warning-btn);
+	background-color: var(--qc-warning-btn);
 }
 
 .t-warning:not(.link, .text, .outlined):hover {
-  background-color: var(--qc-hover-warning);
+	background-color: var(--qc-hover-warning);
 }
 
 .t-warning:not(.link, .text, .outlined):active {
-  background-color: var(--qc-active-warning);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-warning);
+	transition: background-color 0.1s ease;
 }
 
 .t-warning:not(.link, .text, .outlined):focus-visible {
-  outline: 2px solid var(--qc-focus-warning);
+	outline: 2px solid var(--qc-focus-warning);
 }
 
 .t-info:not(.link, .text, .outlined) {
-  background-color: var(--qc-info);
-  color: var(--qc-text-inverted);
+	background-color: var(--qc-info);
+	color: var(--qc-text-inverted);
 }
 
 .t-info:not(.link, .text, .outlined):hover {
-  background-color: var(--qc-hover-info);
+	background-color: var(--qc-hover-info);
 }
 
 .t-info:not(.link, .text, .outlined):active {
-  background-color: var(--qc-active-info);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-info);
+	transition: background-color 0.1s ease;
 }
 
 .t-info:not(.link, .text, .outlined):focus-visible {
-  outline: 2px solid var(--qc-focus-info);
+	outline: 2px solid var(--qc-focus-info);
 }
 
 .button:focus-visible {
-  outline-offset: 2px;
+	outline-offset: 2px;
 }
 
 .link {
-  transition: color 0.1s ease-in-out;
-  background-color: transparent;
-  border: none;
+	transition: color 0.1s ease-in-out;
+	background-color: transparent;
+	border: none;
 }
 
 .link.t-primary {
-  color: var(--qc-accent-primary);
+	color: var(--qc-accent-primary);
 }
 
 .link.t-secondary {
-  color: var(--qc-text-secondary);
+	color: var(--qc-text-secondary);
 }
 
 .link.t-primary:hover {
-  color: var(--qc-hover-accent-primary);
-  text-decoration: underline;
+	color: var(--qc-hover-accent-primary);
+	text-decoration: underline;
 }
 
 .link.t-secondary:hover {
-  color: var(--qc-hover-text-secondary);
-  text-decoration: underline;
+	color: var(--qc-hover-text-secondary);
+	text-decoration: underline;
 }
 
 .link.t-success {
-  color: var(--qc-success);
+	color: var(--qc-success);
 }
 
 .link.t-success:hover {
-  color: var(--qc-hover-success);
+	color: var(--qc-hover-success);
 }
 
 .link.t-error {
-  color: var(--qc-error);
+	color: var(--qc-error);
 }
 
 .link.t-error:hover {
-  color: var(--qc-hover-error);
+	color: var(--qc-hover-error);
 }
 
 .link.t-warning {
-  color: var(--qc-warning);
+	color: var(--qc-warning);
 }
 
 .link.t-warning:hover {
-  color: var(--qc-hover-warning);
+	color: var(--qc-hover-warning);
 }
 
 .link.t-info {
-  color: var(--qc-info);
+	color: var(--qc-info);
 }
 
 .link.t-info:hover {
-  color: var(--qc-hover-info);
+	color: var(--qc-hover-info);
 }
 
 .text {
-  background-color: transparent;
-  border: none;
+	background-color: transparent;
+	border: none;
 }
 
 .text.t-primary {
-  color: var(--qc-accent-primary);
+	color: var(--qc-accent-primary);
 }
 
 .text.t-secondary {
-  color: var(--qc-text-secondary);
+	color: var(--qc-text-secondary);
 }
 
 .text.t-primary:hover {
-  background-color: var(--qc-hover-accent-primary-tr);
+	background-color: var(--qc-hover-accent-primary-tr);
 }
 
 .text.t-primary:active {
-  background-color: var(--qc-active-accent-primary-tr);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-accent-primary-tr);
+	transition: background-color 0.1s ease;
 }
 
 .text.t-secondary:hover {
-  background-color: var(--qc-text-secondary-tr);
+	background-color: var(--qc-text-secondary-tr);
 }
 
 .text.t-secondary:active {
-  background-color: var(--qc-text-secondary-tr-sm);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-text-secondary-tr-sm);
+	transition: background-color 0.1s ease;
 }
 
 .text.t-success {
-  color: var(--qc-success);
+	color: var(--qc-success);
 }
 
 .text.t-success:hover {
-  background-color: var(--qc-hover-success-tr);
+	background-color: var(--qc-hover-success-tr);
 }
 
 .text.t-success:active {
-  background-color: var(--qc-active-success-tr);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-success-tr);
+	transition: background-color 0.1s ease;
 }
 
 .text.t-error {
-  color: var(--qc-error);
+	color: var(--qc-error);
 }
 
 .text.t-error:hover {
-  background-color: var(--qc-hover-error-tr);
+	background-color: var(--qc-hover-error-tr);
 }
 
 .text.t-error:active {
-  background-color: var(--qc-active-error-tr);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-error-tr);
+	transition: background-color 0.1s ease;
 }
 
 .text.t-warning {
-  color: var(--qc-warning);
+	color: var(--qc-warning);
 }
 
 .text.t-warning:hover {
-  background-color: var(--qc-hover-warning-tr);
+	background-color: var(--qc-hover-warning-tr);
 }
 
 .text.t-warning:active {
-  background-color: var(--qc-active-warning-tr);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-warning-tr);
+	transition: background-color 0.1s ease;
 }
 
 .text.t-info {
-  color: var(--qc-info);
+	color: var(--qc-info);
 }
 
 .text.t-info:hover {
-  background-color: var(--qc-hover-info-tr);
+	background-color: var(--qc-hover-info-tr);
 }
 
 .text.t-info:active {
-  background-color: var(--qc-active-info-tr);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-info-tr);
+	transition: background-color 0.1s ease;
 }
 
 .outlined {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 .outlined.t-primary {
-  color: var(--qc-accent-primary);
-  border: var(--qc-accent-primary) 1px solid;
+	color: var(--qc-accent-primary);
+	border: var(--qc-accent-primary) 1px solid;
 }
 
 .outlined.t-secondary {
-  color: var(--qc-text-secondary);
-  border: var(--qc-text-secondary) 1px solid;
+	color: var(--qc-text-secondary);
+	border: var(--qc-text-secondary) 1px solid;
 }
 
 .outlined.t-primary:hover {
-  background-color: var(--qc-accent-primary-tr);
+	background-color: var(--qc-accent-primary-tr);
 }
 
 .outlined.t-primary:active {
-  background-color: var(--qc-active-accent-primary-tr);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-accent-primary-tr);
+	transition: background-color 0.1s ease;
 }
 
 .outlined.t-secondary:hover {
-  background-color: var(--qc-text-secondary-tr);
+	background-color: var(--qc-text-secondary-tr);
 }
 
 .outlined.t-secondary:active {
-  background-color: var(--qc-text-secondary-tr-sm);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-text-secondary-tr-sm);
+	transition: background-color 0.1s ease;
 }
 
 .outlined.t-success {
-  color: var(--qc-success);
-  border: 1px solid var(--qc-success);
+	color: var(--qc-success);
+	border: 1px solid var(--qc-success);
 }
 
 .outlined.t-success:hover {
-  background-color: var(--qc-hover-success-tr);
+	background-color: var(--qc-hover-success-tr);
 }
 
 .outlined.t-success:active {
-  background-color: var(--qc-active-success-tr);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-success-tr);
+	transition: background-color 0.1s ease;
 }
 
 .outlined.t-error {
-  color: var(--qc-error);
-  border: 1px solid var(--qc-error);
+	color: var(--qc-error);
+	border: 1px solid var(--qc-error);
 }
 
 .outlined.t-error:hover {
-  background-color: var(--qc-hover-error-tr);
+	background-color: var(--qc-hover-error-tr);
 }
 
 .outlined.t-error:active {
-  background-color: var(--qc-active-error-tr);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-error-tr);
+	transition: background-color 0.1s ease;
 }
 
 .outlined.t-warning {
-  color: var(--qc-warning);
-  border: 1px solid var(--qc-warning);
+	color: var(--qc-warning);
+	border: 1px solid var(--qc-warning);
 }
 
 .outlined.t-warning:hover {
-  background-color: var(--qc-hover-warning-tr);
+	background-color: var(--qc-hover-warning-tr);
 }
 
 .outlined.t-warning:active {
-  background-color: var(--qc-active-warning-tr);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-warning-tr);
+	transition: background-color 0.1s ease;
 }
 
 .outlined.t-info {
-  color: var(--qc-info);
-  border: 1px solid var(--qc-info);
+	color: var(--qc-info);
+	border: 1px solid var(--qc-info);
 }
 
 .outlined.t-info:hover {
-  background-color: var(--qc-hover-info-tr);
+	background-color: var(--qc-hover-info-tr);
 }
 
 .outlined.t-info:active {
-  background-color: var(--qc-active-info-tr);
-  transition: background-color 0.1s ease;
+	background-color: var(--qc-active-info-tr);
+	transition: background-color 0.1s ease;
 }
 
 .shadow:not(.outlined, .link) {
-  box-shadow: var(--qc-bg-shadow);
+	box-shadow: var(--qc-bg-shadow);
 }
 
 .disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-  pointer-events: none;
+	cursor: not-allowed;
+	opacity: 0.7;
+	pointer-events: none;
 }
 
 .s-sm {
-  font-size: 12px;
-  padding: 5px 10px;
+	font-size: 12px;
+	padding: 5px 10px;
 }
 
 .s-md {
-  font-size: 16px;
-  padding: 10px 30px;
+	font-size: 16px;
+	padding: 10px 30px;
 }
 
 .s-xl {
-  font-size: 20px;
-  padding: 15px 40px;
+	font-size: 20px;
+	padding: 15px 40px;
 }
 
 .w-thin {
-  font-weight: var(--qfw-thin);
+	font-weight: var(--qfw-thin);
 }
 
 .w-extralight {
-  font-weight: var(--qfw-extralight);
+	font-weight: var(--qfw-extralight);
 }
 
 .w-light {
-  font-weight: var(--qfw-light);
+	font-weight: var(--qfw-light);
 }
 
 .w-regular {
-  font-weight: var(--qfw-regular);
+	font-weight: var(--qfw-regular);
 }
 
 .w-medium {
-  font-weight: var(--qfw-medium);
+	font-weight: var(--qfw-medium);
 }
 
 .w-semibold {
-  font-weight: var(--qfw-semibold);
+	font-weight: var(--qfw-semibold);
 }
 
 .w-bold {
-  font-weight: var(--qfw-bold);
+	font-weight: var(--qfw-bold);
 }
 
 .w-extrabold {
-  font-weight: var(--qfw-extrabold);
+	font-weight: var(--qfw-extrabold);
 }

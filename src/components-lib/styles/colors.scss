@@ -1,159 +1,159 @@
 :root {
-  //TODO: Add user-defined primary color, it might be bright
+	//TODO: Add user-defined primary color, it might be bright
 
-  //DARK COLORS
-  //static colors>
-  //-accent colors
-  --qc-accent-primary: #a78bfa;
-  --qc-accent-secondary: #ec7cff;
-  --qc-accent-primary-tr: rgba(167, 139, 250, 0.2);
-  --qc-accent-secondary-tr: rgba(235, 124, 255, 0.2);
-  --qc-accent-primary-tr-sm: rgba(167, 139, 250, 0.3);
-  --qc-accent-secondary-tr-sm: rgba(235, 124, 255, 0.3);
-  --qc-accent-primary-tr-xsm: rgba(167, 139, 250, 0.4);
-  --qc-accent-secondary-tr-xsm: rgba(235, 124, 255, 0.4);
+	//DARK COLORS
+	//static colors>
+	//-accent colors
+	--qc-accent-primary: #a78bfa;
+	--qc-accent-secondary: #ec7cff;
+	--qc-accent-primary-tr: rgba(167, 139, 250, 0.2);
+	--qc-accent-secondary-tr: rgba(235, 124, 255, 0.2);
+	--qc-accent-primary-tr-sm: rgba(167, 139, 250, 0.3);
+	--qc-accent-secondary-tr-sm: rgba(235, 124, 255, 0.3);
+	--qc-accent-primary-tr-xsm: rgba(167, 139, 250, 0.4);
+	--qc-accent-secondary-tr-xsm: rgba(235, 124, 255, 0.4);
 
-  //-text-colors
-  --qc-text-primary: #fff;
-  --qc-text-secondary: #9ca3af;
-  --qc-text-inverted: #111827;
-  --qc-text-secondary-tr: rgba(156, 163, 176, 0.2);
-  --qc-text-secondary-tr-sm: rgba(156, 163, 176, 0.3);
-  --qc-text-accent-primary: var(--qc-bg-primary);
+	//-text-colors
+	--qc-text-primary: #fff;
+	--qc-text-secondary: #9ca3af;
+	--qc-text-inverted: #111827;
+	--qc-text-secondary-tr: rgba(156, 163, 176, 0.2);
+	--qc-text-secondary-tr-sm: rgba(156, 163, 176, 0.3);
+	--qc-text-accent-primary: var(--qc-bg-primary);
 
-  //-bg-colors
-  --qc-bg-primary: #030712;
-  --qc-bg-secondary: #111827;
-  --qc-bg-card: var(--qc-bg-secondary);
-  --qc-bg-tr: rgba(17, 24, 39, 0.7);
-  --qc-bg-shadow: 0 3px 1px -2px rgba(200, 200, 200, 0.2),
-    0 2px 2px 0 rgba(200, 200, 200, 0.14), 0 1px 5px 0 rgba(200, 200, 200, 0.12);
+	//-bg-colors
+	--qc-bg-primary: #030712;
+	--qc-bg-secondary: #111827;
+	--qc-bg-card: var(--qc-bg-secondary);
+	--qc-bg-tr: rgba(17, 24, 39, 0.7);
+	--qc-bg-shadow: 0 3px 1px -2px rgba(200, 200, 200, 0.2),
+		0 2px 2px 0 rgba(200, 200, 200, 0.14), 0 1px 5px 0 rgba(200, 200, 200, 0.12);
 
-  //-border
-  --qc-border-primary: #374151;
-  --qc-border-secondary: #fff3;
-  --qc-card-border: 1px solid transparent;
+	//-border
+	--qc-border-primary: #374151;
+	--qc-border-secondary: #fff3;
+	--qc-card-border: 1px solid transparent;
 
-  //user-actions>
-  //-hover
-  --qc-hover-accent-primary: #c4b5fd;
-  --qc-hover-bg-secondary: #1f2937;
-  --qc-hover-text-secondary: #d1d5db;
-  --qc-hover-accent-primary-tr: var(--qc-accent-primary-tr);
-  --qc-hover-success: #56f6bb;
-  --qc-hover-warning: #fcd46d;
-  --qc-hover-error: #fe909d;
-  --qc-hover-info: var(--qc-hover-accent-primary);
+	//user-actions>
+	//-hover
+	--qc-hover-accent-primary: #c4b5fd;
+	--qc-hover-bg-secondary: #1f2937;
+	--qc-hover-text-secondary: #d1d5db;
+	--qc-hover-accent-primary-tr: var(--qc-accent-primary-tr);
+	--qc-hover-success: #56f6bb;
+	--qc-hover-warning: #fcd46d;
+	--qc-hover-error: #fe909d;
+	--qc-hover-info: var(--qc-hover-accent-primary);
 
-  --qc-hover-success-tr: var(--qc-success-tr);
-  --qc-hover-warning-tr: var(--qc-warning-tr);
-  --qc-hover-error-tr: var(--qc-error-tr);
-  --qc-hover-info-tr: var(--qc-accent-primary-tr);
+	--qc-hover-success-tr: var(--qc-success-tr);
+	--qc-hover-warning-tr: var(--qc-warning-tr);
+	--qc-hover-error-tr: var(--qc-error-tr);
+	--qc-hover-info-tr: var(--qc-accent-primary-tr);
 
-  --qc-hover-bg-item: #1f2937;
+	--qc-hover-bg-item: #1f2937;
 
-  //-active
-  --qc-active-accent-primary: #d4cbfa;
-  --qc-active-bg-secondary: #273242;
-  --qc-active-accent-primary-tr: var(--qc-accent-primary-tr-sm);
-  --qc-active-success: #9cfdd9;
-  --qc-active-warning: #ffe8af;
-  --qc-active-error: #fa9ba6;
-  --qc-active-info: var(--qc-active-accent-primary);
-  --qc-active-success-tr: var(--qc-success-tr-xsm);
-  --qc-active-warning-tr: var(--qc-warning-tr-xsm);
-  --qc-active-error-tr: var(--qc-error-tr-xsm);
-  --qc-active-info-tr: var(--qc-accent-primary-tr-xsm);
-  //-focus
-  --qc-focus-primary: var(--qc-accent-primary);
-  --qc-focus-secondary: var(--qc-text-secondary);
-  --qc-focus-success: var(--qc-success-btn);
-  --qc-focus-error: var(--qc-error-btn);
-  --qc-focus-warning: var(--qc-warning-btn);
-  --qc-focus-info: var(--qc-info);
+	//-active
+	--qc-active-accent-primary: #d4cbfa;
+	--qc-active-bg-secondary: #273242;
+	--qc-active-accent-primary-tr: var(--qc-accent-primary-tr-sm);
+	--qc-active-success: #9cfdd9;
+	--qc-active-warning: #ffe8af;
+	--qc-active-error: #fa9ba6;
+	--qc-active-info: var(--qc-active-accent-primary);
+	--qc-active-success-tr: var(--qc-success-tr-xsm);
+	--qc-active-warning-tr: var(--qc-warning-tr-xsm);
+	--qc-active-error-tr: var(--qc-error-tr-xsm);
+	--qc-active-info-tr: var(--qc-accent-primary-tr-xsm);
+	//-focus
+	--qc-focus-primary: var(--qc-accent-primary);
+	--qc-focus-secondary: var(--qc-text-secondary);
+	--qc-focus-success: var(--qc-success-btn);
+	--qc-focus-error: var(--qc-error-btn);
+	--qc-focus-warning: var(--qc-warning-btn);
+	--qc-focus-info: var(--qc-info);
 
-  //special comps colors>
-  //-error
-  --qc-error: #ff7484;
-  --qc-error-btn: #ff7484;
-  --qc-error-tr-xsm: rgba(255, 116, 132, 0.4);
-  --qc-error-tr-sm: rgba(255, 116, 132, 0.3);
-  --qc-error-tr: rgba(255, 116, 132, 0.2);
-  //-warning
-  --qc-warning: #ffce51;
-  --qc-warning-btn: #ffce51;
-  --qc-warning-tr-xsm: rgba(255, 206, 81, 0.4);
-  --qc-warning-tr-sm: rgba(255, 206, 81, 0.3);
-  --qc-warning-tr: rgba(255, 206, 81, 0.2);
-  //-success
-  --qc-success: #38d49c;
-  --qc-success-btn: #38d49c;
-  --qc-success-tr-xsm: rgba(56, 212, 155, 0.4);
-  --qc-success-tr-sm: rgba(56, 212, 155, 0.3);
-  --qc-success-tr: rgba(56, 212, 155, 0.2);
+	//special comps colors>
+	//-error
+	--qc-error: #ff7484;
+	--qc-error-btn: #ff7484;
+	--qc-error-tr-xsm: rgba(255, 116, 132, 0.4);
+	--qc-error-tr-sm: rgba(255, 116, 132, 0.3);
+	--qc-error-tr: rgba(255, 116, 132, 0.2);
+	//-warning
+	--qc-warning: #ffce51;
+	--qc-warning-btn: #ffce51;
+	--qc-warning-tr-xsm: rgba(255, 206, 81, 0.4);
+	--qc-warning-tr-sm: rgba(255, 206, 81, 0.3);
+	--qc-warning-tr: rgba(255, 206, 81, 0.2);
+	//-success
+	--qc-success: #38d49c;
+	--qc-success-btn: #38d49c;
+	--qc-success-tr-xsm: rgba(56, 212, 155, 0.4);
+	--qc-success-tr-sm: rgba(56, 212, 155, 0.3);
+	--qc-success-tr: rgba(56, 212, 155, 0.2);
 
-  //-info
-  --qc-info: var(--qc-accent-primary);
-  --qc-info-tr-xsm: var(--qc-accent-primary-tr-xsm);
-  --qc-info-tr-sm: var(--qc-accent-primary-tr-sm);
-  --qc-info-tr: var(--qc-accent-primary-tr);
+	//-info
+	--qc-info: var(--qc-accent-primary);
+	--qc-info-tr-xsm: var(--qc-accent-primary-tr-xsm);
+	--qc-info-tr-sm: var(--qc-accent-primary-tr-sm);
+	--qc-info-tr: var(--qc-accent-primary-tr);
 }
 @media (prefers-color-scheme: light) {
-  :root {
-    //LIGHT COLORS
-    //static colors>
-    //-accent colors
-    --qc-accent-primary: #8b5cf6;
-    --qc-accent-secondary: #e044ec;
-    --qc-accent-primary-tr: rgba(138, 92, 246, 0.2);
-    --qc-accent-secondary-tr: rgba(225, 68, 236, 0.2);
-    --qc-accent-primary-tr-sm: rgba(138, 92, 246, 0.3);
-    --qc-accent-secondary-tr-sm: rgba(225, 68, 236, 0.3);
-    --qc-accent-primary-tr-xsm: rgba(138, 92, 246, 0.4);
-    --qc-accent-secondary-tr-xsm: rgba(225, 68, 236, 0.4);
+	:root {
+		//LIGHT COLORS
+		//static colors>
+		//-accent colors
+		--qc-accent-primary: #8b5cf6;
+		--qc-accent-secondary: #e044ec;
+		--qc-accent-primary-tr: rgba(138, 92, 246, 0.2);
+		--qc-accent-secondary-tr: rgba(225, 68, 236, 0.2);
+		--qc-accent-primary-tr-sm: rgba(138, 92, 246, 0.3);
+		--qc-accent-secondary-tr-sm: rgba(225, 68, 236, 0.3);
+		--qc-accent-primary-tr-xsm: rgba(138, 92, 246, 0.4);
+		--qc-accent-secondary-tr-xsm: rgba(225, 68, 236, 0.4);
 
-    //-text-colors
-    --qc-text-primary: #111827;
-    --qc-text-secondary: #6b7280;
-    --qc-text-inverted: #fff;
-    --qc-text-accent-primary: var(--qc-text-primary);
+		//-text-colors
+		--qc-text-primary: #111827;
+		--qc-text-secondary: #6b7280;
+		--qc-text-inverted: #fff;
+		--qc-text-accent-primary: var(--qc-text-primary);
 
-    //-bg-colors
-    --qc-bg-primary: #f9fafb;
-    --qc-bg-secondary: #fff;
-    --qc-bg-tr: hwb(0 100% 0% / 0.7);
-    //-border
-    --qc-border-primary: #e5e7eb;
-    --qc-border-secondary: #e5e7eb;
-    --qc-bg-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-      0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    --qc-border-card: 1px solid var(--qc-border-secondary);
+		//-bg-colors
+		--qc-bg-primary: #f9fafb;
+		--qc-bg-secondary: #fff;
+		--qc-bg-tr: hwb(0 100% 0% / 0.7);
+		//-border
+		--qc-border-primary: #e5e7eb;
+		--qc-border-secondary: #e5e7eb;
+		--qc-bg-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+			0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+		--qc-border-card: 1px solid var(--qc-border-secondary);
 
-    //user-actions>
-    //-hover
-    --qc-hover-accent-primary: #7c3aed;
-    --qc-hover-bg-secondary: #f3f4f6;
-    --qc-hover-text-secondary: #374151;
-    --qc-hover-accent-primary-tr: var(--qc-accent-primary-tr);
-    --qc-hover-success: #52cea0;
-    --qc-hover-warning: #fcb23a;
-    --qc-hover-error: #fe7d8c;
-    --qc-hover-info: var(--qc-hover-accent-primary);
-    --qc-hover-bg-item: #f3f4f6;
-    //-active
-    --qc-active-accent-primary: #6a25e2;
-    --qc-active-success: #2fb282;
-    --qc-active-warning: #fe9f06;
-    --qc-active-error: #fe5f71;
-    --qc-active-info: var(--qc-active-accent-primary);
-    //-error
-    --qc-error: #fe5f71;
-    --qc-error-btn: #f696a1;
-    //-warning
-    --qc-warning: #fe9f06;
-    --qc-warning-btn: #ffc76c;
-    //-success
-    --qc-success: #2fb282;
-    --qc-success-btn: #7cebc3;
-  }
+		//user-actions>
+		//-hover
+		--qc-hover-accent-primary: #7c3aed;
+		--qc-hover-bg-secondary: #f3f4f6;
+		--qc-hover-text-secondary: #374151;
+		--qc-hover-accent-primary-tr: var(--qc-accent-primary-tr);
+		--qc-hover-success: #52cea0;
+		--qc-hover-warning: #fcb23a;
+		--qc-hover-error: #fe7d8c;
+		--qc-hover-info: var(--qc-hover-accent-primary);
+		--qc-hover-bg-item: #f3f4f6;
+		//-active
+		--qc-active-accent-primary: #6a25e2;
+		--qc-active-success: #2fb282;
+		--qc-active-warning: #fe9f06;
+		--qc-active-error: #fe5f71;
+		--qc-active-info: var(--qc-active-accent-primary);
+		//-error
+		--qc-error: #fe5f71;
+		--qc-error-btn: #f696a1;
+		//-warning
+		--qc-warning: #fe9f06;
+		--qc-warning-btn: #ffc76c;
+		//-success
+		--qc-success: #2fb282;
+		--qc-success-btn: #7cebc3;
+	}
 }
