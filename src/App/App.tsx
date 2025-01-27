@@ -4,6 +4,7 @@ import Dropdown from "../components-lib/components/Dropdown/Dropdown";
 import { useToast } from "../components-lib/components/ToastProvider/ToastProvider";
 import { IDropdownItem } from "../components-lib/model/DropdownModel";
 import styles from "./App.module.css";
+import Loader from "../components-lib/components/Loader";
 
 function App() {
   const { addToast } = useToast();
@@ -102,6 +103,7 @@ function App() {
           onInput={handleInput}
         />
         <p>Printed: {printed}</p>
+        <Loader />
       </div>
     </>
   );
