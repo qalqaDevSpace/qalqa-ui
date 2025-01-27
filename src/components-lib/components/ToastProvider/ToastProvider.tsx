@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-import { ToastContext } from './ToastContext';
-import Toast from '../Toast/Toast';
-import { IToastProps, ToastPosition } from '../../model/ToastModel';
-import styles from './ToastProvider.module.scss';
 import clsx from 'clsx';
+import React, { useState } from 'react';
+import { IToastProps, ToastPosition } from '../../model/ToastModel';
+import { generateId } from '../../utils/generateIDs';
+import { Toast } from '../Toast/Toast';
+import { ToastContext } from './ToastContext';
+import styles from './ToastProvider.module.scss';
 
-const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
+export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {
 	const [toasts, setToasts] = useState<IToastProps[]>([]);
 	const [position, setPosition] = useState<ToastPosition>('top-right');
 
 	const addToast = (toast: Omit<IToastProps, 'id'>) => {
-		const id = Math.random().toString(36).substr(2, 9);
+		const id = generateId();
 		setToasts((prev) => [...prev, { ...toast, id }]);
 		if (toast.position) {
 			setPosition(toast.position);
@@ -38,5 +39,3 @@ const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
 		</ToastContext.Provider>
 	);
 };
-
-export default ToastProvider;

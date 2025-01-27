@@ -1,11 +1,11 @@
+import clsx from 'clsx';
 import { useState } from 'react';
 import { InputProps } from '../../model/InputModel';
-import generateId from '../../utils/generateIDs';
+import { generateId } from '../../utils/generateIDs';
 import LabelBox from '../LabelBox/LabelBox';
 import styles from './InputText.module.scss';
-import clsx from 'clsx';
 
-const InputText = ({
+export const InputText = ({
 	id,
 	label,
 	labelText,

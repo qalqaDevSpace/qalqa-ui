@@ -1,14 +1,14 @@
-import { useEffect, useState, KeyboardEvent } from 'react';
+import clsx from 'clsx';
+import { KeyboardEvent, useEffect, useState } from 'react';
 import {
-	IDropdownItem,
 	DropdownProps,
+	IDropdownItem,
 	IHandleClearEvent,
 } from '../../model/DropdownModel';
-import styles from './Dropdown.module.scss';
-import clsx from 'clsx';
 import LabelBox from '../LabelBox/LabelBox';
+import styles from './Dropdown.module.scss';
 
-const Dropdown = ({
+export const Dropdown = ({
 	label,
 	items,
 	autoClosing,
@@ -199,5 +199,3 @@ const Dropdown = ({
 		</div>
 	);
 };
-
-export default Dropdown;

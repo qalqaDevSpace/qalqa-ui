@@ -1,9 +1,9 @@
+import clsx from 'clsx';
 import { KeyboardEvent } from 'react';
 import { ButtonProps } from '../../model/ButtonModel';
 import styles from './Button.module.scss';
-import clsx from 'clsx';
 
-const Button = ({
+export const Button = ({
 	label,
 	disabled = false,
 	type = 'primary',
@@ -62,5 +62,3 @@ const Button = ({
 		</div>
 	);
 };
-
-export default Button;

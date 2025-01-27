@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { IToastProps, ToastType } from '../../model/ToastModel';
-import styles from './Toast.module.scss';
 import ProgressBar from '../ProgressBar/ProgressBar';
+import styles from './Toast.module.scss';
 
-const Toast = ({
+export const Toast = ({
 	type = 'info',
 	message,
 	duration,
@@ -71,5 +71,3 @@ const Toast = ({
 		</div>
 	);
 };
-
-export default Toast;

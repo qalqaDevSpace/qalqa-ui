@@ -1,13 +1,11 @@
-import './styles/colors.scss';
-import './styles/normalize.css';
-import './styles/fonts.scss';
 import 'material-design-icons/iconfont/material-icons.css';
+import './styles/colors.scss';
+import './styles/fonts.scss';
+import './styles/normalize.css';
 
-export { default as Button } from './components/Button/Button';
-export { default as Toast } from './components/Toast/Toast';
-export { default as Dropdown } from './components/Dropdown/Dropdown';
-export { default as ProgressBar } from './components/ProgressBar/ProgressBar';
-export { default as useToast } from './components/ToastProvider/ToastContext';
-export { default as ToastProvider } from './components/ToastProvider/ToastProvider';
-export { default as LabelBox } from './components/LabelBox/LabelBox';
-export { default as InputText } from './components/InputText/InputText';
+export { Button } from './components/Button/Button';
+export { Dropdown } from './components/Dropdown/Dropdown';
+export { InputText } from './components/InputText/InputText';
+export { Toast } from './components/Toast/Toast';
+export { useToast } from './components/ToastProvider/ToastContext';
+export { ToastProvider } from './components/ToastProvider/ToastProvider';
