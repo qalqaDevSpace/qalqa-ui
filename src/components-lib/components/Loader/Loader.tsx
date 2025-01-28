@@ -39,6 +39,20 @@ const Loader: React.FC<LoaderProps> = ({
     s[`cube__inner-speed-${speed}`]
   );
 
+  //bouncy
+
+  const bouncyClassnames = clsx(
+    loaderClassnames,
+    s.container_bouncy,
+    s[`b-size-${loaderSize}`]
+  );
+
+  const bouncyCubeClassnames = clsx(
+    s.container_bouncy_cube,
+    s[`bouncy_cube-size-${loaderSize}`],
+    s[`bouncy_cube-speed-${speed}`]
+  );
+
   return (
     <>
       {type == "ring" && (
@@ -80,6 +94,12 @@ const Loader: React.FC<LoaderProps> = ({
           <div className={dotsCubeClassnames}>
             <div className={dotsInnerCubeClassnames}></div>
           </div>
+        </div>
+      )}
+
+      {type == "bouncy" && (
+        <div className={bouncyClassnames}>
+          <div className={bouncyCubeClassnames}></div>
         </div>
       )}
     </>

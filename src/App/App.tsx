@@ -62,13 +62,16 @@ function App() {
           icon="check_circle"
           onClick={showSuccess}
         />
+        <Loader />
+        <Loader type="dots" />
+        <Loader type="bouncy" />
         <Button label="Error" type="error" icon="error" onClick={showError} />
         <Button
           label="Warning"
           type="warning"
           icon="warning"
           onClick={showWarning}
-        />
+        ></Button>
         <Button
           label="Info"
           type="info"
@@ -103,7 +106,6 @@ function App() {
           onInput={handleInput}
         />
         <p>Printed: {printed}</p>
-        <Loader />
       </div>
     </>
   );

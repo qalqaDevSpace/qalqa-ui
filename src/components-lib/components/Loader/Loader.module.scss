@@ -10,6 +10,7 @@ $speed-fast: 1.75s;
 $speed-slow: 3s;
 
 
+
 .r-size-sm {
   width: $sm;
   height: $sm;
@@ -89,6 +90,42 @@ $speed-slow: 3s;
   height: calc($xxxl * 0.2);
 }
 
+.b-size-sm {
+  --sm-size: calc($sm * 0.2);
+  width: $sm;
+  height: calc(100% - var(--sm-size) / 2);
+  padding-bottom: calc(var(--sm-size) / 2);
+}
+
+.b-size-md {
+  $md-size: calc($md * 0.2);
+  width: $md;
+  height: calc(100% - $md-size / 2);
+  padding-bottom: calc($md-size / 2);
+}
+
+.b-size-xl {
+  --xl-size: calc($xl * 0.2);
+  width: $xl;
+  height: calc(100% - var(--xl-size) / 2);
+  padding-bottom: calc(var(--xl-size) / 2);
+}
+
+.b-size-xxl {
+  --xxl-size: calc($xxl * 0.2);
+  width: $xxl;
+  height: calc(100% - var(--xxl-size) / 2);
+  padding-bottom: calc(var(--xxl-size) / 2);
+}
+
+.b-size-xxxl {
+  --xxxl-size: calc($xxxl * 0.2);
+  width: $xxxl;
+  height: calc(100% - var(--xxxl-size) / 2);
+  padding-bottom: calc(var(--xxxl-size) / 2);
+}
+
+
 .cube-speed-default {
   animation: jump $speed-default ease-in-out infinite;
 }
@@ -114,15 +151,15 @@ $speed-slow: 3s;
     transition: background-color 0.3s ease;
 
     &-speed-slow {
-      animation: morph $speed-slow ease-in-out infinite;
+      animation: morph_dots $speed-slow ease-in-out infinite;
     }
     &-speed-default {
-      animation: morph $speed-default ease-in-out infinite;
+      animation: morph_dots $speed-default ease-in-out infinite;
     }
     &-speed-fast {
-      animation: morph $speed-fast ease-in-out infinite;
+      animation: morph_dots $speed-fast ease-in-out infinite;
     }
-    
+
   }
 
 }
@@ -173,23 +210,121 @@ $speed-slow: 3s;
   }
 }
 
+.bouncy_cube-size-sm {
+  --sm-size: calc($sm * 0.2);
+  --cube-container-height: calc($sm * 0.8);
+  width: var(--sm-size);
+  height: var(--cube-container-height);
+  padding-bottom: calc(var(--sm-size) / 2);
 
+  &::after {
+    width: var(--sm-size);
+    height: var(--sm-size);
+  }
+
+}
+
+.bouncy_cube-size-md {
+  --md-size: calc($md * 0.2);
+  --cube-container-height: calc($md * 0.8);
+  width: var(--md-size);
+  height: var(--cube-container-height);
+  padding-bottom: calc(var(--md-size) / 2);
+
+  &::after {
+    width: var(--md-size);
+    height: var(--md-size);
+  }
+
+
+}
+
+.bouncy_cube-size-xl {
+  --xl-size: calc($xl * 0.2);
+  --cube-container-height: calc($xl * 0.8);
+  width: var(--xl-size);
+  height: var(--cube-container-height);
+  padding-bottom: calc(var(--xl-size) / 2);
+
+  &::after {
+    width: var(--xl-size);
+    height: var(--xl-size);
+  }
+}
+
+.bouncy_cube-size-xxl {
+  --xxl-size: calc($xxl * 0.2);
+  --cube-container-height: calc($xxl * 0.8);
+  width: var(--xxl-size);
+  height: var(--cube-container-height);
+  padding-bottom: calc(var(--xxl-size) / 2);
+
+  &::after {
+    width: var(--xxl-size);
+    height: var(--xxl-size);
+  }
+}
+
+.bouncy_cube-size-xxxl {
+  --xxxl-size: calc($xxxl * 0.2);
+  --cube-container-height: calc($xxxl * 0.8);
+  width: var(--xxxl-size);
+  height: var(--cube-container-height);
+  padding-bottom: calc(var(--xxxl-size) / 2);
+
+  &::after {
+    width: var(--xxxl-size);
+    height: var(--xxxl-size);
+  }
+}
+
+.bouncy_cube-speed-default {
+  animation: metronome $speed-default linear infinite;
+  &::after {
+    animation: morph $speed-default linear infinite;
+  }
+}
+
+.bouncy_cube-speed-slow {
+  animation: metronome $speed-slow linear infinite;
+
+  &::after {
+    animation: morph $speed-slow linear infinite;
+  }
+
+}
+.bouncy_cube-speed-fast {
+  animation: metronome $speed-fast linear infinite;
+
+  &::after {
+    animation: morph $speed-fast linear infinite;
+  }
+
+}
 
 .container {
-    --uib-size: 40px;
-    --uib-color: black;
-    --uib-speed: 2s;
-
     &_bouncy {
-      --uib-cube-size: calc(var(--uib-size) * 0.2);
       --uib-arc-1: -90deg;
       --uib-arc-2: 90deg;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      width: var(--uib-size);
-      height: calc(100% - var(--uib-cube-size) / 2);
-      padding-bottom: calc(var(--uib-cube-size) / 2);
+
+      &_cube {
+        display: flex;
+        align-items: center;
+        transform-origin: center bottom;
+        transform: rotate(var(var(--uib-arc-1)));
+
+        &::after {
+          content: '';
+          display: block;
+          background-color: black;
+          border-radius: 25%;
+          transform-origin: center left;
+          transition: background-color 0.3s ease;
+        }
+      }
     }
 
     &_dots { 
