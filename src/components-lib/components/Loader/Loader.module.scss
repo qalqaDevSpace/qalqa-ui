@@ -1,35 +1,178 @@
 
+$sm: 18px;
+$md: 32px;
+$xl: 48px;
+$xxl: 64px;
+$xxxl: 96px;
+
+$speed-default: 2s;
+$speed-fast: 1.75s;
+$speed-slow: 3s;
 
 
-.speed-default {
-  
+.r-size-sm {
+  width: $sm;
+  height: $sm;
 }
 
-.size-sm {
-  width: 18px;
-  height: 18px;
+.r-size-md {
+  width: $md;
+  height: $md;
 }
 
-.size-md {
-  width: 32px;
-  height: 32px;
+.r-size-xl {
+  width: $xl;
+  height: $xl;
 }
 
-.size-xl {
-  width: 48px;
-  height: 48px;
-}
-
-.size-xxl {
-  width: 64px;
-  height: 64px;
+.r-size-xxl {
+  width: $xxl;
+  height: $xxl;
 }
 
 
-.size-xxxl {
-  width: 96px;
-  height: 96px;
+.r-size-xxxl {
+  width: $xxxl;
+  height: $xxxl;
 }
+
+//dots size
+
+.d-size-sm {
+  width: $sm;
+  height: calc($sm * 0.6);
+}
+
+.d-size-md {
+  width: $md;
+  height: calc($md * 0.6);
+}
+
+.d-size-xl {
+  width: $xl;
+  height: calc($xl * 0.6);
+}
+
+.d-size-xxl {
+  width: $xxl;
+  height: calc($xxl * 0.6);
+}
+
+
+.d-size-xxxl {
+  width: $xxxl;
+  height: calc($xxxl * 0.6);
+}
+
+.cube-size-sm {
+  width: calc($sm * 0.2);
+  height: calc($sm * 0.2);
+}
+
+.cube-size-md {
+  width: calc($md * 0.2);
+  height: calc($md * 0.2);
+}
+
+.cube-size-xl {
+  width: calc($xl * 0.2);
+  height: calc($xl * 0.2);
+}
+
+.cube-size-xxl {
+  width: calc($xxl * 0.2);
+  height: calc($xxl * 0.2);
+}
+
+.cube-size-xxxl {
+  width: calc($xxxl * 0.2);
+  height: calc($xxxl * 0.2);
+}
+
+.cube-speed-default {
+  animation: jump $speed-default ease-in-out infinite;
+}
+
+.cube-speed-fast {
+  animation: jump $speed-fast ease-in-out infinite;
+}
+
+.cube-speed-slow {
+  animation: jump $speed-slow ease-in-out infinite;
+}
+
+.cube {
+  flex-shrink: 0;
+
+  &__inner {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 25%;
+    background-color: black;
+    transform-origin: center bottom;
+    transition: background-color 0.3s ease;
+
+    &-speed-slow {
+      animation: morph $speed-slow ease-in-out infinite;
+    }
+    &-speed-default {
+      animation: morph $speed-default ease-in-out infinite;
+    }
+    &-speed-fast {
+      animation: morph $speed-fast ease-in-out infinite;
+    }
+    
+  }
+
+}
+
+// прыжки dots
+.cube-speed-default:nth-child(2) {
+  animation-delay: calc($speed-default) * -0.36;
+
+  .cube__inner {
+    animation-delay: calc($speed-default) * -0.36;
+  }
+}
+.cube-speed-default:nth-child(3) {
+  animation-delay: calc($speed-default) * -0.2;
+
+  .cube__inner {
+    animation-delay: calc($speed-default) * -0.2;
+  }
+}
+
+.cube-speed-slow:nth-child(2) {
+  animation-delay: calc($speed-slow) * -0.36;
+
+  .cube__inner {
+    animation-delay: calc($speed-slow) * -0.36;
+  }
+}
+.cube-speed-slow:nth-child(3) {
+  animation-delay: calc($speed-slow) * -0.2;
+
+  .cube__inner {
+    animation-delay: calc($speed-slow) * -0.2;
+  }
+}
+
+.cube-speed-fast:nth-child(2) {
+  animation-delay: calc($speed-fast) * -0.36;
+
+  .cube__inner {
+    animation-delay: calc($speed-fast) * -0.36;
+  }
+}
+.cube-speed-fast:nth-child(3) {
+  animation-delay: calc($speed-fast) * -0.2;
+
+  .cube__inner {
+    animation-delay: calc($speed-fast) * -0.2;
+  }
+}
+
 
 
 .container {
@@ -50,8 +193,6 @@
     }
 
     &_dots { 
-      height: calc(var(--uib-size) * 0.6);
-      width: var(--uib-size);
       display: flex;
       align-items: flex-end;
       padding-bottom: 20%;
@@ -59,11 +200,8 @@
     }
 
     &_ring {
-        --uib-bg-opacity: 0.5;
-        height: var(--uib-size);
-        width: var(--uib-size);
         transform-origin: center;
-        animation: rotate var(--uib-speed) linear infinite;
+        // animation: rotate var(--uib-speed) linear infinite;
         will-change: transform;
         overflow: visible;
       }
@@ -73,21 +211,60 @@
 
   .car {
     fill: none;
-    stroke: var(--uib-color);
+    stroke: black;
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
     stroke-linecap: round;
-    animation: stretch calc(var(--uib-speed) * 0.75) ease-in-out infinite;
+    // animation: stretch calc(var(--uib-speed) * 0.75) ease-in-out infinite;
     will-change: stroke-dasharray, stroke-dashoffset;
     transition: stroke 0.5s ease;
+  }
+
+  .car-speed-default {
+    animation: stretch calc($speed-default * 0.75) ease-in-out infinite;
+  }
+
+  .car-speed-slow {
+    animation: stretch calc($speed-slow * 0.75) ease-in-out infinite;
+  }
+
+  .car-speed-fast {
+    animation: stretch calc($speed-fast * 0.75) ease-in-out infinite;
   }
 
   .track {
     fill: none;
     stroke: var(--uib-color);
-    opacity: var(--uib-bg-opacity);
     transition: stroke 0.5s ease;
   }
+
+  .opacity- {
+    &none {
+      opacity: 0;
+    }
+
+    &soft {
+      opacity: 0.15;
+    }
+
+    &normal {
+      opacity: 0.30;
+    }
+
+  }
+
+  .r-speed-default {
+    animation: rotate $speed-default linear infinite;
+  }
+  
+  .r-speed-slow {
+    animation: rotate $speed-slow linear infinite;
+  }
+
+  .r-speed-fast {
+    animation: rotate $speed-fast linear infinite;
+  }
+
 
   @keyframes rotate {
     100% {
@@ -215,38 +392,5 @@
   
     75% {
       transform: scaleY(0.8) scaleX(1.2);
-    }
-  }
-
-  .cube {
-    flex-shrink: 0;
-    width: calc(var(--uib-size) * 0.2);
-    height: calc(var(--uib-size) * 0.2);
-    animation: jump var(--uib-speed) ease-in-out infinite;
-
-    &__inner {
-      display: block;
-      height: 100%;
-      width: 100%;
-      border-radius: 25%;
-      background-color: var(--uib-color);
-      transform-origin: center bottom;
-      animation: morph var(--uib-speed) ease-in-out infinite;
-      transition: background-color 0.3s ease;
-    }
-  }
-  
-  .cube:nth-child(2) {
-    animation-delay: calc(var(--uib-speed) * -0.36);
-  
-    .cube__inner {
-      animation-delay: calc(var(--uib-speed) * -0.36);
-    }
-  }
-  .cube:nth-child(3) {
-    animation-delay: calc(var(--uib-speed) * -0.2);
-  
-    .cube__inner {
-      animation-delay: calc(var(--uib-speed) * -0.2);
     }
   }
