@@ -7,7 +7,7 @@ export enum ThemeEnum {
 
 export interface ThemeContextProps {
 	theme: Theme | string;
-	toggleTheme: (theme: Theme) => void;
+	toggleTheme: () => void;
 }
 
 interface ThemeProviderBaseProps {

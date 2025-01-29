@@ -1,6 +1,6 @@
 .button {
 	outline: 2px solid transparent;
-	border: none;
+	border: 1px solid transparent;
 	line-height: 26px;
 	border-radius: 10px;
 	cursor: pointer;
@@ -62,7 +62,7 @@
 .t-secondary:not(.link, .text, .outlined) {
 	background-color: var(--qc-bg-secondary);
 	color: var(--qc-text-secondary);
-	border: var(--qc-border-primary) 1px solid;
+	border: var(--qc-border-card);
 }
 
 .t-secondary:not(.link, .text, .outlined):hover {

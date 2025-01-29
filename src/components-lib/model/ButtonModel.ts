@@ -28,7 +28,7 @@ type ButtonWeight =
 	| 'bold'
 	| 'extrabold';
 
-type ButtonSize = 'sm' | 'md' | 'xl';
+export type ButtonSize = 'sm' | 'md' | 'xl';
 
 type ButtonIconPosition = 'left' | 'right';
 
