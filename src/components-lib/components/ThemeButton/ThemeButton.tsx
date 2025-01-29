@@ -4,7 +4,7 @@ import { ThemeEnum } from '../../model/ThemeModel';
 import { useTheme } from '../Theme/ThemeContext';
 import styles from './ThemeButton.module.scss';
 
-const ThemeButton = ({ size = 'md', disabled }: ThemeButtonProps) => {
+export const ThemeButton = ({ size = 'md', disabled }: ThemeButtonProps) => {
 	const { theme, toggleTheme } = useTheme();
 	return (
 		<div
@@ -19,5 +19,3 @@ const ThemeButton = ({ size = 'md', disabled }: ThemeButtonProps) => {
 		</div>
 	);
 };
-
-export default ThemeButton;
