@@ -19,27 +19,49 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 	const [theme, setTheme] = useState<Theme | string>(
 		mediaQuery.matches ? ThemeEnum.DARK : ThemeEnum.LIGHT
 	);
-	if (isCustomTheme && customThemeNameDark && customThemeNameLight) {
-		mediaQuery.addEventListener('change', (e) => {
-			setTheme(e.matches ? customThemeNameDark : customThemeNameLight);
-		});
-	} else {
-		mediaQuery.addEventListener('change', (e) => {
-			setTheme(e.matches ? ThemeEnum.DARK : ThemeEnum.LIGHT);
-		});
-	}
+
+	const mediaThemePreload = () => {
+		if (isCustomTheme && customThemeNameDark && customThemeNameLight) {
+			mediaQuery.addEventListener('change', (e) => {
+				setTheme(e.matches ? customThemeNameDark : customThemeNameLight);
+			});
+		} else {
+			mediaQuery.addEventListener('change', (e) => {
+				setTheme(e.matches ? ThemeEnum.DARK : ThemeEnum.LIGHT);
+			});
+		}
+	};
+
+	const localThemePreload = (localTheme: string) => {
+		setTheme(localTheme);
+	};
+
+	const toggleTheme = () => {
+		if (theme === ThemeEnum.DARK) {
+			setTheme(ThemeEnum.LIGHT);
+			localStorage.setItem('q-ui-theme', ThemeEnum.LIGHT);
+		} else {
+			setTheme(ThemeEnum.DARK);
+			localStorage.setItem('q-ui-theme', ThemeEnum.DARK);
+		}
+	};
+
+	const localTheme = localStorage.getItem('q-ui-theme');
 
 	useEffect(() => {
 		loadTheme(theme);
 	}, [mediaQuery]);
 
-	const toggleTheme = (theme: Theme) => {
-		setTheme(theme);
-		loadTheme(theme);
-	};
+	useEffect(() => {
+		if (!localTheme) {
+			mediaThemePreload();
+			return;
+		}
+		localThemePreload(localTheme);
+	});
 
 	return (
-		<ThemeContext.Provider value={{ toggleTheme, theme }}>
+		<ThemeContext.Provider value={{ theme, toggleTheme }}>
 			{children}
 		</ThemeContext.Provider>
 	);
