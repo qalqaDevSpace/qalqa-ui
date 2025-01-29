@@ -31,7 +31,6 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 
 	useEffect(() => {
 		loadTheme(theme);
-		console.log(theme);
 	}, [mediaQuery]);
 
 	const toggleTheme = (theme: Theme) => {
