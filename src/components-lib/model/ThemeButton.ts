@@ -1,6 +1,6 @@
 import { ButtonSize } from './ButtonModel';
 
-export interface ThemeButtonProps {
+export interface IThemeButtonProps {
 	size?: ButtonSize;
 	disabled?: boolean;
 }

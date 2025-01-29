@@ -5,32 +5,32 @@ export enum ThemeEnum {
 	LIGHT = 'light',
 }
 
-export interface ThemeContextProps {
+export interface IThemeContextProps {
 	theme: Theme | string;
 	toggleTheme: () => void;
 }
 
-interface ThemeProviderBaseProps {
+interface IThemeProviderBaseProps {
 	children: React.ReactNode;
 }
 
-export type ThemeProviderPropsWithTheming = ThemeProviderBaseProps & {
+export type ThemeProviderPropsWithTheming = IThemeProviderBaseProps & {
 	isTheming: true;
 	isCustomTheme?: boolean;
 };
 
-export type ThemeProviderPropsWithoutTheming = ThemeProviderBaseProps & {
+export type ThemeProviderPropsWithoutTheming = IThemeProviderBaseProps & {
 	isTheming?: false;
 	isCustomTheme?: never;
 };
 
-interface ThemeProviderPropsWithCustomTheme extends ThemeProviderBaseProps {
+interface ThemeProviderPropsWithCustomTheme extends IThemeProviderBaseProps {
 	isCustomTheme?: true;
 	customThemeNameDark: string;
 	customThemeNameLight: string;
 }
 
-interface ThemeProviderPropsWithoutCustomTheme extends ThemeProviderBaseProps {
+interface ThemeProviderPropsWithoutCustomTheme extends IThemeProviderBaseProps {
 	isCustomTheme?: false;
 	customThemeNameDark?: never;
 	customThemeNameLight?: never;

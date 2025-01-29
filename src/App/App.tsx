@@ -57,6 +57,8 @@ function App() {
 	const handleInput = (value: string | undefined) => {
 		setPrinted(value || null);
 	};
+
+	const [checked, setChecked] = useState(false);
 	return (
 		<>
 			<div className={styles.container}>
@@ -108,7 +110,14 @@ function App() {
 				/>
 				<p>Printed: {printed}</p>
 				<ThemeButton />
-				<Checkbox />
+				<Checkbox
+					id="nigga"
+					label="Nigga"
+					size="sm"
+					invalid={!checked}
+					onChange={() => setChecked(!checked)}
+					checked={checked}
+				/>
 			</div>
 		</>
 	);

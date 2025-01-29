@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { ThemeButtonProps } from '../../model/ThemeButton';
+import { IThemeButtonProps } from '../../model/ThemeButton';
 import { ThemeEnum } from '../../model/ThemeModel';
 import { useTheme } from '../Theme/ThemeContext';
 import styles from './ThemeButton.module.scss';
 
-export const ThemeButton = ({ size = 'md', disabled }: ThemeButtonProps) => {
+export const ThemeButton = ({ size = 'md', disabled }: IThemeButtonProps) => {
 	const { theme, toggleTheme } = useTheme();
 	return (
 		<div
