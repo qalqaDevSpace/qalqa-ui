@@ -4,6 +4,7 @@ import './styles/fonts.scss';
 import './styles/normalize.css';
 
 export { Button } from './components/Button/Button';
+export { Checkbox } from './components/Checkbox/Checkbox';
 export { Dropdown } from './components/Dropdown/Dropdown';
 export { InputText } from './components/InputText/InputText';
 export { ThemeProvider } from './components/Theme/ThemeProvider';

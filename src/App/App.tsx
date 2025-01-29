@@ -1,6 +1,12 @@
 import { useState } from 'react';
-import { Button, Dropdown, InputText, useToast } from '../components-lib';
-import ThemeButton from '../components-lib/components/ThemeButton/ThemeButton';
+import {
+	Button,
+	Checkbox,
+	Dropdown,
+	InputText,
+	ThemeButton,
+	useToast,
+} from '../components-lib';
 import { IDropdownItem } from '../components-lib/model/DropdownModel';
 import styles from './App.module.css';
 
@@ -51,6 +57,8 @@ function App() {
 	const handleInput = (value: string | undefined) => {
 		setPrinted(value || null);
 	};
+
+	const [checked, setChecked] = useState(false);
 	return (
 		<>
 			<div className={styles.container}>
@@ -101,7 +109,15 @@ function App() {
 					onInput={handleInput}
 				/>
 				<p>Printed: {printed}</p>
-				<ThemeButton></ThemeButton>
+				<ThemeButton />
+				<Checkbox
+					id="nigga"
+					label="Nigga"
+					size="sm"
+					invalid={!checked}
+					onChange={() => setChecked(!checked)}
+					checked={checked}
+				/>
 			</div>
 		</>
 	);
