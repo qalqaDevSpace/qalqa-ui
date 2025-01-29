@@ -1,0 +1,65 @@
+:root {
+  --qc-accent-primary: #8b5cf6;
+  --qc-accent-secondary: #e044ec;
+  --qc-accent-primary-tr: rgba(138, 92, 246, 0.2);
+  --qc-accent-secondary-tr: rgba(225, 68, 236, 0.2);
+  --qc-accent-primary-tr-sm: rgba(138, 92, 246, 0.3);
+  --qc-accent-secondary-tr-sm: rgba(225, 68, 236, 0.3);
+  --qc-accent-primary-tr-xsm: rgba(138, 92, 246, 0.4);
+  --qc-accent-secondary-tr-xsm: rgba(225, 68, 236, 0.4);
+
+  --qc-text-primary: #111827;
+  --qc-text-secondary: #6b7280;
+  --qc-text-inverted: #fff;
+  --qc-text-accent-primary: var(--qc-text-primary);
+
+  --qc-bg-primary: #f9fafb;
+  --qc-bg-secondary: #fff;
+  --qc-bg-tr: hwb(0 100% 0% / 0.7);
+  --qc-bg-card: var(--qc-bg-secondary);
+  --qc-bg-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  --qc-border-primary: #e5e7eb;
+  --qc-border-secondary: #e5e7eb;
+  --qc-border-card: 1px solid var(--qc-border-secondary);
+
+  --qc-hover-accent-primary: #7c3aed;
+  --qc-hover-bg-secondary: #f3f4f6;
+  --qc-hover-text-secondary: #374151;
+  --qc-hover-accent-primary-tr: var(--qc-accent-primary-tr);
+  --qc-hover-success: #52cea0;
+  --qc-hover-warning: #fcb23a;
+  --qc-hover-error: #fe7d8c;
+  --qc-hover-info: var(--qc-hover-accent-primary);
+  --qc-hover-bg-item: #f3f4f6;
+
+  --qc-active-accent-primary: #6a25e2;
+  --qc-active-success: #2fb282;
+  --qc-active-warning: #fe9f06;
+  --qc-active-error: #fe5f71;
+  --qc-active-info: var(--qc-active-accent-primary);
+
+  --qc-error: #fe5f71;
+  --qc-error-btn: #f696a1;
+  --qc-error-tr-xsm: rgba(255, 116, 132, 0.4);
+  --qc-error-tr-sm: rgba(255, 116, 132, 0.3);
+  --qc-error-tr: rgba(255, 116, 132, 0.2);
+
+  --qc-warning: #fe9f06;
+  --qc-warning-btn: #ffc76c;
+  --qc-warning-tr-xsm: rgba(255, 206, 81, 0.4);
+  --qc-warning-tr-sm: rgba(255, 206, 81, 0.3);
+  --qc-warning-tr: rgba(255, 206, 81, 0.2);
+
+  --qc-success: #2fb282;
+  --qc-success-btn: #7cebc3;
+  --qc-success-tr-xsm: rgba(56, 212, 155, 0.4);
+  --qc-success-tr-sm: rgba(56, 212, 155, 0.3);
+  --qc-success-tr: rgba(56, 212, 155, 0.2);
+
+  --qc-focus-info: var(--qc-info);
+  --qc-info: var(--qc-accent-primary);
+  --qc-info-tr-xsm: var(--qc-accent-primary-tr-xsm);
+  --qc-info-tr-sm: var(--qc-accent-primary-tr-sm);
+  --qc-info-tr: var(--qc-accent-primary-tr);
+}

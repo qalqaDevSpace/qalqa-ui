@@ -1,0 +1,92 @@
+.checkbox-container {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .checkbox-input {
+    appearance: none;
+    position: relative;
+    background: var(--qc-bg-card);
+    box-sizing: border-box;
+    border: var(--qc-border-card);
+    transition: 0.2s ease-in-out;
+    &::after {
+      content: "check";
+      position: absolute;
+      color: var(--qc-text-inverted);
+      top: 3px;
+      left: 5px;
+      width: 0px;
+      height: 0px;
+      overflow: hidden;
+    }
+
+    &:hover {
+      background-color: var(--qc-hover-accent-primary-tr);
+    }
+
+    &.checked::after {
+      transition: 1s;
+    }
+
+    &.invalid {
+      border: 1px solid var(--qc-error);
+      box-shadow: 0 0 5px var(--qc-error);
+      background-color: var(--qc-error-tr);
+    }
+
+    &.checked {
+      background-color: var(--qc-accent-primary);
+    }
+  }
+
+  &.s-sm {
+    gap: 0.3rem;
+    font-size: 15px;
+    .checkbox-input {
+      width: 20px;
+      height: 20px;
+      border-radius: 4.5px;
+      &::after {
+        left: 2px;
+        top: 1px;
+      }
+      &.checked::after {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  &.s-md {
+    gap: 0.5rem;
+    font-size: 20px;
+    .checkbox-input {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      &.checked::after {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  &.s-lg {
+    gap: 0.7rem;
+    font-size: 30px;
+    .checkbox-input {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      &.checked::after {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  .checkbox-label {
+    font-family: var(--qff-primary);
+  }
+}
