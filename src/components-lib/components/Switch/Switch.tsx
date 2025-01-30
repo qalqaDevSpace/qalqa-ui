@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { ICheckboxProps } from '../../model/CheckboxModel';
-import styles from './Checkbox.module.scss';
+import { ICheckboxProps } from '../../model/SwitchModel';
+import styles from './Switch.module.scss';
 
-export const Checkbox = ({
+export const Switch = ({
 	id,
 	onChange,
 	value,
@@ -20,12 +20,12 @@ export const Checkbox = ({
 		<div
 			className={
 				'material-symbols-outlined ' +
-				clsx(styles['checkbox-container'], styles[`s-${size}`])
+				clsx(styles['switch-container'], styles[`s-${size}`])
 			}
 		>
 			{labelPosition === 'left' ||
 				(!labelPosition && label && (
-					<label className={styles['checkbox-label']} htmlFor={id}>
+					<label className={styles['switch-label']} htmlFor={id}>
 						{label}
 					</label>
 				))}
@@ -38,14 +38,14 @@ export const Checkbox = ({
 				checked={checked ? checked : dummyChecked}
 				name={name}
 				id={id}
-				className={clsx(styles['checkbox-input'], {
+				className={clsx(styles['switch-input'], {
 					[styles.invalid]: invalid,
 					[styles.disabled]: disabled,
 					[styles.checked]: checked ? checked : dummyChecked,
 				})}
 			/>
 			{labelPosition === 'right' && label && (
-				<label className={styles['checkbox-label']} htmlFor={id}>
+				<label className={styles['switch-label']} htmlFor={id}>
 					{label}
 				</label>
 			)}

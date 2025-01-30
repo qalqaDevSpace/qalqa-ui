@@ -1,10 +1,10 @@
-.checkbox-container {
+.switch-container {
   width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .checkbox-input {
+  .switch-input {
     appearance: none;
     position: relative;
     background: var(--qc-bg-card);
@@ -44,7 +44,7 @@
   &.s-sm {
     gap: 0.3rem;
     font-size: 15px;
-    .checkbox-input {
+    .switch-input {
       width: 20px;
       height: 20px;
       border-radius: 4.5px;
@@ -62,7 +62,7 @@
   &.s-md {
     gap: 0.5rem;
     font-size: 20px;
-    .checkbox-input {
+    .switch-input {
       width: 30px;
       height: 30px;
       border-radius: 7px;
@@ -76,7 +76,7 @@
   &.s-lg {
     gap: 0.7rem;
     font-size: 30px;
-    .checkbox-input {
+    .switch-input {
       width: 40px;
       height: 40px;
       border-radius: 10px;
@@ -86,7 +86,7 @@
       }
     }
   }
-  .checkbox-label {
+  .switch-label {
     font-family: var(--qff-primary);
   }
 }

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import {
 	Button,
-	Checkbox,
 	Dropdown,
 	InputText,
+	Switch,
 	ThemeButton,
 	useToast,
 } from '../components-lib';
@@ -110,7 +110,7 @@ function App() {
 				/>
 				<p>Printed: {printed}</p>
 				<ThemeButton />
-				<Checkbox
+				<Switch
 					id="nigga"
 					label="Nigga"
 					size="sm"
