@@ -48,6 +48,7 @@
       box-shadow: 0 0 5px var(--qc-accent-primary);
       &.checkbox {
         background-color: var(--qc-accent-primary);
+        border: none;
       }
       &.radio {
         border: 7px solid var(--qc-accent-primary);
