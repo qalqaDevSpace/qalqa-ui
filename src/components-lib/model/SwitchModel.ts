@@ -2,7 +2,7 @@ export interface ISwitchBaseProps {
 	id?: string;
 	isToggle?: boolean;
 	checked?: boolean;
-	onChange?: () => void;
+	onChange?: (value?: boolean) => void;
 	value?: string;
 	invalid?: boolean;
 	name?: string;

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { ISwitchProps } from '../../model/SwitchModel';
 import styles from './Switch.module.scss';
 
@@ -16,14 +16,11 @@ export const Switch = ({
 	labelPosition,
 	disabled,
 }: ISwitchProps) => {
-	const [dummyChecked, setDummyChecked] = useState(false);
-	const handleChange = () => {
-		if (onChange) {
-			onChange();
-		}
-		if (type === 'checkbox') {
-			setDummyChecked(!dummyChecked);
-		}
+	const [selected, setSelected] = useState(checked ? true : false);
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+		const newState = event.target.checked;
+		setSelected(newState);
+		onChange?.(newState);
 	};
 	return (
 		<div
@@ -38,21 +35,37 @@ export const Switch = ({
 						{label}
 					</label>
 				))}
-			<input
-				type={type}
-				onChange={handleChange}
-				value={value}
-				checked={checked ? checked : dummyChecked}
-				name={name}
-				id={id}
-				className={clsx(styles['switch-input'], {
-					[styles.checkbox]: type === 'checkbox',
-					[styles.radio]: type === 'radio',
-					[styles.invalid]: invalid,
-					[styles.disabled]: disabled,
-					[styles.checked]: checked ? checked : dummyChecked,
-				})}
-			/>
+			{type === 'radio' ? (
+				<input
+					type={type}
+					onChange={handleChange}
+					value={value}
+					checked={checked}
+					name={name}
+					id={id}
+					className={clsx(styles['switch-input'], {
+						[styles.radio]: type === 'radio',
+						[styles.invalid]: invalid,
+						[styles.disabled]: disabled,
+						[styles.checked]: checked,
+					})}
+				/>
+			) : (
+				<input
+					type={type}
+					onChange={handleChange}
+					value={value}
+					checked={selected}
+					name={name}
+					id={id}
+					className={clsx(styles['switch-input'], {
+						[styles.checkbox]: type === 'checkbox',
+						[styles.invalid]: invalid,
+						[styles.disabled]: disabled,
+						[styles.checked]: selected,
+					})}
+				/>
+			)}
 			{labelPosition === 'right' && label && (
 				<label className={styles['switch-label']} htmlFor={id}>
 					{label}

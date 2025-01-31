@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
 	Button,
 	Dropdown,
@@ -84,23 +84,29 @@ function App() {
 		{
 			label: 'Ginger 1',
 			value: 'ginger',
-			isSelected: true,
+			// isSelected: true,
 		},
 		{
 			label: 'Ginger 2',
 			value: 'ginger2',
+			// isSelected: true,
 		},
 		{
 			label: 'Ginger 3',
 			value: 'ginger3',
-			isSelected: true,
+			// isSelected: false,
 		},
 	];
 
 	const [selectedRadio, setSelectedRadio] = useState<RadioOption>();
 	const [selectedCheckboxes, setSelectedCheckboxes] = useState<
-		CheckboxOption[]
+		CheckboxOption[] | []
 	>([]);
+
+	useEffect(() => {
+		console.clear();
+		console.table(selectedCheckboxes);
+	}, [selectedCheckboxes]);
 	return (
 		<>
 			<div className={styles.container}>
@@ -177,7 +183,18 @@ function App() {
 						onChange={(value) => setSelectedRadio(value)}
 					/>
 					{selectedRadio?.label && <p>{selectedRadio.label}</p>}
-					<CheckboxGroup options={switchChOptions} name="ginger-cb" />
+					<CheckboxGroup
+						options={switchChOptions}
+						name="ginger-cb"
+						onChange={(value) => console.log(value)}
+						// onChange={(value) =>
+						// 	setSelectedCheckboxes((prev) =>
+						// 		!value.isSelected
+						// 			? [...prev, value]
+						// 			: [...prev.filter((e) => e.value !== value.value)]
+						// 	)
+						// }
+					/>
 				</div>
 			</div>
 		</>
