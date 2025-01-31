@@ -27,6 +27,7 @@ export const CheckboxGroup = ({
 					id={option.value}
 					label={option?.label}
 					value={option.value}
+					checked={option.isSelected}
 					name={name}
 					onChange={() => onChange && onChange(option)}
 				/>

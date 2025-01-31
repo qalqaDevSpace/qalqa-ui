@@ -80,6 +80,23 @@ function App() {
 		},
 	];
 
+	const switchChOptions = [
+		{
+			label: 'Ginger 1',
+			value: 'ginger',
+			isSelected: true,
+		},
+		{
+			label: 'Ginger 2',
+			value: 'ginger2',
+		},
+		{
+			label: 'Ginger 3',
+			value: 'ginger3',
+			isSelected: true,
+		},
+	];
+
 	const [selectedRadio, setSelectedRadio] = useState<RadioOption>();
 	const [selectedCheckboxes, setSelectedCheckboxes] = useState<
 		CheckboxOption[]
@@ -160,19 +177,7 @@ function App() {
 						onChange={(value) => setSelectedRadio(value)}
 					/>
 					{selectedRadio?.label && <p>{selectedRadio.label}</p>}
-					<CheckboxGroup
-						options={switchOptions}
-						name="ginger-cb"
-						onChange={(value) =>
-							setSelectedCheckboxes((prev) => [...prev, value])
-						}
-					/>
-					{selectedCheckboxes?.map((item) => (
-						<p key={item.value}>{item.label}</p>
-					))}
-					<button onClick={() => console.log(selectedCheckboxes)}>
-						1231231
-					</button>
+					<CheckboxGroup options={switchChOptions} name="ginger-cb" />
 				</div>
 			</div>
 		</>
