@@ -6,7 +6,14 @@ import {
 	ThemeButton,
 	useToast,
 } from '../components-lib';
-import { RadioGroup } from '../components-lib/components/Radio/RadioGroup';
+import {
+	CheckboxGroup,
+	CheckboxOption,
+} from '../components-lib/components/Checkbox/CheckboxGroup';
+import {
+	RadioGroup,
+	RadioOption,
+} from '../components-lib/components/Radio/RadioGroup';
 import { IDropdownItem } from '../components-lib/model/DropdownModel';
 import styles from './App.module.css';
 
@@ -58,9 +65,7 @@ function App() {
 		setPrinted(value || null);
 	};
 
-	const [checked, setChecked] = useState(false);
-
-	const radioOptions = [
+	const switchOptions = [
 		{
 			label: 'Ginger 1',
 			value: 'ginger',
@@ -74,6 +79,11 @@ function App() {
 			value: 'ginger3',
 		},
 	];
+
+	const [selectedRadio, setSelectedRadio] = useState<RadioOption>();
+	const [selectedCheckboxes, setSelectedCheckboxes] = useState<
+		CheckboxOption[]
+	>([]);
 	return (
 		<>
 			<div className={styles.container}>
@@ -145,10 +155,24 @@ function App() {
 						// checked={checked}
 					/> */}
 					<RadioGroup
-						options={radioOptions}
+						options={switchOptions}
 						name="ginger"
-						onChange={(value) => console.log('Выбрано:', value)}
+						onChange={(value) => setSelectedRadio(value)}
 					/>
+					{selectedRadio?.label && <p>{selectedRadio.label}</p>}
+					<CheckboxGroup
+						options={switchOptions}
+						name="ginger-cb"
+						onChange={(value) =>
+							setSelectedCheckboxes((prev) => [...prev, value])
+						}
+					/>
+					{selectedCheckboxes?.map((item) => (
+						<p key={item.value}>{item.label}</p>
+					))}
+					<button onClick={() => console.log(selectedCheckboxes)}>
+						1231231
+					</button>
 				</div>
 			</div>
 		</>

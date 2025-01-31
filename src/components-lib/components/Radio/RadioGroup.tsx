@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Switch } from '../Switch/Switch';
 
-type RadioOption = {
+export type RadioOption = {
 	label?: string;
 	value: string;
 };
 
-interface IRadioGroup {
+interface IRadioGroupProps {
 	options: RadioOption[];
 	name: string;
 	selectedDefault?: RadioOption;
@@ -18,7 +18,7 @@ export const RadioGroup = ({
 	name,
 	selectedDefault,
 	onChange,
-}: IRadioGroup) => {
+}: IRadioGroupProps) => {
 	const [selected, setSelected] = useState<RadioOption | null>(
 		selectedDefault || null
 	);
@@ -30,17 +30,16 @@ export const RadioGroup = ({
 	return (
 		<>
 			{options.map((option) => (
-				<div key={option.value}>
-					{option.label && <label htmlFor={option.value}>{option.label}</label>}
-					<Switch
-						type="radio"
-						id={option.value}
-						value={option.value}
-						name={name}
-						checked={selected?.value === option.value}
-						onChange={() => handleSelect(option)}
-					/>
-				</div>
+				<Switch
+					key={option.value}
+					type="radio"
+					id={option.value}
+					label={option?.label}
+					value={option.value}
+					name={name}
+					checked={selected?.value === option.value}
+					onChange={() => handleSelect(option)}
+				/>
 			))}
 		</>
 	);

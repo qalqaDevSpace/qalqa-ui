@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 import { ISwitchProps } from '../../model/SwitchModel';
 import styles from './Switch.module.scss';
 
@@ -15,7 +16,15 @@ export const Switch = ({
 	labelPosition,
 	disabled,
 }: ISwitchProps) => {
-	// const [dummyChecked, setDummyChecked] = useState(false);
+	const [dummyChecked, setDummyChecked] = useState(false);
+	const handleChange = () => {
+		if (onChange) {
+			onChange();
+		}
+		if (type === 'checkbox') {
+			setDummyChecked(!dummyChecked);
+		}
+	};
 	return (
 		<div
 			className={
@@ -31,15 +40,15 @@ export const Switch = ({
 				))}
 			<input
 				type={type}
-				onChange={onChange}
+				onChange={handleChange}
 				value={value}
-				checked={checked}
+				checked={checked ? checked : dummyChecked}
 				name={name}
 				id={id}
 				className={clsx(styles['switch-input'], {
 					[styles.invalid]: invalid,
 					[styles.disabled]: disabled,
-					[styles.checked]: checked,
+					[styles.checked]: checked ? checked : dummyChecked,
 				})}
 			/>
 			{labelPosition === 'right' && label && (
