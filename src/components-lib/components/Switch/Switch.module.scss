@@ -1,25 +1,33 @@
-.checkbox-container {
-  width: fit-content;
+.switch-container {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
-  .checkbox-input {
+  .switch-input {
     appearance: none;
     position: relative;
     background: var(--qc-bg-card);
     box-sizing: border-box;
     border: var(--qc-border-card);
     transition: 0.2s ease-in-out;
-    &::after {
-      content: "check";
-      position: absolute;
-      color: var(--qc-text-inverted);
-      top: 3px;
-      left: 5px;
-      width: 0px;
-      height: 0px;
-      overflow: hidden;
+    &.checkbox {
+      &::after {
+        content: "check";
+        position: absolute;
+        color: var(--qc-text-inverted);
+        top: 3px;
+        left: 5px;
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+      }
+    }
+    &.radio {
+      border-radius: 100%;
+      &::after {
+        display: none;
+      }
     }
 
     &:hover {
@@ -37,17 +45,26 @@
     }
 
     &.checked {
-      background-color: var(--qc-accent-primary);
+      box-shadow: 0 0 5px var(--qc-accent-primary);
+      &.checkbox {
+        background-color: var(--qc-accent-primary);
+        border: none;
+      }
+      &.radio {
+        border: 7px solid var(--qc-accent-primary);
+      }
     }
   }
 
   &.s-sm {
     gap: 0.3rem;
     font-size: 15px;
-    .checkbox-input {
+    .switch-input {
       width: 20px;
       height: 20px;
-      border-radius: 4.5px;
+      &.checkbox {
+        border-radius: 4.5px;
+      }
       &::after {
         left: 2px;
         top: 1px;
@@ -62,10 +79,12 @@
   &.s-md {
     gap: 0.5rem;
     font-size: 20px;
-    .checkbox-input {
+    .switch-input {
       width: 30px;
       height: 30px;
-      border-radius: 7px;
+      &.checkbox {
+        border-radius: 7px;
+      }
       &.checked::after {
         width: 30px;
         height: 30px;
@@ -76,17 +95,19 @@
   &.s-lg {
     gap: 0.7rem;
     font-size: 30px;
-    .checkbox-input {
+    .switch-input {
       width: 40px;
       height: 40px;
-      border-radius: 10px;
+      &.checkbox {
+        border-radius: 10px;
+      }
       &.checked::after {
         width: 40px;
         height: 40px;
       }
     }
   }
-  .checkbox-label {
+  .switch-label {
     font-family: var(--qff-primary);
   }
 }

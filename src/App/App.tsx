@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
 	Button,
-	Checkbox,
 	Dropdown,
 	InputText,
 	ThemeButton,
 	useToast,
 } from '../components-lib';
+import {
+	CheckboxGroup,
+	CheckboxOption,
+} from '../components-lib/components/Checkbox/CheckboxGroup';
+import {
+	RadioGroup,
+	RadioOption,
+} from '../components-lib/components/Radio/RadioGroup';
 import { IDropdownItem } from '../components-lib/model/DropdownModel';
 import styles from './App.module.css';
 
@@ -58,7 +65,53 @@ function App() {
 		setPrinted(value || null);
 	};
 
-	const [checked, setChecked] = useState(false);
+	const switchOptions = [
+		{
+			label: 'Ginger 1',
+			value: 'ginger',
+		},
+		{
+			label: 'Ginger 2',
+			value: 'ginger2',
+		},
+		{
+			label: 'Ginger 3',
+			value: 'ginger3',
+		},
+	];
+
+	const switchChOptions = [
+		{
+			label: 'Ginger 1',
+			value: 'ginger',
+			// isSelected: true,
+		},
+		{
+			label: 'Ginger 2',
+			value: 'ginger2',
+			isSelected: true,
+		},
+		{
+			label: 'Ginger 3',
+			value: 'ginger3',
+			// isSelected: false,
+		},
+	];
+
+	const [selectedRadio, setSelectedRadio] = useState<RadioOption>();
+	const [selectedCheckboxes, setSelectedCheckboxes] = useState<
+		CheckboxOption[]
+	>([]);
+
+	useEffect(() => {
+		console.clear();
+		console.log(selectedRadio);
+	}, [selectedRadio]);
+
+	useEffect(() => {
+		console.clear();
+		console.table(selectedCheckboxes);
+	}, [selectedCheckboxes]);
 	return (
 		<>
 			<div className={styles.container}>
@@ -110,14 +163,51 @@ function App() {
 				/>
 				<p>Printed: {printed}</p>
 				<ThemeButton />
-				<Checkbox
-					id="nigga"
-					label="Nigga"
-					size="sm"
-					invalid={!checked}
-					onChange={() => setChecked(!checked)}
-					checked={checked}
-				/>
+				<div>
+					{/* <Switch
+						id="nigga"
+						label="Nigga"
+						size="sm"
+						name="sex"
+						// invalid={!checked}
+						// onChange={() => setChecked(!checked)}
+						// checked={checked}
+					/>
+					<Switch
+						id="nigga1"
+						label="Nigga11"
+						size="sm"
+						name="sex"
+						// invalid={!checked}
+						// onChange={() => setChecked(!checked)}
+						// checked={checked}
+					/> */}
+					<RadioGroup
+						options={switchOptions}
+						name="ginger"
+						onChange={(value) => setSelectedRadio(value)}
+					/>
+					{selectedRadio?.label && <p>{selectedRadio.label}</p>}
+					<CheckboxGroup
+						options={switchChOptions}
+						name="ginger-cb"
+						// onChange={(value) => console.log(value)}
+						onChange={(option) =>
+							setSelectedCheckboxes((prev) =>
+								option.isSelected
+									? [...prev, option]
+									: prev.filter((e) => e.value !== option.value)
+							)
+						}
+					/>
+					{selectedCheckboxes.length > 0 && (
+						<div>
+							{selectedCheckboxes.map((option) => (
+								<p key={option.value}>{option.label}</p>
+							))}
+						</div>
+					)}
+				</div>
 			</div>
 		</>
 	);
