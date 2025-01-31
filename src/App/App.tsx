@@ -3,10 +3,10 @@ import {
 	Button,
 	Dropdown,
 	InputText,
-	Switch,
 	ThemeButton,
 	useToast,
 } from '../components-lib';
+import { RadioGroup } from '../components-lib/components/Radio/RadioGroup';
 import { IDropdownItem } from '../components-lib/model/DropdownModel';
 import styles from './App.module.css';
 
@@ -59,6 +59,21 @@ function App() {
 	};
 
 	const [checked, setChecked] = useState(false);
+
+	const radioOptions = [
+		{
+			label: 'Ginger 1',
+			value: 'ginger',
+		},
+		{
+			label: 'Ginger 2',
+			value: 'ginger2',
+		},
+		{
+			label: 'Ginger 3',
+			value: 'ginger3',
+		},
+	];
 	return (
 		<>
 			<div className={styles.container}>
@@ -110,14 +125,31 @@ function App() {
 				/>
 				<p>Printed: {printed}</p>
 				<ThemeButton />
-				<Switch
-					id="nigga"
-					label="Nigga"
-					size="sm"
-					invalid={!checked}
-					onChange={() => setChecked(!checked)}
-					checked={checked}
-				/>
+				<div>
+					{/* <Switch
+						id="nigga"
+						label="Nigga"
+						size="sm"
+						name="sex"
+						// invalid={!checked}
+						// onChange={() => setChecked(!checked)}
+						// checked={checked}
+					/>
+					<Switch
+						id="nigga1"
+						label="Nigga11"
+						size="sm"
+						name="sex"
+						// invalid={!checked}
+						// onChange={() => setChecked(!checked)}
+						// checked={checked}
+					/> */}
+					<RadioGroup
+						options={radioOptions}
+						name="ginger"
+						onChange={(value) => console.log('Выбрано:', value)}
+					/>
+				</div>
 			</div>
 		</>
 	);
