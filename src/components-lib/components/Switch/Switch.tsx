@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { ISwitchProps } from '../../model/SwitchModel';
 import { CheckboxOption } from '../Checkbox/CheckboxGroup';
 import styles from './Switch.module.scss';
@@ -29,6 +29,15 @@ export const Switch = ({
 		setSelected(newState);
 		onChange?.(newObject);
 	};
+
+	//Убрать эту хуйню в проде потому-что это кринж
+	const effectRun = useRef(false);
+	useEffect(() => {
+		if (effectRun.current) return;
+		effectRun.current = true;
+		onChange?.({ label, value, isSelected: checked || false });
+		setSelected(checked || false);
+	}, []);
 
 	return (
 		<div
