@@ -2,15 +2,15 @@ import { CheckboxOption } from './CheckboxModel';
 
 interface ISwitchBaseProps {
 	id?: string;
-	isToggle?: boolean;
 	checked?: boolean;
-	onChange?: (option: CheckboxOption) => void;
 	value: string;
 	invalid?: boolean;
 	name?: string;
-	disabled?: boolean;
 	type?: SwitchType;
 	size?: SwitchSize;
+	isDisabled?: boolean;
+	isToggle?: boolean;
+	onChange?: (option: CheckboxOption) => void;
 }
 
 type SwitchType = 'checkbox' | 'radio';

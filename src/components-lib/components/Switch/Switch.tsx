@@ -14,9 +14,9 @@ export const Switch = ({
 	checked,
 	type = 'checkbox',
 	size = 'md',
-	isToggle = false,
 	labelPosition,
-	disabled,
+	isToggle = false,
+	isDisabled = false,
 }: ISwitchProps) => {
 	const [selected, setSelected] = useState<boolean>(false);
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -46,6 +46,7 @@ export const Switch = ({
 				'material-symbols-outlined ' +
 				clsx(styles['switch-container'], styles[`s-${size}`], {
 					[styles.toggle]: isToggle,
+					[styles.disabled]: isDisabled,
 				})
 			}
 		>
@@ -66,7 +67,6 @@ export const Switch = ({
 					className={clsx(styles['switch-input'], {
 						[styles.radio]: type === 'radio',
 						[styles.invalid]: invalid,
-						[styles.disabled]: disabled,
 						[styles.checked]: checked,
 					})}
 				/>
@@ -81,7 +81,7 @@ export const Switch = ({
 					className={clsx(styles['switch-input'], {
 						[styles.checkbox]: type === 'checkbox',
 						[styles.invalid]: invalid,
-						[styles.disabled]: disabled,
+
 						[styles.checked]: selected,
 					})}
 				/>

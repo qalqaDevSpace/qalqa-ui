@@ -70,10 +70,12 @@ function App() {
 		{
 			label: 'U a happy?',
 			value: 'ginger-nt-happy',
+			isDisabled: true,
 		},
 		{
 			label: 'U have a girlfriend?',
 			value: 'ginger-nt-girlfriend',
+			isDisabled: true,
 		},
 	];
 
@@ -81,7 +83,8 @@ function App() {
 		{
 			label: 'U cunt?',
 			value: 'ginger-cunt',
-			isSelected: false,
+			isSelected: true,
+			isDisabled: true,
 		},
 		{
 			label: 'U faggot?',
@@ -161,6 +164,7 @@ function App() {
 				<div>
 					<RadioGroup
 						options={switchOptions}
+						selectedDefault={switchOptions[0]}
 						name="ginger"
 						onChange={(value) => setSelectedRadio(value)}
 					/>

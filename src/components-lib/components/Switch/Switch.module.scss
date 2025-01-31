@@ -50,6 +50,11 @@ $sizes: (
   justify-content: space-between;
   align-items: center;
 
+  &.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
   &.toggle {
     @each $size, $props in $toggle-sizes {
       &.#{$size} {

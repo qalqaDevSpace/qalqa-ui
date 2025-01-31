@@ -5,7 +5,8 @@ import styles from '../Switch/SwitchGroup.module.scss';
 export const CheckboxGroup = ({
 	options,
 	name,
-	isToggle,
+	toggle,
+	disabled,
 	onChange,
 }: ICheckboxGroupProps) => {
 	return (
@@ -19,7 +20,8 @@ export const CheckboxGroup = ({
 					value={option.value}
 					checked={option.isSelected}
 					name={name}
-					isToggle={isToggle}
+					isDisabled={option.isDisabled || disabled}
+					isToggle={toggle}
 					onChange={(value) => onChange(value)}
 				/>
 			))}
