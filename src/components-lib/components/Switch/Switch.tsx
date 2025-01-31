@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { ChangeEvent, useState } from 'react';
 import { ISwitchProps } from '../../model/SwitchModel';
+import { CheckboxOption } from '../Checkbox/CheckboxGroup';
 import styles from './Switch.module.scss';
 
 export const Switch = ({
@@ -16,12 +17,19 @@ export const Switch = ({
 	labelPosition,
 	disabled,
 }: ISwitchProps) => {
-	const [selected, setSelected] = useState(checked ? true : false);
+	const [selected, setSelected] = useState<boolean>(false);
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const newState = event.target.checked;
+		const newObject: CheckboxOption = {
+			label,
+			value,
+			isSelected: newState,
+		};
+
 		setSelected(newState);
-		onChange?.(newState);
+		onChange?.(newObject);
 	};
+
 	return (
 		<div
 			className={

@@ -10,7 +10,7 @@ export type CheckboxOption = {
 interface ICheckboxGroupProps {
 	options: CheckboxOption[];
 	name: string;
-	onChange?: (value: CheckboxOption) => void;
+	onChange: (value: CheckboxOption) => void;
 }
 
 export const CheckboxGroup = ({
@@ -18,6 +18,9 @@ export const CheckboxGroup = ({
 	name,
 	onChange,
 }: ICheckboxGroupProps) => {
+	// options.forEach((option) => {
+	// 	option.isSelected ? onChange(option) : null;
+	// });
 	return (
 		<ul className={styles['switch-group']}>
 			{options.map((option) => (
@@ -29,7 +32,7 @@ export const CheckboxGroup = ({
 					value={option.value}
 					checked={option.isSelected}
 					name={name}
-					onChange={() => onChange && onChange(option)}
+					onChange={(value) => onChange(value)}
 				/>
 			))}
 		</ul>

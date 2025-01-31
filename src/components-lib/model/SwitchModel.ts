@@ -1,9 +1,11 @@
+import { CheckboxOption } from '../components/Checkbox/CheckboxGroup';
+
 export interface ISwitchBaseProps {
 	id?: string;
 	isToggle?: boolean;
 	checked?: boolean;
-	onChange?: (value?: boolean) => void;
-	value?: string;
+	onChange: (option: CheckboxOption) => void;
+	value: string;
 	invalid?: boolean;
 	name?: string;
 	disabled?: boolean;
