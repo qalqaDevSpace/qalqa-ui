@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Switch } from '../Switch/Switch';
+import styles from '../Switch/SwitchGroup.module.scss';
 
 export type RadioOption = {
 	label?: string;
@@ -28,7 +29,7 @@ export const RadioGroup = ({
 		onChange && onChange(option);
 	};
 	return (
-		<>
+		<ul className={styles['switch-group']}>
 			{options.map((option) => (
 				<Switch
 					key={option.value}
@@ -41,6 +42,6 @@ export const RadioGroup = ({
 					onChange={() => handleSelect(option)}
 				/>
 			))}
-		</>
+		</ul>
 	);
 };

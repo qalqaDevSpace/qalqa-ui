@@ -1,4 +1,5 @@
 import { Switch } from '../Switch/Switch';
+import styles from '../Switch/SwitchGroup.module.scss';
 
 export type CheckboxOption = {
 	label?: string;
@@ -18,7 +19,7 @@ export const CheckboxGroup = ({
 	onChange,
 }: ICheckboxGroupProps) => {
 	return (
-		<>
+		<ul className={styles['switch-group']}>
 			{options.map((option) => (
 				<Switch
 					key={option.value}
@@ -30,6 +31,6 @@ export const CheckboxGroup = ({
 					onChange={() => onChange && onChange(option)}
 				/>
 			))}
-		</>
+		</ul>
 	);
 };

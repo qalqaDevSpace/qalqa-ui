@@ -46,6 +46,8 @@ export const Switch = ({
 				name={name}
 				id={id}
 				className={clsx(styles['switch-input'], {
+					[styles.checkbox]: type === 'checkbox',
+					[styles.radio]: type === 'radio',
 					[styles.invalid]: invalid,
 					[styles.disabled]: disabled,
 					[styles.checked]: checked ? checked : dummyChecked,
