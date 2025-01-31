@@ -1,22 +1,12 @@
 import { useState } from 'react';
+import { IRadioGroupProps, RadioOption } from '../../model/RadioModal';
 import { Switch } from '../Switch/Switch';
 import styles from '../Switch/SwitchGroup.module.scss';
-
-export type RadioOption = {
-	label?: string;
-	value: string;
-};
-
-interface IRadioGroupProps {
-	options: RadioOption[];
-	name: string;
-	selectedDefault?: RadioOption;
-	onChange?: (value: RadioOption) => void;
-}
 
 export const RadioGroup = ({
 	options,
 	name,
+	isToggle,
 	selectedDefault,
 	onChange,
 }: IRadioGroupProps) => {
@@ -39,6 +29,7 @@ export const RadioGroup = ({
 					value={option.value}
 					name={name}
 					checked={selected?.value === option.value}
+					isToggle={isToggle}
 					onChange={() => handleSelect(option)}
 				/>
 			))}

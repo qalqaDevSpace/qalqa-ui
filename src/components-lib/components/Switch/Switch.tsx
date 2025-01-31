@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { CheckboxOption } from '../../model/CheckboxModel';
 import { ISwitchProps } from '../../model/SwitchModel';
-import { CheckboxOption } from '../Checkbox/CheckboxGroup';
 import styles from './Switch.module.scss';
 
 export const Switch = ({
@@ -13,8 +13,8 @@ export const Switch = ({
 	label,
 	checked,
 	type = 'checkbox',
-	size = 'sm',
-	isToggle = true,
+	size = 'md',
+	isToggle = false,
 	labelPosition,
 	disabled,
 }: ISwitchProps) => {

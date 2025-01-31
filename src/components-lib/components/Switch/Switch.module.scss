@@ -53,6 +53,7 @@ $sizes: (
   &.toggle {
     @each $size, $props in $toggle-sizes {
       &.#{$size} {
+        font-size: map-get($props, thumb-size);
         .switch-input {
           width: map-get($props, width);
           height: map-get($props, height);
