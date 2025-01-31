@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { CheckboxOption } from '../../model/CheckboxModel';
 import { ISwitchProps } from '../../model/SwitchModel';
-import { CheckboxOption } from '../Checkbox/CheckboxGroup';
 import styles from './Switch.module.scss';
 
 export const Switch = ({
@@ -15,7 +15,8 @@ export const Switch = ({
 	type = 'checkbox',
 	size = 'md',
 	labelPosition,
-	disabled,
+	isToggle = false,
+	isDisabled = false,
 }: ISwitchProps) => {
 	const [selected, setSelected] = useState<boolean>(false);
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +44,10 @@ export const Switch = ({
 		<div
 			className={
 				'material-symbols-outlined ' +
-				clsx(styles['switch-container'], styles[`s-${size}`])
+				clsx(styles['switch-container'], styles[`s-${size}`], {
+					[styles.toggle]: isToggle,
+					[styles.disabled]: isDisabled,
+				})
 			}
 		>
 			{labelPosition === 'left' ||
@@ -63,7 +67,6 @@ export const Switch = ({
 					className={clsx(styles['switch-input'], {
 						[styles.radio]: type === 'radio',
 						[styles.invalid]: invalid,
-						[styles.disabled]: disabled,
 						[styles.checked]: checked,
 					})}
 				/>
@@ -78,7 +81,7 @@ export const Switch = ({
 					className={clsx(styles['switch-input'], {
 						[styles.checkbox]: type === 'checkbox',
 						[styles.invalid]: invalid,
-						[styles.disabled]: disabled,
+
 						[styles.checked]: selected,
 					})}
 				/>

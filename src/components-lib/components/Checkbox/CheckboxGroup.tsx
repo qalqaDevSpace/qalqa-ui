@@ -1,26 +1,14 @@
+import { ICheckboxGroupProps } from '../../model/CheckboxModel';
 import { Switch } from '../Switch/Switch';
 import styles from '../Switch/SwitchGroup.module.scss';
-
-export type CheckboxOption = {
-	label?: string;
-	value: string;
-	isSelected?: boolean;
-};
-
-interface ICheckboxGroupProps {
-	options: CheckboxOption[];
-	name: string;
-	onChange: (value: CheckboxOption) => void;
-}
 
 export const CheckboxGroup = ({
 	options,
 	name,
+	toggle,
+	disabled,
 	onChange,
 }: ICheckboxGroupProps) => {
-	// options.forEach((option) => {
-	// 	option.isSelected ? onChange(option) : null;
-	// });
 	return (
 		<ul className={styles['switch-group']}>
 			{options.map((option) => (
@@ -32,6 +20,8 @@ export const CheckboxGroup = ({
 					value={option.value}
 					checked={option.isSelected}
 					name={name}
+					isDisabled={option.isDisabled || disabled}
+					isToggle={toggle}
 					onChange={(value) => onChange(value)}
 				/>
 			))}

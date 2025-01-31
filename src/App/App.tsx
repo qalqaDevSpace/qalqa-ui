@@ -1,20 +1,17 @@
 import { useEffect, useState } from 'react';
 import {
 	Button,
+	CheckboxGroup,
 	Dropdown,
 	InputText,
+	RadioGroup,
+	Switch,
 	ThemeButton,
 	useToast,
 } from '../components-lib';
-import {
-	CheckboxGroup,
-	CheckboxOption,
-} from '../components-lib/components/Checkbox/CheckboxGroup';
-import {
-	RadioGroup,
-	RadioOption,
-} from '../components-lib/components/Radio/RadioGroup';
+import { CheckboxOption } from '../components-lib/model/CheckboxModel';
 import { IDropdownItem } from '../components-lib/model/DropdownModel';
+import { RadioOption } from '../components-lib/model/RadioModal';
 import styles from './App.module.css';
 
 function App() {
@@ -67,34 +64,35 @@ function App() {
 
 	const switchOptions = [
 		{
-			label: 'Ginger 1',
-			value: 'ginger',
+			label: 'U playing Dota?',
+			value: 'ginger-dota',
 		},
 		{
-			label: 'Ginger 2',
-			value: 'ginger2',
+			label: 'U a happy?',
+			value: 'ginger-nt-happy',
+			isDisabled: true,
 		},
 		{
-			label: 'Ginger 3',
-			value: 'ginger3',
+			label: 'U have a girlfriend?',
+			value: 'ginger-nt-girlfriend',
+			isDisabled: true,
 		},
 	];
 
 	const switchChOptions = [
 		{
-			label: 'Ginger 1',
-			value: 'ginger',
-			// isSelected: true,
-		},
-		{
-			label: 'Ginger 2',
-			value: 'ginger2',
+			label: 'U cunt?',
+			value: 'ginger-cunt',
 			isSelected: true,
+			isDisabled: true,
 		},
 		{
-			label: 'Ginger 3',
-			value: 'ginger3',
-			// isSelected: false,
+			label: 'U faggot?',
+			value: 'ginger2-fag',
+		},
+		{
+			label: 'U a nigga?',
+			value: 'ginger-nigga',
 		},
 	];
 
@@ -164,34 +162,15 @@ function App() {
 				<p>Printed: {printed}</p>
 				<ThemeButton />
 				<div>
-					{/* <Switch
-						id="nigga"
-						label="Nigga"
-						size="sm"
-						name="sex"
-						// invalid={!checked}
-						// onChange={() => setChecked(!checked)}
-						// checked={checked}
-					/>
-					<Switch
-						id="nigga1"
-						label="Nigga11"
-						size="sm"
-						name="sex"
-						// invalid={!checked}
-						// onChange={() => setChecked(!checked)}
-						// checked={checked}
-					/> */}
 					<RadioGroup
 						options={switchOptions}
+						selectedDefault={switchOptions[0]}
 						name="ginger"
 						onChange={(value) => setSelectedRadio(value)}
 					/>
-					{selectedRadio?.label && <p>{selectedRadio.label}</p>}
 					<CheckboxGroup
 						options={switchChOptions}
 						name="ginger-cb"
-						// onChange={(value) => console.log(value)}
 						onChange={(option) =>
 							setSelectedCheckboxes((prev) =>
 								option.isSelected
@@ -200,13 +179,7 @@ function App() {
 							)
 						}
 					/>
-					{selectedCheckboxes.length > 0 && (
-						<div>
-							{selectedCheckboxes.map((option) => (
-								<p key={option.value}>{option.label}</p>
-							))}
-						</div>
-					)}
+					<Switch isToggle value="single" name="single" label="U single?" />
 				</div>
 			</div>
 		</>

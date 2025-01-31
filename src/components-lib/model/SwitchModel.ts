@@ -1,19 +1,21 @@
-import { CheckboxOption } from '../components/Checkbox/CheckboxGroup';
+import { CheckboxOption } from './CheckboxModel';
 
-export interface ISwitchBaseProps {
+interface ISwitchBaseProps {
 	id?: string;
-	isToggle?: boolean;
 	checked?: boolean;
-	onChange: (option: CheckboxOption) => void;
 	value: string;
 	invalid?: boolean;
 	name?: string;
-	disabled?: boolean;
-	type?: 'radio' | 'checkbox';
+	type?: SwitchType;
 	size?: SwitchSize;
+	isDisabled?: boolean;
+	isToggle?: boolean;
+	onChange?: (option: CheckboxOption) => void;
 }
 
-export type SwitchSize = 'sm' | 'md' | 'lg';
+type SwitchType = 'checkbox' | 'radio';
+
+type SwitchSize = 'sm' | 'md' | 'lg';
 
 type LabelPosition = 'left' | 'right';
 

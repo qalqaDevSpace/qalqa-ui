@@ -42,6 +42,8 @@
 
   --qc-hover-bg-item: #1f2937;
 
+  --qc-hover-thumb: #eaeaea;
+
   --qc-active-accent-primary: #d4cbfa;
   --qc-active-bg-secondary: #273242;
   --qc-active-accent-primary-tr: var(--qc-accent-primary-tr-sm);
@@ -78,4 +80,7 @@
   --qc-info-tr-xsm: var(--qc-accent-primary-tr-xsm);
   --qc-info-tr-sm: var(--qc-accent-primary-tr-sm);
   --qc-info-tr: var(--qc-accent-primary-tr);
+
+  --qc-thumb: #fff;
+  --qc-shadow-thumb: 0 0 5px rgba(0, 0, 0, 0);
 }

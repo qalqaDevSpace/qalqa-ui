@@ -32,6 +32,7 @@
   --qc-hover-error: #fe7d8c;
   --qc-hover-info: var(--qc-hover-accent-primary);
   --qc-hover-bg-item: #f3f4f6;
+  --qc-hover-thumb: #eaeaea;
 
   --qc-active-accent-primary: #6a25e2;
   --qc-active-success: #2fb282;
@@ -62,4 +63,7 @@
   --qc-info-tr-xsm: var(--qc-accent-primary-tr-xsm);
   --qc-info-tr-sm: var(--qc-accent-primary-tr-sm);
   --qc-info-tr: var(--qc-accent-primary-tr);
+
+  --qc-thumb: #f9fafb;
+  --qc-shadow-thumb: 0 0 5px rgba(0, 0, 0, 0.2);
 }
