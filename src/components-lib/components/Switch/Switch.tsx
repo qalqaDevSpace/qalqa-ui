@@ -13,7 +13,8 @@ export const Switch = ({
 	label,
 	checked,
 	type = 'checkbox',
-	size = 'md',
+	size = 'sm',
+	isToggle = true,
 	labelPosition,
 	disabled,
 }: ISwitchProps) => {
@@ -43,7 +44,9 @@ export const Switch = ({
 		<div
 			className={
 				'material-symbols-outlined ' +
-				clsx(styles['switch-container'], styles[`s-${size}`])
+				clsx(styles['switch-container'], styles[`s-${size}`], {
+					[styles.toggle]: isToggle,
+				})
 			}
 		>
 			{labelPosition === 'left' ||
