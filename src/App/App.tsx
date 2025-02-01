@@ -1,10 +1,10 @@
-
 import { useEffect, useState } from 'react';
 import {
 	Button,
 	CheckboxGroup,
 	Dropdown,
 	InputText,
+	Loader,
 	RadioGroup,
 	Switch,
 	ThemeButton,
@@ -58,7 +58,7 @@ function App() {
 	const handleDropdownChange = (selectedItem: IDropdownItem | undefined) => {
 		setSelectedItem(selectedItem || null);
 	};
-  
+
 	const handleInput = (value: string | undefined) => {
 		setPrinted(value || null);
 	};
@@ -182,6 +182,7 @@ function App() {
 					/>
 					<Switch isToggle value="single" name="single" label="U single?" />
 				</div>
+				<Loader />
 			</div>
 		</>
 	);

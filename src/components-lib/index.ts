@@ -7,6 +7,7 @@ export { Button } from './components/Button/Button';
 export { CheckboxGroup } from './components/Checkbox/CheckboxGroup';
 export { Dropdown } from './components/Dropdown/Dropdown';
 export { InputText } from './components/InputText/InputText';
+export { Loader } from './components/Loader/Loader';
 export { RadioGroup } from './components/Radio/RadioGroup';
 export { Switch } from './components/Switch/Switch';
 export { ThemeProvider } from './components/Theme/ThemeProvider';
