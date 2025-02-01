@@ -32,7 +32,7 @@ export const Button = ({
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter') {
-			onClick ? onClick() : null;
+			onClick?.();
 		}
 	};
 

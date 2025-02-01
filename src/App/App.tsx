@@ -4,6 +4,7 @@ import {
 	CheckboxGroup,
 	Dropdown,
 	InputText,
+	Loader,
 	RadioGroup,
 	Switch,
 	ThemeButton,
@@ -181,6 +182,7 @@ function App() {
 					/>
 					<Switch isToggle value="single" name="single" label="U single?" />
 				</div>
+				<Loader />
 			</div>
 		</>
 	);
