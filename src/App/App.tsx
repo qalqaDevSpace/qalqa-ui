@@ -7,6 +7,7 @@ import {
 	Loader,
 	RadioGroup,
 	Switch,
+	Table,
 	ThemeButton,
 	useToast,
 } from '../components-lib';
@@ -111,6 +112,19 @@ function App() {
 		console.clear();
 		console.table(selectedCheckboxes);
 	}, [selectedCheckboxes]);
+
+	const columns = [
+		{ header: 'ID', accessor: 'id' },
+		{ header: 'Slave Name', accessor: 'name' },
+		{ header: 'Field', accessor: 'field' },
+	];
+
+	const data = [
+		{ id: 1, name: 'Nigga', field: 'Cotton' },
+		{ id: 2, name: 'Nigger', field: 'Corn' },
+		{ id: 3, name: 'Nigrilla', field: 'Pidrilla' },
+	];
+
 	return (
 		<>
 			<div className={styles.container}>
@@ -181,6 +195,7 @@ function App() {
 						}
 					/>
 					<Switch isToggle value="single" name="single" label="U single?" />
+					<Table columns={columns} data={data} />
 				</div>
 				<Loader />
 			</div>
