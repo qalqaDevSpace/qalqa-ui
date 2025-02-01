@@ -1,10 +1,10 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: var(--qc-bg-primary);
-    padding-top: 100px;
-    /* font-family: var(--qff-primary); */
-    width: 100%;
-    color: var(--qc-text-primary);
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	background-color: var(--qc-bg-primary);
+	padding: 100px 0;
+	/* font-family: var(--qff-primary); */
+	width: 100%;
+	color: var(--qc-text-primary);
 }

@@ -1,32 +1,32 @@
 .toast-container {
-  position: fixed;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  transition: all 0.3s ease-in-out;
+	position: fixed;
+	z-index: 1000;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	transition: all 0.3s ease-in-out;
 
-  &.top-right {
-    top: 16px;
-    right: 16px;
-    align-items: flex-end;
-  }
+	&.top-right {
+		top: 16px;
+		right: 16px;
+		align-items: flex-end;
+	}
 
-  &.top-left {
-    top: 16px;
-    left: 16px;
-    align-items: flex-start;
-  }
+	&.top-left {
+		top: 16px;
+		left: 16px;
+		align-items: flex-start;
+	}
 
-  &.bottom-right {
-    bottom: 16px;
-    right: 16px;
-    align-items: flex-end;
-  }
+	&.bottom-right {
+		bottom: 16px;
+		right: 16px;
+		align-items: flex-end;
+	}
 
-  &.bottom-left {
-    bottom: 16px;
-    left: 16px;
-    align-items: flex-start;
-  }
+	&.bottom-left {
+		bottom: 16px;
+		left: 16px;
+		align-items: flex-start;
+	}
 }
