@@ -10,10 +10,13 @@ type BGOpacity = 'none' | 'soft' | 'normal';
 
 type LoaderSize = 'sm' | 'md' | 'xl' | 'xxl' | 'xxxl';
 
+type color = 'primary' | 'secondary' | 'default'
+
 interface IBaseLoader {
     loaderSize?: LoaderSize,
     className?: string,
     speed?: SpeedType,
+    color?: color
 }
 
 interface IRingLoader extends IBaseLoader {

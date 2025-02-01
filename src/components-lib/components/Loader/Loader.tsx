@@ -4,17 +4,19 @@ import s from "./Loader.module.scss";
 
 const Loader: React.FC<LoaderProps> = ({
   type = "ring",
-  loaderSize = "md", //done
+  loaderSize = "md",
   className = "",
   speed = "default",
-  BGOpacity = "none", //done
-  stroke = "default", //done
+  BGOpacity = "none",
+  stroke = "default",
+  color = "default",
 }) => {
   //base
-  const loaderClassnames = clsx(s.loader, s[`container_${type}`], className);
+  const loaderClassnames = clsx(s[`container_${type}`], className);
   // ring
   const ringLoaderClassNames = clsx(
     loaderClassnames,
+    s[`r-loader-color-${color}`],
     s[`r-speed-${speed}`],
     s[`r-size-${loaderSize}`]
   );
@@ -31,12 +33,14 @@ const Loader: React.FC<LoaderProps> = ({
   const dotsCubeClassnames = clsx(
     s.cube,
     s[`cube-size-${loaderSize}`],
-    s[`cube-speed-${speed}`]
+    s[`cube-speed-${speed}`],
+    s[`loader-color-${color}`]
   );
 
   const dotsInnerCubeClassnames = clsx(
     s.cube__inner,
-    s[`cube__inner-speed-${speed}`]
+    s[`cube__inner-speed-${speed}`],
+    s[`d-loader-color-${color}`]
   );
 
   //bouncy
@@ -50,7 +54,8 @@ const Loader: React.FC<LoaderProps> = ({
   const bouncyCubeClassnames = clsx(
     s.container_bouncy_cube,
     s[`bouncy_cube-size-${loaderSize}`],
-    s[`bouncy_cube-speed-${speed}-size-${loaderSize}`]
+    s[`bouncy_cube-speed-${speed}-size-${loaderSize}`],
+    s[`b-loader-color-${color}`]
   );
 
   return (

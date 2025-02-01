@@ -62,7 +62,7 @@ function App() {
           icon="check_circle"
           onClick={showSuccess}
         />
-        <Loader />
+        <Loader BGOpacity="normal" />
         <Loader type="dots" />
         <Loader type="bouncy" />
         <Button label="Error" type="error" icon="error" onClick={showError} />
