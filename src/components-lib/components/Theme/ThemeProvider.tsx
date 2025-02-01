@@ -10,16 +10,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 	customThemeNameDark,
 	customThemeNameLight,
 }) => {
-	if (!isTheming) {
-		loadDefaultColors();
-		return <>{children}</>;
-	}
 	const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
 	const [theme, setTheme] = useState<Theme | string>(
 		mediaQuery.matches ? ThemeEnum.DARK : ThemeEnum.LIGHT
 	);
-
 	const mediaThemePreload = () => {
 		if (isCustomTheme && customThemeNameDark && customThemeNameLight) {
 			mediaQuery.addEventListener('change', (e) => {
@@ -50,7 +45,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 
 	useEffect(() => {
 		loadTheme(theme);
-	}, [mediaQuery]);
+	}, [mediaQuery, theme]);
 
 	useEffect(() => {
 		if (!localTheme) {
@@ -59,6 +54,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 		}
 		localThemePreload(localTheme);
 	});
+
+	if (!isTheming) {
+		loadDefaultColors();
+		return <>{children}</>;
+	}
 
 	return (
 		<ThemeContext.Provider value={{ theme, toggleTheme }}>
