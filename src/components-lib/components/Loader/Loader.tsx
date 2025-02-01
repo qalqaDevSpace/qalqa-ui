@@ -7,9 +7,9 @@ const Loader: React.FC<LoaderProps> = ({
   loaderSize = "md",
   className = "",
   speed = "default",
-  BGOpacity = "none",
+  opacity = "none",
   stroke = "default",
-  color = "default",
+  color = "primary",
 }) => {
   //base
   const loaderClassnames = clsx(s[`container_${type}`], className);
@@ -21,7 +21,7 @@ const Loader: React.FC<LoaderProps> = ({
     s[`r-size-${loaderSize}`]
   );
 
-  const trackClassnames = clsx(s.track, s[`opacity-${BGOpacity}`]);
+  const trackClassnames = clsx(s.track, s[`opacity-${opacity}`]);
   const carClassnames = clsx(s.car, s[`car-speed-${speed}`]);
 
   //dots

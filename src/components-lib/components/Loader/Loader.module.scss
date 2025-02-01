@@ -19,54 +19,91 @@ $bouncy-height-xl: calc($xl * 0.8);
 $bouncy-height-xxl: calc($xxl * 0.75);
 $bouncy-height-xxxl: calc($xxxl * 0.8);
 
-.r-loader-color- {
-  &default {
-    stroke: rgb(0, 0, 0)
-  }
+/*
+    'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'info';
 
+*/
+
+.r-loader-color- {
   &primary {
     stroke: var(--qc-accent-primary);
   }
   &secondary {
     stroke: var(--qc-accent-secondary);
   }
+  &success {
+    stroke: var(--qc-success);
+  }
+  &warning {
+    stroke: var(--qc-warning);
+  }
+  &error {
+    stroke: var(--qc-error);
+  }
+  &info {
+    stroke: var(--qc-info);
+  }
 }
 
 .d-loader-color- {
-  &default {
-    background-color: rgb(0, 0, 0);
-  }
 
   &primary {
     background-color: var(--qc-accent-primary);
-
   }
   &secondary {
     background-color: var(--qc-accent-secondary);
-
+  }
+  &success {
+    background-color: var(--qc-success);
+  }
+  &warning {
+    background-color: var(--qc-warning);
+  }
+  &error {
+    background-color: var(--qc-error);
+  }
+  &info {
+    background-color: var(--qc-info);
   }
 }
 
 .b-loader-color- {
-  &default {
-
-    &::after {
       background-color: rgb(0, 0, 0);
-    }
-  }
-
-  &primary {
-
-    &::after {
-      background-color:  var(--qc-accent-primary);
-    }
-  }
-  &secondary {
-
-    &::after {
-      background-color:var(--qc-accent-secondary);
-    }
-  }
+      &primary {
+        &::after {
+        background-color: var(--qc-accent-primary);
+        }
+      }
+      &secondary {
+        &::after {
+        background-color: var(--qc-accent-secondary);
+        }
+      }
+      &success {
+        &::after {
+        background-color: var(--qc-success);
+        }
+      }
+      &warning {
+        &::after {
+        background-color: var(--qc-warning);
+        }
+      }
+      &error {
+        &::after {
+        background-color: var(--qc-error);
+        }
+      }
+      &info {
+        &::after {
+        background-color: var(--qc-info);
+        }
+      }
 }
 
 
@@ -153,35 +190,32 @@ $bouncy-height-xxxl: calc($xxxl * 0.8);
   --sm-size: calc($sm * 0.2);
   width: $sm;
   height: calc(100% - var(--sm-size) / 2);
-  padding-bottom: calc(var(--sm-size) / 2);
 }
 
 .b-size-md {
   --md-size: calc($md * 0.2);
   width: $md;
   height: calc(100% - var(--md-size) / 2);
-  padding-bottom: calc(var(--md-size) / 2);
 }
 
 .b-size-xl {
   --xl-size: calc($xl * 0.2);
   width: $xl;
   height: calc(100% - var(--xl-size) / 2);
-  padding-bottom: calc(var(--xl-size) / 2);
 }
 
 .b-size-xxl {
   --xxl-size: calc($xxl * 0.2);
   width: $xxl;
   height: calc(100% - var(--xxl-size) / 2);
-  padding-bottom: calc(var(--xxl-size) / 2);
+
 }
 
 .b-size-xxxl {
   --xxxl-size: calc($xxxl * 0.2);
   width: $xxxl;
   height: calc(100% - var(--xxxl-size) / 2);
-  padding-bottom: calc(var(--xxxl-size) / 2);
+
 }
 
 

@@ -6,34 +6,40 @@ export enum strokeEnum {
 
 type SpeedType = 'default' | 'slow' | 'fast';
 
-type BGOpacity = 'none' | 'soft' | 'normal';
+type Opacity = 'none' | 'soft' | 'normal';
 
 type LoaderSize = 'sm' | 'md' | 'xl' | 'xxl' | 'xxxl';
 
-type color = 'primary' | 'secondary' | 'default'
+type Color =
+    'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'info';
 
 interface IBaseLoader {
     loaderSize?: LoaderSize,
     className?: string,
     speed?: SpeedType,
-    color?: color
+    color?: Color
 }
 
 interface IRingLoader extends IBaseLoader {
     type?: 'ring',
-    BGOpacity?: BGOpacity,
+    opacity?: Opacity,
     stroke?: keyof typeof strokeEnum;
 }
 
 interface IDotsLoader extends IBaseLoader {
     type: 'dots',
-    BGOpacity?: never,
+    opacity?: never,
     stroke?: never;
 }
 
 interface IBouncyLoader extends IBaseLoader {
     type: 'bouncy'
-    BGOpacity?: never,
+    opacity?: never,
     stroke?: never;
 }
 
