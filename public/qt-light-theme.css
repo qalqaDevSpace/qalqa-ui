@@ -19,9 +19,13 @@
   --qc-bg-card: var(--qc-bg-secondary);
   --qc-bg-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
+  --qc-bg-table-head: var(--qc-bg-secondary);
+  --qc-bg-table: var(--qc-bg-primary);
+
   --qc-border-primary: #e5e7eb;
   --qc-border-secondary: #e5e7eb;
   --qc-border-card: 1px solid var(--qc-border-secondary);
+  --qc-border-table: 1px solid var(--qc-border-secondary);
 
   --qc-hover-accent-primary: #7c3aed;
   --qc-hover-bg-secondary: #f3f4f6;
