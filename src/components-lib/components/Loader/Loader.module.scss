@@ -9,6 +9,15 @@ $speed-default: 2s;
 $speed-fast: 1.75s;
 $speed-slow: 3s;
 
+//for bouncy
+$uib-arc-1: -90deg;
+$uib-arc-2: 90deg;
+
+$bouncy-height-sm: calc($sm * 0.85);
+$bouncy-height-md: calc($md * 0.8);
+$bouncy-height-xl: calc($xl * 0.8);
+$bouncy-height-xxl: calc($xxl * 0.75);
+$bouncy-height-xxxl: calc($xxxl * 0.8);
 
 
 .r-size-sm {
@@ -98,10 +107,10 @@ $speed-slow: 3s;
 }
 
 .b-size-md {
-  $md-size: calc($md * 0.2);
+  --md-size: calc($md * 0.2);
   width: $md;
-  height: calc(100% - $md-size / 2);
-  padding-bottom: calc($md-size / 2);
+  height: calc(100% - var(--md-size) / 2);
+  padding-bottom: calc(var(--md-size) / 2);
 }
 
 .b-size-xl {
@@ -212,28 +221,27 @@ $speed-slow: 3s;
 
 .bouncy_cube-size-sm {
   --sm-size: calc($sm * 0.2);
-  --cube-container-height: calc($sm * 0.8);
   width: var(--sm-size);
-  height: var(--cube-container-height);
+  height: $bouncy-height-sm;
   padding-bottom: calc(var(--sm-size) / 2);
-
   &::after {
-    width: var(--sm-size);
-    height: var(--sm-size);
+    width: $sm * 0.2;
+    height: $sm * 0.2;
   }
 
 }
 
 .bouncy_cube-size-md {
-  --md-size: calc($md * 0.2);
-  --cube-container-height: calc($md * 0.8);
+  --md-size: calc($md * 0.3);
   width: var(--md-size);
-  height: var(--cube-container-height);
+  height: $bouncy-height-md;
   padding-bottom: calc(var(--md-size) / 2);
+  
+
 
   &::after {
-    width: var(--md-size);
-    height: var(--md-size);
+    width: $md * 0.3;
+    height: $md * 0.3;
   }
 
 
@@ -241,47 +249,161 @@ $speed-slow: 3s;
 
 .bouncy_cube-size-xl {
   --xl-size: calc($xl * 0.2);
-  --cube-container-height: calc($xl * 0.8);
   width: var(--xl-size);
-  height: var(--cube-container-height);
+  height: $bouncy-height-xl;
   padding-bottom: calc(var(--xl-size) / 2);
 
   &::after {
-    width: var(--xl-size);
-    height: var(--xl-size);
+    width: $xl * 0.2;
+    height: $xl * 0.2;
   }
 }
 
 .bouncy_cube-size-xxl {
   --xxl-size: calc($xxl * 0.2);
-  --cube-container-height: calc($xxl * 0.8);
   width: var(--xxl-size);
-  height: var(--cube-container-height);
+  height: $bouncy-height-xxl;
   padding-bottom: calc(var(--xxl-size) / 2);
 
   &::after {
-    width: var(--xxl-size);
-    height: var(--xxl-size);
+    width: $xxl * 0.2;
+    height: $xxl * 0.2;
   }
 }
 
 .bouncy_cube-size-xxxl {
   --xxxl-size: calc($xxxl * 0.2);
-  --cube-container-height: calc($xxxl * 0.8);
   width: var(--xxxl-size);
-  height: var(--cube-container-height);
+  height: $bouncy-height-xxxl;
   padding-bottom: calc(var(--xxxl-size) / 2);
 
   &::after {
-    width: var(--xxxl-size);
-    height: var(--xxxl-size);
+    width: $xxxl * 0.2;
+    height: $xxxl * 0.2;
   }
 }
+.bouncy_cube-speed- {
+  &default-size- {
+    &sm {
+      animation: metronome-sm $speed-default linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-default linear infinite;
+      }
+    }
 
-.bouncy_cube-speed-default {
-  animation: metronome $speed-default linear infinite;
-  &::after {
-    animation: morph $speed-default linear infinite;
+    &md {
+      animation: metronome-md $speed-default linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-default linear infinite;
+      }
+    }
+
+    &xl {
+      animation: metronome-xl $speed-default linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-default linear infinite;
+      }
+    }
+    &xxl {
+      animation: metronome-xxl $speed-default linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-default linear infinite;
+      }
+    }
+    &xxxl {
+      animation: metronome-xxxl $speed-default linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-default linear infinite;
+      } 
+    }
+
+  }
+
+  &slow-size- {
+    &sm {
+      animation: metronome-sm $speed-slow linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-slow linear infinite;
+      }
+    }
+
+    &md {
+      animation: metronome-md $speed-slow linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-slow linear infinite;
+      }
+    }
+
+    &xl {
+      animation: metronome-xl $speed-slow linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-slow linear infinite;
+      }
+    }
+    &xxl {
+      animation: metronome-xxl $speed-slow linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-slow linear infinite;
+      }
+    }
+    &xxxl {
+      animation: metronome-xxxl $speed-slow linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-slow linear infinite;
+      }
+    }
+
+  }
+
+  &fast-size- {
+    &sm {
+      animation: metronome-sm $speed-fast linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-fast linear infinite;
+      }
+    }
+
+    &md {
+      animation: metronome-md $speed-fast linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-fast linear infinite;
+      }
+    }
+
+    &xl {
+      animation: metronome-xl $speed-fast linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-fast linear infinite;
+      }
+    }
+    &xxl {
+      animation: metronome-xxl $speed-fast linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-fast linear infinite;
+      }
+    }
+    &xxxl {
+      animation: metronome-xxxl $speed-fast linear infinite;
+  
+      &::after {
+        animation: morph_bouncy $speed-fast linear infinite;
+      }
+    }
+
   }
 }
 
@@ -289,7 +411,7 @@ $speed-slow: 3s;
   animation: metronome $speed-slow linear infinite;
 
   &::after {
-    animation: morph $speed-slow linear infinite;
+    animation: morph_bouncy $speed-slow linear infinite;
   }
 
 }
@@ -297,15 +419,13 @@ $speed-slow: 3s;
   animation: metronome $speed-fast linear infinite;
 
   &::after {
-    animation: morph $speed-fast linear infinite;
+    animation: morph_bouncy $speed-fast linear infinite;
   }
 
 }
 
 .container {
     &_bouncy {
-      --uib-arc-1: -90deg;
-      --uib-arc-2: 90deg;
       display: flex;
       align-items: flex-end;
       justify-content: center;
@@ -314,7 +434,7 @@ $speed-slow: 3s;
         display: flex;
         align-items: center;
         transform-origin: center bottom;
-        transform: rotate(var(var(--uib-arc-1)));
+        transform: rotate($uib-arc-1);
 
         &::after {
           content: '';
@@ -388,16 +508,16 @@ $speed-slow: 3s;
 
   }
 
-  .r-speed-default {
-    animation: rotate $speed-default linear infinite;
-  }
-  
-  .r-speed-slow {
-    animation: rotate $speed-slow linear infinite;
-  }
-
-  .r-speed-fast {
-    animation: rotate $speed-fast linear infinite;
+  .r-speed- {
+    &default {
+      animation: rotate $speed-default linear infinite;
+    }
+    &slow {
+      animation: rotate $speed-slow linear infinite;
+    }
+    &fast {
+      animation: rotate $speed-fast linear infinite;
+    }
   }
 
 
@@ -424,23 +544,6 @@ $speed-slow: 3s;
   // bouncy
 
 
-  @keyframes metronome {
-    0% {
-      transform: rotate(var(--uib-arc-1));
-    }
-
-    50% {
-      transform: rotate(var(--uib-arc-2));
-    }
-
-    50.001% {
-      transform: translateX(var(--cube-container-height)) rotate(var(--uib-arc-1));
-    }
-
-    100% {
-      transform: rotate(var(--uib-arc-1));
-    }
-  }
 
   @keyframes morph_bouncy {
     0% {
@@ -527,5 +630,81 @@ $speed-slow: 3s;
   
     75% {
       transform: scaleY(0.8) scaleX(1.2);
+    }
+  }
+
+  @keyframes metronome-sm {
+    0% {
+      transform: rotate($uib-arc-1);
+    }
+    50% {
+      transform: rotate($uib-arc-2);
+    }
+    50.001% {
+      transform: translateX($bouncy-height-sm) rotate($uib-arc-1);
+    }
+    100% {
+      transform: rotate($uib-arc-1);
+    }
+  }
+  
+
+  @keyframes metronome-md {
+    0% {
+      transform: rotate($uib-arc-1);
+    }
+    50% {
+      transform: rotate($uib-arc-2);
+    }
+    50.001% {
+      transform: translateX($bouncy-height-md) rotate($uib-arc-1);
+    }
+    100% {
+      transform: rotate($uib-arc-1);
+    }
+  }
+  
+  @keyframes metronome-xl {
+    0% {
+      transform: rotate($uib-arc-1);
+    }
+    50% {
+      transform: rotate($uib-arc-2);
+    }
+    50.001% {
+      transform: translateX($bouncy-height-xl) rotate($uib-arc-1);
+    }
+    100% {
+      transform: rotate($uib-arc-1);
+    }
+  }
+
+  @keyframes metronome-xxl {
+    0% {
+      transform: rotate($uib-arc-1);
+    }
+    50% {
+      transform: rotate($uib-arc-2);
+    }
+    50.001% {
+      transform: translateX($bouncy-height-xxl) rotate($uib-arc-1);
+    }
+    100% {
+      transform: rotate($uib-arc-1);
+    }
+  }
+
+  @keyframes metronome-xxxl {
+    0% {
+      transform: rotate($uib-arc-1);
+    }
+    50% {
+      transform: rotate($uib-arc-2);
+    }
+    50.001% {
+      transform: translateX($bouncy-height-xxxl) rotate($uib-arc-1);
+    }
+    100% {
+      transform: rotate($uib-arc-1);
     }
   }

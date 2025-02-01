@@ -50,7 +50,7 @@ const Loader: React.FC<LoaderProps> = ({
   const bouncyCubeClassnames = clsx(
     s.container_bouncy_cube,
     s[`bouncy_cube-size-${loaderSize}`],
-    s[`bouncy_cube-speed-${speed}`]
+    s[`bouncy_cube-speed-${speed}-size-${loaderSize}`]
   );
 
   return (
