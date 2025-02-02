@@ -1,18 +1,9 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import { ITableSortProps } from '../../../model/TableModel';
 import styles from './TableSort.module.scss';
 
-interface TableSortProps {
-	onSort: () => void;
-	active: boolean;
-	order: 'asc' | 'desc';
-}
-
-export const TableSort: React.FC<TableSortProps> = ({
-	onSort,
-	active,
-	order,
-}) => {
+export const TableSort: React.FC<ITableSortProps> = ({ active, order }) => {
 	const [delayedActive, setDelayedActive] = useState(active);
 	useEffect(() => {
 		setTimeout(() => {
@@ -21,7 +12,6 @@ export const TableSort: React.FC<TableSortProps> = ({
 	}, [active]);
 	return (
 		<i
-			onClick={onSort}
 			className={clsx('material-symbols-outlined', styles.arrow, {
 				[styles.active]: active,
 				[styles['active-animation']]: delayedActive,

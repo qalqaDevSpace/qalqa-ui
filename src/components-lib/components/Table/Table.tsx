@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Data, ITableProps } from '../../model/TableModel';
+import { Data, IActiveSort, ITableProps } from '../../model/TableModel';
 import { TableSort } from './Sort/TableSort';
 import styles from './Table.module.scss';
 
-interface ActiveSort {
-	accessor: string;
-	order: 'asc' | 'desc';
-}
-
 export const Table: React.FC<ITableProps> = ({ columns, data }) => {
 	const [sortedData, setSortedData] = useState<Data[]>([]);
-	const [activeSort, setActiveSort] = useState<ActiveSort | null>(null);
+	const [activeSort, setActiveSort] = useState<IActiveSort | null>(null);
 
 	useEffect(() => {
 		setSortedData(data);
@@ -56,14 +51,14 @@ export const Table: React.FC<ITableProps> = ({ columns, data }) => {
 								activeSort !== null && activeSort.accessor === col.accessor;
 							const sortOrder = isActive ? activeSort!.order : 'asc';
 							return (
-								<th key={index} className={styles['table-headline']}>
+								<th
+									onClick={() => handleSort(col.accessor)}
+									key={index}
+									className={styles['table-headline']}
+								>
 									<p className={styles.title}>
 										{col.header}
-										<TableSort
-											onSort={() => handleSort(col.accessor)}
-											active={isActive}
-											order={sortOrder}
-										/>
+										<TableSort active={isActive} order={sortOrder} />
 									</p>
 								</th>
 							);
