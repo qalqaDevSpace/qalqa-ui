@@ -195,9 +195,11 @@ function App() {
 						}
 					/>
 					<Switch isToggle value="single" name="single" label="U single?" />
+					<Loader />
+					<Loader type="dots" />
+					<Loader type="bouncy" />
 					<Table columns={columns} data={data} sortable />
 				</div>
-				<Loader />
 			</div>
 		</>
 	);
