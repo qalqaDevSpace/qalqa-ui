@@ -66,35 +66,34 @@ function App() {
 
 	const switchOptions = [
 		{
-			label: 'U playing Dota?',
-			value: 'ginger-dota',
+			label: 'Option 1',
+			value: 'opt-1',
 		},
 		{
-			label: 'U a happy?',
-			value: 'ginger-nt-happy',
-			isDisabled: true,
+			label: 'Option 2',
+			value: 'opt-2',
 		},
 		{
-			label: 'U have a girlfriend?',
-			value: 'ginger-nt-girlfriend',
+			label: 'Option 3',
+			value: 'opt-3',
 			isDisabled: true,
 		},
 	];
 
 	const switchChOptions = [
 		{
-			label: 'U cunt?',
-			value: 'ginger-cunt',
+			label: 'Checkbox 1',
+			value: 'check-1',
 			isSelected: true,
 			isDisabled: true,
 		},
 		{
-			label: 'U faggot?',
-			value: 'ginger2-fag',
+			label: 'Checkbox 2',
+			value: 'check-2',
 		},
 		{
-			label: 'U a nigga?',
-			value: 'ginger-nigga',
+			label: 'Checkbox 3',
+			value: 'check-3',
 		},
 	];
 
@@ -115,14 +114,14 @@ function App() {
 
 	const columns = [
 		{ header: 'ID', accessor: 'id' },
-		{ header: 'Slave Name', accessor: 'name' },
-		{ header: 'Field', accessor: 'field', isSortable: true },
+		{ header: 'Name', accessor: 'name' },
+		{ header: 'Email', accessor: 'email', isSortable: true },
 	];
 
 	const data = [
-		{ id: 1, name: 'Nigga 1', field: 'Cotton' },
-		{ id: 3, name: 'Nigger 3', field: 'Corn' },
-		{ id: 2, name: 'Nigrilla 2', field: 'Pidrilla' },
+		{ id: 1, name: 'Lorem isum', email: 'lorem@example.com' },
+		{ id: 3, name: 'Dolor sit', email: 'dolor@example.com' },
+		{ id: 2, name: 'Amet consectetur', email: 'amet@example.com' },
 	];
 
 	return (
@@ -151,7 +150,7 @@ function App() {
 				<Button label="Primary" size="xl" onClick={showInfo} />
 				<Button label="Secondary" type="secondary" onClick={showInfo} />
 				<Dropdown
-					label="Nigga"
+					label="Dropdown label"
 					items={items}
 					onChange={handleDropdownChange}
 					size="sm"
@@ -160,15 +159,14 @@ function App() {
 					// excludeSelected
 					isSmartLabel
 					// smartLabelVariant="on"
-					//FIXME: сделать обработку hover-а и фокуса на smartLabel
 					// disabled
 					clearButton
 				/>
 				<p>Selected: {selectedItem ? selectedItem.label : 'None'}</p>
 				<InputText
-					// label
-					// labelText="Damn"
-					placeholder="123"
+					label
+					labelText="Damn"
+					// placeholder="123"
 					icon="home"
 					size="sm"
 					iconAction={() => console.log('123')}
@@ -180,12 +178,12 @@ function App() {
 					<RadioGroup
 						options={switchOptions}
 						selectedDefault={switchOptions[0]}
-						name="ginger"
+						name="radio"
 						onChange={(value) => setSelectedRadio(value)}
 					/>
 					<CheckboxGroup
 						options={switchChOptions}
-						name="ginger-cb"
+						name="check"
 						onChange={(option) =>
 							setSelectedCheckboxes((prev) =>
 								option.isSelected
@@ -194,11 +192,17 @@ function App() {
 							)
 						}
 					/>
-					<Switch isToggle value="single" name="single" label="U single?" />
+					<Switch
+						id="single"
+						value="single"
+						name="single"
+						label="Switch test"
+						isToggle
+					/>
+					<Table columns={columns} data={data} sortable />
 					<Loader />
 					<Loader type="dots" />
 					<Loader type="bouncy" />
-					<Table columns={columns} data={data} sortable />
 				</div>
 			</div>
 		</>
