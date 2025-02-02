@@ -1,9 +1,14 @@
+import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { Data, IActiveSort, ITableProps } from '../../model/TableModel';
 import { TableSort } from './Sort/TableSort';
 import styles from './Table.module.scss';
 
-export const Table: React.FC<ITableProps> = ({ columns, data }) => {
+export const Table: React.FC<ITableProps> = ({
+	columns,
+	data,
+	sortable = false,
+}) => {
 	const [sortedData, setSortedData] = useState<Data[]>([]);
 	const [activeSort, setActiveSort] = useState<IActiveSort | null>(null);
 
@@ -50,15 +55,21 @@ export const Table: React.FC<ITableProps> = ({ columns, data }) => {
 							const isActive =
 								activeSort !== null && activeSort.accessor === col.accessor;
 							const sortOrder = isActive ? activeSort!.order : 'asc';
+							const isSortable = sortable || col.isSortable;
 							return (
 								<th
-									onClick={() => handleSort(col.accessor)}
+									onClick={() => isSortable && handleSort(col.accessor)}
 									key={index}
-									className={styles['table-headline']}
+									className={clsx(styles['table-headline'], {
+										[styles.sortable]: isSortable,
+									})}
 								>
 									<p className={styles.title}>
 										{col.header}
-										<TableSort active={isActive} order={sortOrder} />
+
+										{isSortable && (
+											<TableSort active={isActive} order={sortOrder} />
+										)}
 									</p>
 								</th>
 							);

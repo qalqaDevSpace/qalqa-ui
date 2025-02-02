@@ -1,6 +1,7 @@
 export interface ITableProps {
 	columns: Column[];
 	data: Data[];
+	sortable?: boolean;
 }
 
 export interface IActiveSort {
@@ -16,6 +17,7 @@ export interface ITableSortProps {
 export interface Column {
 	header: string;
 	accessor: string;
+	isSortable?: boolean;
 }
 
 type Order = 'asc' | 'desc';
