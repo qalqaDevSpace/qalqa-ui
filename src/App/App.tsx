@@ -116,13 +116,13 @@ function App() {
 	const columns = [
 		{ header: 'ID', accessor: 'id' },
 		{ header: 'Slave Name', accessor: 'name' },
-		{ header: 'Field', accessor: 'field' },
+		{ header: 'Field', accessor: 'field', isSortable: true },
 	];
 
 	const data = [
-		{ id: 1, name: 'Nigga', field: 'Cotton' },
-		{ id: 2, name: 'Nigger', field: 'Corn' },
-		{ id: 3, name: 'Nigrilla', field: 'Pidrilla' },
+		{ id: 1, name: 'Nigga 1', field: 'Cotton' },
+		{ id: 3, name: 'Nigger 3', field: 'Corn' },
+		{ id: 2, name: 'Nigrilla 2', field: 'Pidrilla' },
 	];
 
 	return (
@@ -195,7 +195,7 @@ function App() {
 						}
 					/>
 					<Switch isToggle value="single" name="single" label="U single?" />
-					<Table columns={columns} data={data} />
+					<Table columns={columns} data={data} sortable />
 				</div>
 				<Loader />
 			</div>
