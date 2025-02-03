@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+
+  .button {
+    transition: color 0.2s ease-in-out;
+  }
+
+  .menu {
+    position: absolute;
+    top: 40px;
+    right: -20px;
+    border-radius: 5px;
+    background-color: var(--qc-bg-tr);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--qc-shadow-card);
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    line-height: 0px;
+    max-height: 0px;
+    animation: openMenu 0.3s ease-in-out;
+    padding: 0 5px;
+  }
+
+  &.open {
+    .button {
+      color: var(--qc-accent-primary);
+    }
+    .menu {
+      max-height: 100px;
+      line-height: 20px;
+      padding: 10px 5px;
+    }
+  }
+}
+
+@keyframes openMenu {
+  0% {
+    line-height: 0px;
+    max-height: 0px;
+  }
+
+  100% {
+    line-height: 20px;
+    max-height: 300px;
+  }
+}

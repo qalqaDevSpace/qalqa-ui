@@ -115,7 +115,7 @@ function App() {
 	const columns = [
 		{ header: 'ID', accessor: 'id' },
 		{ header: 'Name', accessor: 'name' },
-		{ header: 'Email', accessor: 'email', isSortable: true },
+		{ header: 'Email', accessor: 'email', isSortable: true, isFiltrable: true },
 	];
 
 	const data = [

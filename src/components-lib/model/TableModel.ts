@@ -12,6 +12,7 @@ export interface IActiveSort {
 export interface ITableSortProps {
 	active: boolean;
 	order: Order;
+	onSort?: () => void;
 }
 
 export interface IColumn {
@@ -19,15 +20,23 @@ export interface IColumn {
 	accessor: string;
 	type?: ColumnType;
 	isSortable?: boolean;
+	isFiltrable?: boolean;
 }
 
 export interface ITableColumnHeaderComponentProps {
 	header: IColumn['header'];
 	type?: IColumn['type'];
 	isSortable?: IColumn['isSortable'];
+	isFiltrable?: boolean;
 	isActive: boolean;
 	sortOrder: Order;
 	onSort?: () => void;
+}
+
+export interface ITableHeaderMenuProps {
+	children: React.ReactNode;
+	isOpen: boolean;
+	onToggle: () => void;
 }
 
 type ColumnType =

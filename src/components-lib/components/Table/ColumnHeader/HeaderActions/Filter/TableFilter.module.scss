@@ -1,0 +1,12 @@
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: clamp(2px, 1vw, 5px);
+  justify-content: end;
+  cursor: pointer;
+  .filter-title {
+    font-weight: 500;
+    font-size: 12px;
+    margin: 0;
+  }
+}

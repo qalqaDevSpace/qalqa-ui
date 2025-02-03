@@ -62,6 +62,7 @@ export const Table: React.FC<ITableProps> = ({
 									header={col.header}
 									type={columnType}
 									isSortable={isSortable}
+									isFiltrable={col.isFiltrable}
 									isActive={isActive}
 									sortOrder={sortOrder}
 									onSort={() => isSortable && handleSort(col.accessor)}
