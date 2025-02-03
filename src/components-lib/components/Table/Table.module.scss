@@ -10,15 +10,8 @@
 
     .table-head {
       background-color: var(--qc-bg-table-head);
-      .table-row {
-        .table-headline {
-          padding: 10px 20px;
-          &.sortable {
-            cursor: pointer;
-          }
-        }
-      }
     }
+
     .table-row {
       .table-cell {
         text-align: center;
@@ -31,10 +24,4 @@
       }
     }
   }
-}
-
-.title {
-  display: flex;
-  align-items: center;
-  margin: 0;
 }
