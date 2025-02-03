@@ -1,16 +1,34 @@
-interface ICardModel {
+export type CardProps = {
     onClick?: () => void,
     hoverable?: boolean,
     title?: string,
     subtitle?: string,
     children?: React.ReactNode,
     classNames?: string,
-    photo?: Photo,
+    img?: Photo,
     photoPosition: PhotoPosition,
-    photoType?: photoType
+    header?: CardHeader,
+    footer?: CardFooter
 }
 
 type PhotoPosition = 'left' | 'right' | 'top' | 'bottom'
-type Photo = { src: string, alt: string }
-type photoType = 'avatar' | 'default';
-export type CardProps = ICardModel;
+type Photo = { src: string, alt?: string }
+
+export type MetaProps = {
+    photoPosition: PhotoPosition,
+    avatar: Photo,
+    title?: string,
+    subtitle?: string,
+}
+
+type CardHeader = {
+    title?: string,
+    subtitle?: string,
+    children?: React.ReactNode,
+}
+
+type CardFooter = {
+    title?: string,
+    subtitle?: string,
+    children?: React.ReactNode,
+}
