@@ -21,7 +21,8 @@
   --qc-bg-tr: rgba(17, 24, 39, 0.7);
   --qc-bg-shadow: 0 3px 1px -2px rgba(200, 200, 200, 0.2), 0 2px 2px 0 rgba(200, 200, 200, 0.14),
     0 1px 5px 0 rgba(200, 200, 200, 0.12);
-  --qc-bg-table-head: var(--qc-bg-secondary);
+
+  --qc-bg-table-head: var(--qc-bg-tr);
   --qc-bg-table: var(--qc-bg-primary);
 
   --qc-border-primary: #374151;
