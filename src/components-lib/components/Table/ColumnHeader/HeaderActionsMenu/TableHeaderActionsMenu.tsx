@@ -9,6 +9,7 @@ export const TableHeaderActionsMenu: React.FC<ITableHeaderMenuProps> = ({
 	onToggle,
 }) => {
 	const [isHidden, setIsHidden] = useState<boolean>(isOpen);
+	const [animate, setAnimate] = useState<boolean>(false);
 
 	useEffect(() => {
 		if (!isOpen) {
@@ -16,6 +17,9 @@ export const TableHeaderActionsMenu: React.FC<ITableHeaderMenuProps> = ({
 		} else {
 			setIsHidden(isOpen);
 		}
+		setAnimate(true);
+		const timer = setTimeout(() => setAnimate(false), 500);
+		return () => clearTimeout(timer);
 	}, [isOpen]);
 
 	return (
@@ -26,9 +30,13 @@ export const TableHeaderActionsMenu: React.FC<ITableHeaderMenuProps> = ({
 		>
 			<i
 				onClick={onToggle}
-				className={clsx('material-symbols-outlined', styles.button)}
+				className={clsx('material-symbols-outlined', styles.button, {
+					[styles.animate]: animate,
+				})}
 			>
-				more_horiz
+				<div className={styles['button-div']}></div>
+				<div className={styles['button-div']}></div>
+				<div className={styles['button-div']}></div>
 			</i>
 			{isHidden && <div className={clsx(styles.menu)}>{children}</div>}
 		</div>
