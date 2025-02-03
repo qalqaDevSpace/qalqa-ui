@@ -1,7 +1,6 @@
-import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { Data, IActiveSort, ITableProps } from '../../model/TableModel';
-import { TableSort } from './Sort/TableSort';
+import { TableColumnHeader } from './Column/TableColumnHeader';
 import styles from './Table.module.scss';
 
 export const Table: React.FC<ITableProps> = ({
@@ -56,22 +55,17 @@ export const Table: React.FC<ITableProps> = ({
 								activeSort !== null && activeSort.accessor === col.accessor;
 							const sortOrder = isActive ? activeSort!.order : 'asc';
 							const isSortable = sortable || col.isSortable;
+							const columnType = col.type;
 							return (
-								<th
-									onClick={() => isSortable && handleSort(col.accessor)}
+								<TableColumnHeader
 									key={index}
-									className={clsx(styles['table-headline'], {
-										[styles.sortable]: isSortable,
-									})}
-								>
-									<p className={styles.title}>
-										{col.header}
-
-										{isSortable && (
-											<TableSort active={isActive} order={sortOrder} />
-										)}
-									</p>
-								</th>
+									header={col.header}
+									type={columnType}
+									isSortable={isSortable}
+									isActive={isActive}
+									sortOrder={sortOrder}
+									onSort={() => isSortable && handleSort(col.accessor)}
+								/>
 							);
 						})}
 					</tr>

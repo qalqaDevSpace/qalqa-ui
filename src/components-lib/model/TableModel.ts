@@ -17,8 +17,26 @@ export interface ITableSortProps {
 export interface Column {
 	header: string;
 	accessor: string;
+	type?: ColumnType;
 	isSortable?: boolean;
 }
+
+export interface ITableColumnHeaderComponentProps {
+	header: Column['header'];
+	type?: Column['type'];
+	isSortable?: Column['isSortable'];
+	isActive: boolean;
+	sortOrder: Order;
+	onSort?: () => void;
+}
+
+type ColumnType =
+	| 'default'
+	| 'numeric'
+	| 'boolean'
+	| 'date'
+	| 'time'
+	| 'actions';
 
 type Order = 'asc' | 'desc';
 
