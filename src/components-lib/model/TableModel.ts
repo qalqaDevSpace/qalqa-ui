@@ -1,5 +1,5 @@
 export interface ITableProps {
-	columns: Column[];
+	columns: IColumn[];
 	data: Data[];
 	sortable?: boolean;
 }
@@ -14,7 +14,7 @@ export interface ITableSortProps {
 	order: Order;
 }
 
-export interface Column {
+export interface IColumn {
 	header: string;
 	accessor: string;
 	type?: ColumnType;
@@ -22,9 +22,9 @@ export interface Column {
 }
 
 export interface ITableColumnHeaderComponentProps {
-	header: Column['header'];
-	type?: Column['type'];
-	isSortable?: Column['isSortable'];
+	header: IColumn['header'];
+	type?: IColumn['type'];
+	isSortable?: IColumn['isSortable'];
 	isActive: boolean;
 	sortOrder: Order;
 	onSort?: () => void;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Data, IActiveSort, ITableProps } from '../../model/TableModel';
-import { TableColumnHeader } from './Column/TableColumnHeader';
+import { TableColumnHeader } from './ColumnHeader/TableColumnHeader';
 import styles from './Table.module.scss';
 
 export const Table: React.FC<ITableProps> = ({
