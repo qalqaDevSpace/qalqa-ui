@@ -8,12 +8,14 @@ import styles from './TableColumnHeader.module.scss';
 
 export const TableColumnHeader = ({
 	header,
-	isActive,
 	sortOrder,
 	isSortable,
 	isFiltrable,
 	type = 'default',
+	isActiveSort,
+	isActiveFilter,
 	onSort,
+	onFilter,
 }: ITableColumnHeaderComponentProps) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	return (
@@ -32,12 +34,17 @@ export const TableColumnHeader = ({
 						>
 							{isSortable && (
 								<TableSort
-									active={isActive}
+									active={isActiveSort || false}
 									order={sortOrder}
 									onSort={onSort}
 								/>
 							)}
-							{isFiltrable && <TableFilter />}
+							{isFiltrable && (
+								<TableFilter
+									active={isActiveFilter || false}
+									onFilter={onFilter}
+								/>
+							)}
 						</TableHeaderActionsMenu>
 					</div>
 				</th>

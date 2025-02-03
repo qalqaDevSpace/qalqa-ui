@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Data, IActiveSort, ITableProps } from '../../model/TableModel';
+import {
+	Data,
+	IActiveFilter,
+	IActiveSort,
+	ITableProps,
+} from '../../model/TableModel';
 import { TableColumnHeader } from './ColumnHeader/TableColumnHeader';
 import styles from './Table.module.scss';
 
@@ -10,10 +15,12 @@ export const Table: React.FC<ITableProps> = ({
 }) => {
 	const [sortedData, setSortedData] = useState<Data[]>([]);
 	const [activeSort, setActiveSort] = useState<IActiveSort | null>(null);
+	const [activeFilter, setActiveFilter] = useState<IActiveFilter | null>(null);
 
 	useEffect(() => {
 		setSortedData(data);
 		setActiveSort(null);
+		setActiveFilter(null);
 	}, [data]);
 
 	const handleSort = (accessor: string) => {
@@ -45,15 +52,27 @@ export const Table: React.FC<ITableProps> = ({
 		setSortedData(sorted);
 	};
 
+	const handleFilter = (accessor: string, rule: unknown) => {
+		if (activeFilter) {
+			setActiveFilter(null);
+			return;
+		}
+		setActiveFilter({ accessor, rule });
+		// const filtered = data.filter((item) => item[accessor] === rule);
+		// setSortedData(filtered);
+	};
+
 	return (
 		<div className={styles.container}>
 			<table className={styles.table}>
 				<thead className={styles['table-head']}>
 					<tr className={styles['table-row']}>
 						{columns.map((col, index) => {
-							const isActive =
+							const isActiveSort =
 								activeSort !== null && activeSort.accessor === col.accessor;
-							const sortOrder = isActive ? activeSort!.order : 'asc';
+							const isActiveFilter =
+								activeFilter !== null && activeFilter.accessor === col.accessor;
+							const sortOrder = isActiveSort ? activeSort!.order : 'asc';
 							const isSortable = sortable || col.isSortable;
 							const columnType = col.type;
 							return (
@@ -63,9 +82,13 @@ export const Table: React.FC<ITableProps> = ({
 									type={columnType}
 									isSortable={isSortable}
 									isFiltrable={col.isFiltrable}
-									isActive={isActive}
+									isActiveSort={isActiveSort}
+									isActiveFilter={isActiveFilter}
 									sortOrder={sortOrder}
 									onSort={() => isSortable && handleSort(col.accessor)}
+									onFilter={() =>
+										col.isFiltrable && handleFilter(col.accessor, null)
+									}
 								/>
 							);
 						})}

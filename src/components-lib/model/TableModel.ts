@@ -15,6 +15,16 @@ export interface ITableSortProps {
 	onSort?: () => void;
 }
 
+export interface IActiveFilter {
+	accessor: string;
+	rule: unknown;
+}
+
+export interface ITableFilterProps {
+	active: boolean;
+	onFilter?: () => void;
+}
+
 export interface IColumn {
 	header: string;
 	accessor: string;
@@ -27,10 +37,12 @@ export interface ITableColumnHeaderComponentProps {
 	header: IColumn['header'];
 	type?: IColumn['type'];
 	isSortable?: IColumn['isSortable'];
+	isActiveSort?: boolean;
 	isFiltrable?: boolean;
-	isActive: boolean;
+	isActiveFilter?: boolean;
 	sortOrder: Order;
 	onSort?: () => void;
+	onFilter?: () => void;
 }
 
 export interface ITableHeaderMenuProps {
