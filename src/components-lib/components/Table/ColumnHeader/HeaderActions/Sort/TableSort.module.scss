@@ -3,6 +3,13 @@
   align-items: center;
   gap: clamp(2px, 1vw, 5px);
   justify-content: end;
+  padding: 0 20px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  &:hover {
+    color: var(--qc-hover-text-primary);
+    background-color: var(--qc-hover-accent-primary-tr);
+  }
 
   .title {
     font-weight: 500;
@@ -12,9 +19,6 @@
   .arrow {
     transition: all 0.2s ease;
     user-select: none;
-    &:hover {
-      color: var(--qc-hover-text-primary);
-    }
 
     &.order-desc {
       rotate: (180deg);
