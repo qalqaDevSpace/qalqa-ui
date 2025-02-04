@@ -17,6 +17,8 @@ export const Table = ({
 	data,
 	sortable = false,
 	itemsPerPage = 5,
+	maxDataLength = 100,
+	warpable = false,
 }: ITableProps) => {
 	const [sortedData, setSortedData] = useState<Data[]>([]);
 	const [activeSort, setActiveSort] = useState<IActiveSort | null>(null);
@@ -74,7 +76,6 @@ export const Table = ({
 		setActiveFilter({ accessor, rule });
 	};
 
-	// Расчёт для пагинации
 	const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 	const startIndex = (currentPage - 1) * itemsPerPage;
 	const visibleData = sortedData.slice(startIndex, startIndex + itemsPerPage);
@@ -154,10 +155,20 @@ export const Table = ({
 										</td>
 									);
 								}
+								const cellContent = row[col.accessor];
+								const applyWarpable =
+									warpable &&
+									typeof cellContent === 'string' &&
+									cellContent.length > maxDataLength;
 
 								return (
-									<td key={colIndex} className={styles['table-cell']}>
-										<>{row[col.accessor]}</>
+									<td
+										key={colIndex}
+										className={clsx(styles['table-cell'], {
+											[styles.warpable]: applyWarpable,
+										})}
+									>
+										<>{cellContent}</>
 									</td>
 								);
 							})}

@@ -1,12 +1,24 @@
 import { ReactNode } from 'react';
 import { ButtonProps } from './ButtonModel';
 
-export interface ITableProps {
+interface ITableBaseProps {
 	columns: IColumn[];
 	data: Data[];
 	sortable?: boolean;
 	itemsPerPage?: number;
 }
+
+type ITableWarpable = ITableBaseProps & {
+	warpable: true;
+	maxDataLength?: number;
+};
+
+type ITableNonWarpable = ITableBaseProps & {
+	warpable?: false;
+	maxDataLength?: never;
+};
+
+export type ITableProps = ITableWarpable | ITableNonWarpable;
 
 export interface IActiveSort {
 	accessor: string;

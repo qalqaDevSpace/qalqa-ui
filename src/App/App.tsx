@@ -156,7 +156,11 @@ function App() {
 			],
 		},
 		{ id: 3, name: 'Dolor Sit', email: 'dolor@example.com' },
-		{ id: 2, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{
+			id: 2,
+			name: 'Amet Consectetur Amet Consectetur Amet Consecteturq Amet Consectetur Amet Consectetur Amet Consectetur Amet Consectetur Amet Consectetur Amet Consectetur Amet Consectetur',
+			email: 'amet@example.com',
+		},
 		{ id: 4, name: 'Amet Consectetur', email: 'amet@example.com' },
 		{ id: 6, name: 'Amet Consectetur', email: 'amet@example.com' },
 		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
@@ -252,7 +256,13 @@ function App() {
 						label="Switch test"
 						isToggle
 					/>
-					<Table columns={columns} data={tableData} sortable itemsPerPage={5} />
+					<Table
+						columns={columns}
+						data={tableData}
+						sortable
+						itemsPerPage={5}
+						warpable
+					/>
 					<Loader />
 					<Loader type="dots" />
 					<Loader type="bouncy" />
