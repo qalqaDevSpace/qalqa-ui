@@ -1,0 +1,37 @@
+.badge {
+    padding: 2.5px 5px;
+    font-size: 75%;
+    text-align: center;
+    border-radius: 0.25rem;
+	font-family: var(--qff-primary);
+}
+
+.s-toDo {
+    color: var(--qc-hover-text-secondary);
+    border: 1.5px solid var(--qc-hover-text-secondary);
+}
+
+.s-inProgress {
+    color: var(--qc-hover-accent-primary);
+    border: 1.5px solid var(--qc-hover-accent-primary);
+}
+
+.s-done {
+    color: var(--qc-success);
+    border: 1.5px solid var(--qc-success);
+}
+
+.s-cancelled {
+    color: var(--qc-error);
+    border: 1.5px solid var(--qc-error);
+}  
+
+.s-waitingReview {
+    color: var(--qc-warning);
+    border: 1.5px solid var(--qc-warning);
+}
+
+.s-archived {
+    color: var(--qc-accent-primary);
+    border: 1.5px solid var(--qc-accent-primary);
+}
