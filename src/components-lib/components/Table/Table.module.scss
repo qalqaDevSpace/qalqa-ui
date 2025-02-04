@@ -1,18 +1,14 @@
 .container {
   font-family: var(--qff-primary);
-  background-color: var(--qc-bg-tr);
+  background-color: var(--qc-bg-table);
+  color: var(--qc-text-primary);
   border: var(--qc-border-card);
   border-radius: 10px;
   overflow: hidden;
-  min-width: 80vw;
 
   .table {
     border-collapse: collapse;
     width: 100%;
-
-    .table-head {
-      background-color: var(--qc-bg-table-head);
-    }
 
     .table-row {
       .table-cell {
@@ -50,6 +46,6 @@
     }
   }
   .pagination-container {
-    padding: 10px 0;
+    padding: 5px 0;
   }
 }

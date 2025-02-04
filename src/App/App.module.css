@@ -9,3 +9,7 @@
 	color: var(--qc-text-primary);
 	margin: 0 auto;
 }
+.table {
+	min-width: 850px;
+	padding: 100px;
+}

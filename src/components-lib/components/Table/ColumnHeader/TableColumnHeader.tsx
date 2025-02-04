@@ -36,13 +36,18 @@ export const TableColumnHeader = ({
 					[styles.sortable]: isSortable,
 				})}
 			>
-				<div
-					onClick={() => setIsMenuOpen(!isMenuOpen)}
-					className={styles['table-headline-container']}
-				>
-					<p className={styles.title}>{header}</p>
+				<div className={styles['table-headline-container']}>
+					<p
+						onClick={() => setIsMenuOpen(!isMenuOpen)}
+						className={styles.title}
+					>
+						{header}
+					</p>
 					{(isSortable || isFiltrable) && (
-						<TableHeaderActionsMenu isOpen={isMenuOpen}>
+						<TableHeaderActionsMenu
+							onClick={() => setIsMenuOpen(!isMenuOpen)}
+							isOpen={isMenuOpen}
+						>
 							{isSortable && (
 								<TableSort
 									active={isActiveSort || false}

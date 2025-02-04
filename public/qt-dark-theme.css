@@ -23,7 +23,7 @@
     0 1px 5px 0 rgba(200, 200, 200, 0.12);
 
   --qc-bg-table-head: var(--qc-bg-tr);
-  --qc-bg-table: var(--qc-bg-primary);
+  --qc-bg-table: #101424;
 
   --qc-bg-skeleton: var(--qc-bg-tr);
   --qc-bg-skeleton-shimmer: rgba(41, 40, 71, 0.7);

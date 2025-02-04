@@ -265,19 +265,22 @@ function App() {
 						label="Switch test"
 						isToggle
 					/>
-					<Table
-						columns={columns}
-						data={tableData}
-						sortable
-						itemsPerPage={5}
-						warpable
-						preload={isTableLoading}
-					/>
+
 					<Loader />
 					<Loader type="dots" />
 					<Loader type="bouncy" />
 					{/* <Skeleton /> */}
 				</div>
+			</div>
+			<div className={styles.table}>
+				<Table
+					columns={columns}
+					data={tableData}
+					sortable
+					itemsPerPage={5}
+					warpable
+					preload={isTableLoading}
+				/>
 			</div>
 		</>
 	);

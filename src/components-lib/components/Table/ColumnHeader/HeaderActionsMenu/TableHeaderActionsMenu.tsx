@@ -6,6 +6,7 @@ import styles from './TableHeaderActionsMenu.module.scss';
 export const TableHeaderActionsMenu: React.FC<ITableHeaderMenuProps> = ({
 	children,
 	isOpen,
+	onClick,
 }) => {
 	const [isHidden, setIsHidden] = useState<boolean>(isOpen);
 	const [animate, setAnimate] = useState<boolean>(false);
@@ -28,6 +29,7 @@ export const TableHeaderActionsMenu: React.FC<ITableHeaderMenuProps> = ({
 			})}
 		>
 			<i
+				onClick={onClick}
 				className={clsx('material-symbols-outlined', styles.button, {
 					[styles.animate]: animate,
 				})}

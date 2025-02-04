@@ -74,6 +74,7 @@ export interface ITableColumnHeaderComponentProps {
 export interface ITableHeaderMenuProps {
 	children: React.ReactNode;
 	isOpen: boolean;
+	onClick?: () => void;
 }
 
 type ColumnType =
