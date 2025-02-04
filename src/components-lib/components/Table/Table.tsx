@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import {
 	Data,
@@ -109,14 +110,22 @@ export const Table = ({ columns, data, sortable = false }: ITableProps) => {
 										: [actionsField];
 
 									return (
-										<td key={colIndex} className={styles['table-cell']}>
+										<td
+											key={colIndex}
+											className={clsx(styles['table-cell'], styles['actions'])}
+										>
 											{actions.map(
 												(act: ITableActions, actionIndex: number) => (
 													<Button
-														size="sm"
+														key={actionIndex}
+														size={act.size || 'sm'}
+														disabled={act.disabled}
+														icon={act.icon}
+														iconPosition={act.iconPosition}
+														weight={act.weight}
+														shadow={act.shadow}
 														label={act.label}
 														type={act.type}
-														key={actionIndex}
 														onClick={() => act.action(row)}
 													/>
 												)

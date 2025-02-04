@@ -137,12 +137,14 @@ function App() {
 			email: 'lorem@example.com',
 			actions: [
 				{
-					label: 'Delete',
+					// label: 'Delete',
 					type: 'error',
+					icon: 'delete',
 					action: (rowData: Data) => handleDelete(rowData),
 				},
 				{
-					label: 'Log',
+					// label: 'Log',
+					icon: 'check_circle',
 					type: 'success',
 					action: (rowData: Data) => console.log(rowData),
 				},

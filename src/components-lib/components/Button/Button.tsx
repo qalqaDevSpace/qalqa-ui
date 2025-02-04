@@ -25,6 +25,7 @@ export const Button = ({
 		styles[`s-${size}`],
 		styles[`w-${weight}`],
 		{
+			[styles['no-label']]: !label,
 			[styles.disabled]: disabled,
 			[styles.shadow]: shadow,
 		}
@@ -57,7 +58,7 @@ export const Button = ({
 					{label}
 				</a>
 			) : (
-				<a className={styles['button-label']}>{label}</a>
+				label && <a className={styles['button-label']}>{label}</a>
 			)}
 		</div>
 	);

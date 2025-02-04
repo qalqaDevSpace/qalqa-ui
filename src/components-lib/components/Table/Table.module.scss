@@ -16,6 +16,13 @@
       .table-cell {
         text-align: center;
         padding: 10px 20px;
+        &.actions {
+          display: flex;
+          justify-content: center;
+          width: fit-content;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
       }
     }
     .table-row:not(:last-child) {

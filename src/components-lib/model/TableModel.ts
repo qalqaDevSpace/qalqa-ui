@@ -40,11 +40,9 @@ export interface IColumn {
 	isFiltrable?: boolean;
 }
 
-export interface ITableActions {
-	label: string;
-	type: ButtonProps['type'];
+export type ITableActions = ButtonProps & {
 	action: (row: Data) => void;
-}
+};
 
 export interface ITableColumnHeaderComponentProps {
 	header: IColumn['header'];
