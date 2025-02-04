@@ -4,6 +4,7 @@ import { ButtonProps } from './ButtonModel';
 interface ITableBaseProps {
 	columns: IColumn[];
 	data: Data[];
+	preload?: boolean;
 	sortable?: boolean;
 	itemsPerPage?: number;
 }

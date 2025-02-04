@@ -1,12 +1,14 @@
 .container {
   font-family: var(--qff-primary);
-  background-color: var(--qc-bg-table);
+  background-color: var(--qc-bg-tr);
   border: var(--qc-border-card);
   border-radius: 10px;
   overflow: hidden;
+  min-width: 80vw;
 
   .table {
     border-collapse: collapse;
+    width: 100%;
 
     .table-head {
       background-color: var(--qc-bg-table-head);

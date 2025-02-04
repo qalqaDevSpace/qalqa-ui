@@ -25,6 +25,9 @@
   --qc-bg-table-head: var(--qc-bg-tr);
   --qc-bg-table: var(--qc-bg-primary);
 
+  --qc-bg-skeleton: var(--qc-bg-tr);
+  --qc-bg-skeleton-shimmer: rgba(41, 40, 71, 0.7);
+
   --qc-border-primary: #374151;
   --qc-border-secondary: #fff3;
   --qc-border-card: 1px solid transparent;

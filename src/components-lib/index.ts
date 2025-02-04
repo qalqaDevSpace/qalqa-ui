@@ -9,6 +9,7 @@ export { Dropdown } from './components/Dropdown/Dropdown';
 export { InputText } from './components/InputText/InputText';
 export { Loader } from './components/Loader/Loader';
 export { RadioGroup } from './components/Radio/RadioGroup';
+export { Skeleton } from './components/Skeleton/Skeleton';
 export { Switch } from './components/Switch/Switch';
 export { Table } from './components/Table/Table';
 export { ThemeProvider } from './components/Theme/ThemeProvider';

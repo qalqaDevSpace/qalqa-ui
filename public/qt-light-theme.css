@@ -22,6 +22,9 @@
   --qc-bg-table-head: var(--qc-bg-tr);
   --qc-bg-table: var(--qc-bg-secondary);
 
+  --qc-bg-skeleton: var(--qc-bg-tr);
+  --qc-bg-skeleton-shimmer: rgba(221, 221, 221, 0.7);
+
   --qc-border-primary: #e5e7eb;
   --qc-border-secondary: #e5e7eb;
   --qc-border-card: 1px solid var(--qc-border-secondary);

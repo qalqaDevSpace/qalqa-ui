@@ -181,6 +181,15 @@ function App() {
 		setTableData((prevData) => prevData.filter((item) => item.id !== row.id));
 	};
 
+	const [isTableLoading, setIsTableLoading] = useState(false);
+
+	useEffect(() => {
+		setIsTableLoading(true);
+		setTimeout(() => {
+			setIsTableLoading(false);
+		}, 1000);
+	}, [tableData]);
+
 	return (
 		<>
 			<div className={styles.container}>
@@ -262,10 +271,12 @@ function App() {
 						sortable
 						itemsPerPage={5}
 						warpable
+						preload={isTableLoading}
 					/>
 					<Loader />
 					<Loader type="dots" />
 					<Loader type="bouncy" />
+					{/* <Skeleton /> */}
 				</div>
 			</div>
 		</>

@@ -9,12 +9,14 @@ import {
 } from '../../model/TableModel';
 import { Button } from '../Button/Button';
 import { Pagination } from '../Pagination/Pagination';
+import { Skeleton } from '../Skeleton/Skeleton';
 import { TableColumnHeader } from './ColumnHeader/TableColumnHeader';
 import styles from './Table.module.scss';
 
 export const Table = ({
 	columns,
 	data,
+	preload = false,
 	sortable = false,
 	itemsPerPage = 5,
 	maxDataLength = 100,
@@ -85,6 +87,14 @@ export const Table = ({
 			setCurrentPage(page);
 		}
 	};
+
+	if (preload) {
+		return (
+			<div className={styles.container}>
+				<Skeleton />
+			</div>
+		);
+	}
 
 	return (
 		<div className={styles.container}>
