@@ -5,6 +5,7 @@ export interface ITableProps {
 	columns: IColumn[];
 	data: Data[];
 	sortable?: boolean;
+	itemsPerPage?: number;
 }
 
 export interface IActiveSort {
