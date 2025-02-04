@@ -7,47 +7,31 @@
 }
 
 .s-toDo {
-    background-color: var(--qc-hover-bg-secondary);
     color: var(--qc-hover-text-secondary);
     border: 1.5px solid var(--qc-hover-text-secondary);
 }
 
 .s-inProgress {
-    background-color: var(--qc-hover-bg-secondary);
     color: var(--qc-hover-accent-primary);
     border: 1.5px solid var(--qc-hover-accent-primary);
 }
 
 .s-done {
-    background-color: var(--qc-hover-bg-secondary);    
     color: var(--qc-success);
     border: 1.5px solid var(--qc-success);
 }
 
 .s-cancelled {
-    background-color: var(--qc-hover-bg-secondary);
     color: var(--qc-error);
     border: 1.5px solid var(--qc-error);
 }  
 
 .s-waitingReview {
-    background-color: var(--qc-hover-bg-secondary);
     color: var(--qc-warning);
     border: 1.5px solid var(--qc-warning);
 }
 
 .s-archived {
-    background-color: var(--qc-hover-bg-secondary);
     color: var(--qc-accent-primary);
     border: 1.5px solid var(--qc-accent-primary);
 }
-
-// .t-default {
-//     background-color: var(--qc-text-primary);
-//     color: var(--qc-text-primary);
-// }
-
-// .t-selected {
-//     background-color: var(--qc-bg-secondary);
-//     color: var(--qc-text-primary);
-// }

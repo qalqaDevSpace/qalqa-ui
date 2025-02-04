@@ -16,7 +16,7 @@ export const StatusBadge = ({
         <div
             className={StatusBadgeClasses}
         >
-            {label}
+            <p>{label}</p>
         </div>
         );
 };
