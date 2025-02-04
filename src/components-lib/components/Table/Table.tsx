@@ -170,6 +170,7 @@ export const Table = ({
 					<Pagination
 						currentPage={currentPage}
 						totalPages={totalPages}
+						maxPages={5}
 						onPageChange={handlePageChange}
 					/>
 				</div>
