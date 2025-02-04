@@ -1,0 +1,51 @@
+.container {
+  font-family: var(--qff-primary);
+  background-color: var(--qc-bg-table);
+  color: var(--qc-text-primary);
+  border: var(--qc-border-card);
+  border-radius: 10px;
+  overflow: hidden;
+
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+
+    .table-row {
+      .table-cell {
+        text-align: center;
+        padding: 10px 20px;
+        max-width: 400px;
+        &.warpable {
+          position: relative;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5rem;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 10%, var(--qc-bg-table) 70%);
+          }
+        }
+        &.actions {
+          display: flex;
+          justify-content: center;
+          width: fit-content;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+      }
+    }
+    .table-row:not(:last-child) {
+      .table-cell {
+        border-bottom: 1px solid var(--qc-border-secondary);
+      }
+    }
+  }
+  .pagination-container {
+    padding: 5px 0;
+  }
+}

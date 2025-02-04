@@ -1,0 +1,206 @@
+$switch-width: 48px;
+$switch-height: 30px;
+$switch-border-radius: 30px;
+$switch-thumb-size: calc(#{$switch-height} - ((3px * 2) + 2px));
+$switch-thumb-offset: 4px;
+$switch-transition: 0.3s ease-in-out;
+
+$toggle-sizes: (
+  s-sm: (
+    width: 36px,
+    height: 22px,
+    thumb-size: 16px
+  ),
+  s-md: (
+    width: 48px,
+    height: 30px,
+    thumb-size: 24px
+  ),
+  s-lg: (
+    width: 60px,
+    height: 38px,
+    thumb-size: 32px
+  )
+);
+
+$sizes: (
+  s-sm: (
+    gap: 0.3rem,
+    font-size: 15px,
+    size: 20px,
+    border-radius: 4.5px
+  ),
+  s-md: (
+    gap: 0.5rem,
+    font-size: 20px,
+    size: 30px,
+    border-radius: 7px
+  ),
+  s-lg: (
+    gap: 0.7rem,
+    font-size: 30px,
+    size: 40px,
+    border-radius: 10px
+  )
+);
+
+.switch-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  &.toggle {
+    @each $size, $props in $toggle-sizes {
+      &.#{$size} {
+        font-size: map-get($props, thumb-size);
+        justify-content: start;
+        gap: 0.5rem;
+        .switch-input {
+          width: map-get($props, width);
+          height: map-get($props, height);
+          border-radius: map-get($props, height);
+          &::after {
+            width: map-get($props, thumb-size);
+            top: calc(map-get($props, height) - map-get($props, thumb-size) - 4px);
+            height: map-get($props, thumb-size);
+          }
+          &.checked::after {
+            left: calc(map-get($props, width) - map-get($props, thumb-size) - 4px);
+          }
+        }
+      }
+    }
+    .switch-input {
+      appearance: none;
+      background-color: var(--qc-bg-card);
+      width: $switch-width;
+      height: $switch-height;
+      border-radius: $switch-border-radius;
+      position: relative;
+      box-sizing: border-box;
+      transition: $switch-transition;
+      border: var(--qc-border-card);
+
+      &:hover {
+        background-color: var(--qc-hover-bg-secondary);
+      }
+      &:hover::after {
+        background-color: var(--qc-hover-thumb);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: $switch-thumb-offset;
+        left: $switch-thumb-offset;
+        width: $switch-thumb-size;
+        height: $switch-thumb-size;
+        border-radius: 100%;
+        background-color: var(--qc-thumb);
+        box-shadow: var(--qc-shadow-thumb);
+        transition: 0.2s ease-in-out;
+      }
+      &.checked {
+        background-color: var(--qc-accent-primary-tr);
+        &:hover {
+          background-color: var(--qc-hover-accent-primary-tr);
+        }
+        &:hover::after {
+          background-color: var(--qc-hover-accent-primary);
+        }
+        &::after {
+          left: calc(#{$switch-width} - #{$switch-thumb-size} - #{$switch-thumb-offset});
+          background-color: var(--qc-accent-primary);
+          box-shadow: 0 0 5px var(--qc-accent-primary);
+        }
+      }
+    }
+  }
+
+  &:not(.toggle) {
+    .switch-input {
+      appearance: none;
+      position: relative;
+      background: var(--qc-bg-card);
+      box-sizing: border-box;
+      border: var(--qc-border-card);
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+
+      &.checkbox::after {
+        content: "check";
+        position: absolute;
+        color: var(--qc-text-inverted);
+        top: 3px;
+        left: 5px;
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+      }
+      &.radio {
+        border-radius: 100%;
+        &::after {
+          display: none;
+        }
+      }
+      &:hover {
+        background-color: var(--qc-hover-bg-secondary);
+      }
+      &.checked {
+        box-shadow: 0 0 5px var(--qc-accent-primary);
+        &.checkbox {
+          background-color: var(--qc-accent-primary);
+          border: none;
+        }
+        &.radio {
+          border: 7px solid var(--qc-accent-primary);
+        }
+      }
+      &.invalid {
+        border: 1px solid var(--qc-error);
+        box-shadow: 0 0 5px var(--qc-error);
+        background-color: var(--qc-error-tr);
+      }
+    }
+
+    @each $size, $props in $sizes {
+      &.#{$size} {
+        gap: map-get($props, gap);
+        font-size: map-get($props, font-size);
+
+        .switch-input {
+          width: map-get($props, size);
+          height: map-get($props, size);
+
+          &.checkbox {
+            border-radius: map-get($props, border-radius);
+          }
+
+          &.radio {
+            &.checked {
+              border-width: map-get($props, border-radius);
+            }
+          }
+
+          &.checked::after {
+            top: calc((map-get($props, size) - map-get($props, font-size)) / 2);
+            left: calc((map-get($props, size) - map-get($props, font-size)) / 2);
+            width: map-get($props, size);
+            height: map-get($props, size);
+          }
+        }
+      }
+    }
+  }
+
+  .switch-label {
+    font-family: var(--qff-primary);
+    cursor: pointer;
+  }
+}

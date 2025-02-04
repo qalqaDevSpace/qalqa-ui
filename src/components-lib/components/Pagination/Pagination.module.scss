@@ -1,0 +1,33 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.button {
+  transition: 0.2s ease;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  border: var(--qc-card-border);
+  border-radius: 8px;
+  background-color: var(--qc-bg-tr);
+  color: var(--qc-text-primary);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--qc-hover-bg-secondary);
+  }
+  &.active {
+    background-color: var(--qc-accent-primary-tr-xsm);
+    color: var(--qc-accent-primary);
+    font-weight: 600;
+    &:hover {
+      background-color: var(--qc-hover-accent-primary-tr);
+    }
+  }
+  &:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+}

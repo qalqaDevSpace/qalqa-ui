@@ -19,9 +19,16 @@
   --qc-bg-card: var(--qc-bg-secondary);
   --qc-bg-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
+  --qc-bg-table-head: var(--qc-bg-tr);
+  --qc-bg-table: var(--qc-bg-tr);
+
+  --qc-bg-skeleton: var(--qc-bg-tr);
+  --qc-bg-skeleton-shimmer: rgba(221, 221, 221, 0.7);
+
   --qc-border-primary: #e5e7eb;
   --qc-border-secondary: #e5e7eb;
   --qc-border-card: 1px solid var(--qc-border-secondary);
+  --qc-border-table: 1px solid var(--qc-border-secondary);
 
   --qc-hover-accent-primary: #7c3aed;
   --qc-hover-bg-secondary: #f3f4f6;
@@ -32,6 +39,7 @@
   --qc-hover-error: #fe7d8c;
   --qc-hover-info: var(--qc-hover-accent-primary);
   --qc-hover-bg-item: #f3f4f6;
+  --qc-hover-thumb: #eaeaea;
 
   --qc-active-accent-primary: #6a25e2;
   --qc-active-success: #2fb282;
@@ -62,4 +70,7 @@
   --qc-info-tr-xsm: var(--qc-accent-primary-tr-xsm);
   --qc-info-tr-sm: var(--qc-accent-primary-tr-sm);
   --qc-info-tr: var(--qc-accent-primary-tr);
+
+  --qc-thumb: #f9fafb;
+  --qc-shadow-thumb: 0 0 5px rgba(0, 0, 0, 0.2);
 }
