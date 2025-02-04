@@ -1,0 +1,17 @@
+.table-headline {
+  padding: 15px 20px;
+  &.sortable {
+    cursor: pointer;
+  }
+  .table-headline-container {
+    gap: clamp(5px, 1vw, 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+}

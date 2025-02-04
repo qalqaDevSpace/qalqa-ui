@@ -1,26 +1,14 @@
-export interface ICheckboxBaseProps {
-	id?: string;
-	checked?: boolean;
-	onChange?: () => void;
-	value?: string;
-	invalid?: boolean;
-	name?: string;
+export type CheckboxOption = {
+	label?: string;
+	value: string;
+	isDisabled?: boolean;
+	isSelected?: boolean;
+};
+
+export interface ICheckboxGroupProps {
+	options: CheckboxOption[];
+	name: string;
+	toggle?: boolean;
 	disabled?: boolean;
-	size?: CheckboxSize;
+	onChange: (value: CheckboxOption) => void;
 }
-
-export type CheckboxSize = 'sm' | 'md' | 'lg';
-
-type LabelPosition = 'left' | 'right';
-
-type CheckboxWithLabel = ICheckboxBaseProps & {
-	label: string;
-	labelPosition?: LabelPosition;
-};
-
-type CheckboxWithoutLabel = ICheckboxBaseProps & {
-	label?: never;
-	labelPosition?: never;
-};
-
-export type ICheckboxProps = CheckboxWithLabel | CheckboxWithoutLabel;

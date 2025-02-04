@@ -51,15 +51,26 @@ export const Toast = ({
 		}
 	};
 
+	const renderMessage = (msg: string) => {
+		return msg.split('\n').map((line, index, arr) => (
+			<span key={index}>
+				{line}
+				{index !== arr.length - 1 && <br />}
+			</span>
+		));
+	};
+
 	return (
 		<div className={toastClasses}>
-			<i className={`material-icons ` + styles.icon}>{getIcon(type)}</i>
+			<i className={`material-icons ${styles.icon}`}>{getIcon(type)}</i>
 
 			<div className={styles.content}>
 				<h3 className={styles.title}>
 					{type.slice(0, 1).toUpperCase() + type.slice(1)}
 				</h3>
-				<p className={styles.text}>{message ? message : 'No message'}</p>
+				<p className={styles.text}>
+					{message ? renderMessage(message) : 'No message'}
+				</p>
 				<ProgressBar duration={trueDuration} type={type} />
 			</div>
 			<button

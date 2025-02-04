@@ -1,5 +1,5 @@
 interface IBaseButtonProps {
-	label: string;
+	label?: string;
 	type?: ButtonType;
 	size?: ButtonSize;
 	disabled?: boolean;
@@ -28,7 +28,7 @@ type ButtonWeight =
 	| 'bold'
 	| 'extrabold';
 
-export type ButtonSize = 'sm' | 'md' | 'xl';
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'xl';
 
 type ButtonIconPosition = 'left' | 'right';
 
