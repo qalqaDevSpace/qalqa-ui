@@ -128,6 +128,8 @@ function App() {
 		},
 	];
 
+	const [tableData, setTableData] = useState<Data[]>([]);
+
 	const data: Data[] = [
 		{
 			id: 1,
@@ -137,18 +139,26 @@ function App() {
 				{
 					label: 'Delete',
 					type: 'error',
-					action: (rowData: Data) => console.log(rowData),
+					action: (rowData: Data) => handleDelete(rowData),
 				},
 				{
 					label: 'Log',
 					type: 'success',
-					action: (rowData: Data) => console.log('Logging row:', rowData),
+					action: (rowData: Data) => console.log(rowData),
 				},
 			],
 		},
 		{ id: 3, name: 'Dolor Sit', email: 'dolor@example.com' },
 		{ id: 2, name: 'Amet Consectetur', email: 'amet@example.com' },
 	];
+
+	useEffect(() => {
+		setTableData(data);
+	}, []);
+
+	const handleDelete = (row: Data) => {
+		setTableData((prevData) => prevData.filter((item) => item.id !== row.id));
+	};
 
 	return (
 		<>
@@ -225,7 +235,7 @@ function App() {
 						label="Switch test"
 						isToggle
 					/>
-					<Table columns={columns} data={data} sortable />
+					<Table columns={columns} data={tableData} sortable />
 					<Loader />
 					<Loader type="dots" />
 					<Loader type="bouncy" />
