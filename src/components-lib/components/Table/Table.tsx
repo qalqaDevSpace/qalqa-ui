@@ -8,18 +8,26 @@ import {
 	ITableProps,
 } from '../../model/TableModel';
 import { Button } from '../Button/Button';
+import { Pagination } from '../Pagination/Pagination';
 import { TableColumnHeader } from './ColumnHeader/TableColumnHeader';
 import styles from './Table.module.scss';
 
-export const Table = ({ columns, data, sortable = false }: ITableProps) => {
+export const Table = ({
+	columns,
+	data,
+	sortable = false,
+	itemsPerPage = 5,
+}: ITableProps) => {
 	const [sortedData, setSortedData] = useState<Data[]>([]);
 	const [activeSort, setActiveSort] = useState<IActiveSort | null>(null);
 	const [activeFilter, setActiveFilter] = useState<IActiveFilter | null>(null);
+	const [currentPage, setCurrentPage] = useState<number>(1);
 
 	useEffect(() => {
 		setSortedData(data);
 		setActiveSort(null);
 		setActiveFilter(null);
+		setCurrentPage(1);
 	}, [data]);
 
 	const handleSort = (accessor: string) => {
@@ -49,11 +57,13 @@ export const Table = ({ columns, data, sortable = false }: ITableProps) => {
 		});
 
 		setSortedData(sorted);
+		setCurrentPage(1);
 	};
 
 	const handleClearSort = () => {
 		setActiveSort(null);
 		setSortedData(data);
+		setCurrentPage(1);
 	};
 
 	const handleFilter = (accessor: string, rule: unknown) => {
@@ -62,6 +72,17 @@ export const Table = ({ columns, data, sortable = false }: ITableProps) => {
 			return;
 		}
 		setActiveFilter({ accessor, rule });
+	};
+
+	// Расчёт для пагинации
+	const totalPages = Math.ceil(sortedData.length / itemsPerPage);
+	const startIndex = (currentPage - 1) * itemsPerPage;
+	const visibleData = sortedData.slice(startIndex, startIndex + itemsPerPage);
+
+	const handlePageChange = (page: number) => {
+		if (page >= 1 && page <= totalPages) {
+			setCurrentPage(page);
+		}
 	};
 
 	return (
@@ -98,7 +119,7 @@ export const Table = ({ columns, data, sortable = false }: ITableProps) => {
 					</tr>
 				</thead>
 				<tbody>
-					{sortedData.map((row, rowIndex) => (
+					{visibleData.map((row, rowIndex) => (
 						<tr className={styles['table-row']} key={rowIndex}>
 							{columns.map((col, colIndex) => {
 								if (col.accessor === 'actions' && row.actions) {
@@ -144,6 +165,16 @@ export const Table = ({ columns, data, sortable = false }: ITableProps) => {
 					))}
 				</tbody>
 			</table>
+			{totalPages > 1 && (
+				<div className={styles['pagination-container']}>
+					<Pagination
+						currentPage={currentPage}
+						totalPages={totalPages}
+						maxPages={5}
+						onPageChange={handlePageChange}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

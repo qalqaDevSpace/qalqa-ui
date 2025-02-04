@@ -146,12 +146,27 @@ function App() {
 					// label: 'Log',
 					icon: 'check_circle',
 					type: 'success',
-					action: (rowData: Data) => console.log(rowData),
+					action: (rowData: Data) =>
+						addToast({
+							type: 'success',
+							message: `Name: ${rowData.name?.toString()}\n Email: ${rowData.email?.toString()}`,
+							duration: 10,
+						}),
 				},
 			],
 		},
 		{ id: 3, name: 'Dolor Sit', email: 'dolor@example.com' },
 		{ id: 2, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 4, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 6, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
 	];
 
 	useEffect(() => {
@@ -237,7 +252,7 @@ function App() {
 						label="Switch test"
 						isToggle
 					/>
-					<Table columns={columns} data={tableData} sortable />
+					<Table columns={columns} data={tableData} sortable itemsPerPage={5} />
 					<Loader />
 					<Loader type="dots" />
 					<Loader type="bouncy" />
