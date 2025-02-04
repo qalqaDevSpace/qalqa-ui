@@ -392,17 +392,64 @@
 	pointer-events: none;
 }
 
+.s-xs {
+	&.no-label {
+		&.no-label {
+			width: 20px;
+			height: 20px;
+			padding: 0;
+			border-radius: 6px;
+			.icon {
+				left: 50%;
+				translate: -50%;
+			}
+		}
+	}
+	font-size: 12px;
+	padding: 0px 10px;
+}
+
 .s-sm {
+	&.no-label {
+		width: 30px;
+		height: 30px;
+		padding: 0;
+		border-radius: 8px;
+		.icon {
+			left: 50%;
+			translate: -50%;
+		}
+	}
 	font-size: 12px;
 	padding: 5px 10px;
 }
 
 .s-md {
+	&.no-label {
+		width: 46px;
+		height: 46px;
+		padding: 0;
+
+		.icon {
+			left: 50%;
+			translate: -50%;
+		}
+	}
 	font-size: 16px;
 	padding: 10px 30px;
 }
 
 .s-xl {
+	&.no-label {
+		width: 60px;
+		height: 60px;
+		padding: 0;
+
+		.icon {
+			left: 50%;
+			translate: -50%;
+		}
+	}
 	font-size: 20px;
 	padding: 15px 40px;
 }

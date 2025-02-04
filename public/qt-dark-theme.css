@@ -22,9 +22,16 @@
   --qc-bg-shadow: 0 3px 1px -2px rgba(200, 200, 200, 0.2), 0 2px 2px 0 rgba(200, 200, 200, 0.14),
     0 1px 5px 0 rgba(200, 200, 200, 0.12);
 
+  --qc-bg-table-head: var(--qc-bg-tr);
+  --qc-bg-table: #101424;
+
+  --qc-bg-skeleton: var(--qc-bg-tr);
+  --qc-bg-skeleton-shimmer: rgba(41, 40, 71, 0.7);
+
   --qc-border-primary: #374151;
   --qc-border-secondary: #fff3;
   --qc-border-card: 1px solid transparent;
+  --qc-border-table: 1px solid var(--qc-border-secondary);
 
   --qc-hover-accent-primary: #c4b5fd;
   --qc-hover-bg-secondary: #1f2937;
@@ -41,7 +48,6 @@
   --qc-hover-info-tr: var(--qc-accent-primary-tr);
 
   --qc-hover-bg-item: #1f2937;
-
   --qc-hover-thumb: #eaeaea;
 
   --qc-active-accent-primary: #d4cbfa;

@@ -16,7 +16,7 @@ export const RadioGroup = ({
 	const handleSelect = (option: RadioOption | null) => {
 		setSelected(option);
 		if (!option) return;
-		onChange && onChange(option);
+		onChange?.(option);
 	};
 
 	useEffect(() => {

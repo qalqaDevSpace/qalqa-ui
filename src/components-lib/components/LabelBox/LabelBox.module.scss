@@ -26,7 +26,7 @@
 	.label {
 		transition: top 0.2s ease-in-out;
 		position: absolute;
-		top: 50%;
+		top: 53%;
 		padding: 0 2px;
 		pointer-events: none;
 		z-index: 999;
@@ -34,7 +34,7 @@
 	}
 	&.left {
 		.label {
-			left: 10%;
+			left: 3%;
 		}
 	}
 

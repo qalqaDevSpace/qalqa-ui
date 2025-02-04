@@ -38,7 +38,7 @@ export const Switch = ({
 		effectRun.current = true;
 		onChange?.({ label, value, isSelected: checked || false });
 		setSelected(checked || false);
-	}, []);
+	}, [checked, label, onChange, value]);
 
 	return (
 		<div

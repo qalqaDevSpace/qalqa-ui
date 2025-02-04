@@ -7,12 +7,14 @@ import {
 	Loader,
 	RadioGroup,
 	Switch,
+	Table,
 	ThemeButton,
 	useToast,
 } from '../components-lib';
 import { CheckboxOption } from '../components-lib/model/CheckboxModel';
 import { IDropdownItem } from '../components-lib/model/DropdownModel';
 import { RadioOption } from '../components-lib/model/RadioModal';
+import { Data, IColumn } from '../components-lib/model/TableModel';
 import styles from './App.module.css';
 
 function App() {
@@ -65,35 +67,34 @@ function App() {
 
 	const switchOptions = [
 		{
-			label: 'U playing Dota?',
-			value: 'ginger-dota',
+			label: 'Option 1',
+			value: 'opt-1',
 		},
 		{
-			label: 'U a happy?',
-			value: 'ginger-nt-happy',
-			isDisabled: true,
+			label: 'Option 2',
+			value: 'opt-2',
 		},
 		{
-			label: 'U have a girlfriend?',
-			value: 'ginger-nt-girlfriend',
+			label: 'Option 3',
+			value: 'opt-3',
 			isDisabled: true,
 		},
 	];
 
 	const switchChOptions = [
 		{
-			label: 'U cunt?',
-			value: 'ginger-cunt',
+			label: 'Checkbox 1',
+			value: 'check-1',
 			isSelected: true,
 			isDisabled: true,
 		},
 		{
-			label: 'U faggot?',
-			value: 'ginger2-fag',
+			label: 'Checkbox 2',
+			value: 'check-2',
 		},
 		{
-			label: 'U a nigga?',
-			value: 'ginger-nigga',
+			label: 'Checkbox 3',
+			value: 'check-3',
 		},
 	];
 
@@ -111,6 +112,84 @@ function App() {
 		console.clear();
 		console.table(selectedCheckboxes);
 	}, [selectedCheckboxes]);
+
+	const columns: IColumn[] = [
+		{ header: 'ID', accessor: 'id' },
+		{ header: 'Name', accessor: 'name' },
+		{
+			header: 'Email',
+			accessor: 'email',
+			isSortable: true,
+			isFiltrable: true,
+		},
+		{
+			header: 'Actions',
+			accessor: 'actions',
+		},
+	];
+
+	const [tableData, setTableData] = useState<Data[]>([]);
+
+	const data: Data[] = [
+		{
+			id: 1,
+			name: 'Lorem Ipsum',
+			email: 'lorem@example.com',
+			actions: [
+				{
+					// label: 'Delete',
+					type: 'error',
+					icon: 'delete',
+					action: (rowData: Data) => handleDelete(rowData),
+				},
+				{
+					// label: 'Log',
+					icon: 'check_circle',
+					type: 'success',
+					action: (rowData: Data) =>
+						addToast({
+							type: 'success',
+							message: `Name: ${rowData.name?.toString()}\n Email: ${rowData.email?.toString()}`,
+							duration: 10,
+						}),
+				},
+			],
+		},
+		{ id: 3, name: 'Dolor Sit', email: 'dolor@example.com' },
+		{
+			id: 2,
+			name: 'Amet Consectetur Amet Consectetur Amet Consecteturq Amet Consectetur Amet Consectetur Amet Consectetur Amet Consectetur Amet Consectetur Amet Consectetur Amet Consectetur',
+			email: 'amet@example.com',
+		},
+		{ id: 4, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 6, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+		{ id: 7, name: 'Amet Consectetur', email: 'amet@example.com' },
+	];
+
+	useEffect(() => {
+		setTableData(data);
+	}, []);
+
+	const handleDelete = (row: Data) => {
+		setTableData((prevData) => prevData.filter((item) => item.id !== row.id));
+	};
+
+	const [isTableLoading, setIsTableLoading] = useState(false);
+
+	useEffect(() => {
+		setIsTableLoading(true);
+		setTimeout(() => {
+			setIsTableLoading(false);
+		}, 1000);
+	}, [tableData]);
+
 	return (
 		<>
 			<div className={styles.container}>
@@ -137,7 +216,7 @@ function App() {
 				<Button label="Primary" size="xl" onClick={showInfo} />
 				<Button label="Secondary" type="secondary" onClick={showInfo} />
 				<Dropdown
-					label="Nigga"
+					label="Dropdown label"
 					items={items}
 					onChange={handleDropdownChange}
 					size="sm"
@@ -146,15 +225,14 @@ function App() {
 					// excludeSelected
 					isSmartLabel
 					// smartLabelVariant="on"
-					//FIXME: сделать обработку hover-а и фокуса на smartLabel
 					// disabled
 					clearButton
 				/>
 				<p>Selected: {selectedItem ? selectedItem.label : 'None'}</p>
 				<InputText
-					// label
-					// labelText="Damn"
-					placeholder="123"
+					label
+					labelText="Damn"
+					// placeholder="123"
 					icon="home"
 					size="sm"
 					iconAction={() => console.log('123')}
@@ -166,12 +244,12 @@ function App() {
 					<RadioGroup
 						options={switchOptions}
 						selectedDefault={switchOptions[0]}
-						name="ginger"
+						name="radio"
 						onChange={(value) => setSelectedRadio(value)}
 					/>
 					<CheckboxGroup
 						options={switchChOptions}
-						name="ginger-cb"
+						name="check"
 						onChange={(option) =>
 							setSelectedCheckboxes((prev) =>
 								option.isSelected
@@ -180,9 +258,29 @@ function App() {
 							)
 						}
 					/>
-					<Switch isToggle value="single" name="single" label="U single?" />
+					<Switch
+						id="single"
+						value="single"
+						name="single"
+						label="Switch test"
+						isToggle
+					/>
+
+					<Loader />
+					<Loader type="dots" />
+					<Loader type="bouncy" />
+					{/* <Skeleton /> */}
 				</div>
-				<Loader />
+			</div>
+			<div className={styles.table}>
+				<Table
+					columns={columns}
+					data={tableData}
+					sortable
+					itemsPerPage={5}
+					warpable
+					preload={isTableLoading}
+				/>
 			</div>
 		</>
 	);

@@ -1,0 +1,28 @@
+.skeleton {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: var(--qc-bg-skeleton);
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--qc-bg-skeleton-shimmer), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
