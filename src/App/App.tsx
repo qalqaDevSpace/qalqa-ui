@@ -14,6 +14,7 @@ import {
 import { CheckboxOption } from '../components-lib/model/CheckboxModel';
 import { IDropdownItem } from '../components-lib/model/DropdownModel';
 import { RadioOption } from '../components-lib/model/RadioModal';
+import { Data, IColumn } from '../components-lib/model/TableModel';
 import styles from './App.module.css';
 
 function App() {
@@ -112,17 +113,54 @@ function App() {
 		console.table(selectedCheckboxes);
 	}, [selectedCheckboxes]);
 
-	const columns = [
+	const columns: IColumn[] = [
 		{ header: 'ID', accessor: 'id' },
 		{ header: 'Name', accessor: 'name' },
-		{ header: 'Email', accessor: 'email', isSortable: true },
+		{
+			header: 'Email',
+			accessor: 'email',
+			isSortable: true,
+			isFiltrable: true,
+		},
+		{
+			header: 'Actions',
+			accessor: 'actions',
+		},
 	];
 
-	const data = [
-		{ id: 1, name: 'Lorem isum', email: 'lorem@example.com' },
-		{ id: 3, name: 'Dolor sit', email: 'dolor@example.com' },
-		{ id: 2, name: 'Amet consectetur', email: 'amet@example.com' },
+	const [tableData, setTableData] = useState<Data[]>([]);
+
+	const data: Data[] = [
+		{
+			id: 1,
+			name: 'Lorem Ipsum',
+			email: 'lorem@example.com',
+			actions: [
+				{
+					// label: 'Delete',
+					type: 'error',
+					icon: 'delete',
+					action: (rowData: Data) => handleDelete(rowData),
+				},
+				{
+					// label: 'Log',
+					icon: 'check_circle',
+					type: 'success',
+					action: (rowData: Data) => console.log(rowData),
+				},
+			],
+		},
+		{ id: 3, name: 'Dolor Sit', email: 'dolor@example.com' },
+		{ id: 2, name: 'Amet Consectetur', email: 'amet@example.com' },
 	];
+
+	useEffect(() => {
+		setTableData(data);
+	}, []);
+
+	const handleDelete = (row: Data) => {
+		setTableData((prevData) => prevData.filter((item) => item.id !== row.id));
+	};
 
 	return (
 		<>
@@ -199,7 +237,7 @@ function App() {
 						label="Switch test"
 						isToggle
 					/>
-					<Table columns={columns} data={data} sortable />
+					<Table columns={columns} data={tableData} sortable />
 					<Loader />
 					<Loader type="dots" />
 					<Loader type="bouncy" />

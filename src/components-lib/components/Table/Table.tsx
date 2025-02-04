@@ -1,20 +1,25 @@
 import clsx from 'clsx';
-import React, { useEffect, useState } from 'react';
-import { Data, IActiveSort, ITableProps } from '../../model/TableModel';
-import { TableSort } from './Sort/TableSort';
+import { useEffect, useState } from 'react';
+import {
+	Data,
+	IActiveFilter,
+	IActiveSort,
+	ITableActions,
+	ITableProps,
+} from '../../model/TableModel';
+import { Button } from '../Button/Button';
+import { TableColumnHeader } from './ColumnHeader/TableColumnHeader';
 import styles from './Table.module.scss';
 
-export const Table: React.FC<ITableProps> = ({
-	columns,
-	data,
-	sortable = false,
-}) => {
+export const Table = ({ columns, data, sortable = false }: ITableProps) => {
 	const [sortedData, setSortedData] = useState<Data[]>([]);
 	const [activeSort, setActiveSort] = useState<IActiveSort | null>(null);
+	const [activeFilter, setActiveFilter] = useState<IActiveFilter | null>(null);
 
 	useEffect(() => {
 		setSortedData(data);
 		setActiveSort(null);
+		setActiveFilter(null);
 	}, [data]);
 
 	const handleSort = (accessor: string) => {
@@ -46,32 +51,48 @@ export const Table: React.FC<ITableProps> = ({
 		setSortedData(sorted);
 	};
 
+	const handleClearSort = () => {
+		setActiveSort(null);
+		setSortedData(data);
+	};
+
+	const handleFilter = (accessor: string, rule: unknown) => {
+		if (activeFilter) {
+			setActiveFilter(null);
+			return;
+		}
+		setActiveFilter({ accessor, rule });
+	};
+
 	return (
 		<div className={styles.container}>
 			<table className={styles.table}>
 				<thead className={styles['table-head']}>
 					<tr className={styles['table-row']}>
 						{columns.map((col, index) => {
-							const isActive =
+							const isActiveSort =
 								activeSort !== null && activeSort.accessor === col.accessor;
-							const sortOrder = isActive ? activeSort!.order : 'asc';
+							const isActiveFilter =
+								activeFilter !== null && activeFilter.accessor === col.accessor;
+							const sortOrder = isActiveSort ? activeSort!.order : 'asc';
 							const isSortable = sortable || col.isSortable;
-							return (
-								<th
-									onClick={() => isSortable && handleSort(col.accessor)}
-									key={index}
-									className={clsx(styles['table-headline'], {
-										[styles.sortable]: isSortable,
-									})}
-								>
-									<p className={styles.title}>
-										{col.header}
 
-										{isSortable && (
-											<TableSort active={isActive} order={sortOrder} />
-										)}
-									</p>
-								</th>
+							return (
+								<TableColumnHeader
+									key={index}
+									header={col.header}
+									accessor={col.accessor}
+									isSortable={isSortable}
+									isFiltrable={col.isFiltrable}
+									isActiveSort={isActiveSort}
+									isActiveFilter={isActiveFilter}
+									sortOrder={sortOrder}
+									onSort={() => isSortable && handleSort(col.accessor)}
+									onFilter={() =>
+										col.isFiltrable && handleFilter(col.accessor, null)
+									}
+									onClear={handleClearSort}
+								/>
 							);
 						})}
 					</tr>
@@ -79,11 +100,46 @@ export const Table: React.FC<ITableProps> = ({
 				<tbody>
 					{sortedData.map((row, rowIndex) => (
 						<tr className={styles['table-row']} key={rowIndex}>
-							{columns.map((col, colIndex) => (
-								<td key={colIndex} className={styles['table-cell']}>
-									{row[col.accessor]}
-								</td>
-							))}
+							{columns.map((col, colIndex) => {
+								if (col.accessor === 'actions' && row.actions) {
+									const actionsField = row.actions as
+										| ITableActions
+										| ITableActions[];
+									const actions = Array.isArray(actionsField)
+										? actionsField
+										: [actionsField];
+
+									return (
+										<td
+											key={colIndex}
+											className={clsx(styles['table-cell'], styles['actions'])}
+										>
+											{actions.map(
+												(act: ITableActions, actionIndex: number) => (
+													<Button
+														key={actionIndex}
+														size={act.size || 'sm'}
+														disabled={act.disabled}
+														icon={act.icon}
+														iconPosition={act.iconPosition}
+														weight={act.weight}
+														shadow={act.shadow}
+														label={act.label}
+														type={act.type}
+														onClick={() => act.action(row)}
+													/>
+												)
+											)}
+										</td>
+									);
+								}
+
+								return (
+									<td key={colIndex} className={styles['table-cell']}>
+										<>{row[col.accessor]}</>
+									</td>
+								);
+							})}
 						</tr>
 					))}
 				</tbody>

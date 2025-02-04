@@ -103,7 +103,8 @@
 
 	.menu {
 		color: var(--qc-text-primary);
-		background-color: var(--qc-bg-secondary);
+		background-color: var(--qc-bg-tr);
+		backdrop-filter: blur(10px);
 		border: var(--qc-border-card);
 		border-radius: 10px;
 		cursor: pointer;

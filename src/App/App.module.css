@@ -5,6 +5,7 @@
 	background-color: var(--qc-bg-primary);
 	padding: 100px 0;
 	/* font-family: var(--qff-primary); */
-	width: 100%;
+	width: fit-content;
 	color: var(--qc-text-primary);
+	margin: 0 auto;
 }
