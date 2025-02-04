@@ -1,0 +1,46 @@
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: clamp(2px, 1vw, 5px);
+  justify-content: end;
+  padding: 0 20px;
+  border-radius: 5px;
+  animation: appear 0.3s ease-in-out;
+  transition: all 0.2s ease;
+  line-height: 0px;
+  max-height: 0px;
+  opacity: 0;
+  &:hover {
+    color: var(--qc-hover-text-primary);
+    background-color: var(--qc-hover-accent-primary-tr);
+  }
+
+  &.open {
+    max-height: 100px;
+    line-height: 20px;
+    opacity: 1;
+  }
+
+  .title {
+    font-weight: 500;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1;
+  }
+  .arrow {
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    max-height: 0px;
+    line-height: 0;
+  }
+  100% {
+    opacity: 1;
+    max-height: 40px;
+    line-height: 1;
+  }
+}

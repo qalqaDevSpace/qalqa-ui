@@ -25,6 +25,11 @@ export interface ITableFilterProps {
 	onFilter?: () => void;
 }
 
+export interface IClear {
+	isShown: boolean;
+	onClear?: () => void;
+}
+
 export interface IColumn {
 	header: string;
 	accessor: string;
@@ -43,6 +48,7 @@ export interface ITableColumnHeaderComponentProps {
 	sortOrder: Order;
 	onSort?: () => void;
 	onFilter?: () => void;
+	onClear?: () => void;
 }
 
 export interface ITableHeaderMenuProps {

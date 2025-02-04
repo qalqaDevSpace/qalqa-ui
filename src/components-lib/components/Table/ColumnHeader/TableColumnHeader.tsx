@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { ITableColumnHeaderComponentProps } from '../../../model/TableModel';
+import { TableClear } from './HeaderActions/Clear/TableClear';
 import { TableFilter } from './HeaderActions/Filter/TableFilter';
 import { TableSort } from './HeaderActions/Sort/TableSort';
 import { TableHeaderActionsMenu } from './HeaderActionsMenu/TableHeaderActionsMenu';
@@ -16,8 +17,10 @@ export const TableColumnHeader = ({
 	isActiveFilter,
 	onSort,
 	onFilter,
+	onClear,
 }: ITableColumnHeaderComponentProps) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 	return (
 		<>
 			{type === 'default' && (
@@ -45,6 +48,7 @@ export const TableColumnHeader = ({
 									onFilter={onFilter}
 								/>
 							)}
+							<TableClear isShown={isActiveSort || false} onClear={onClear} />
 						</TableHeaderActionsMenu>
 					</div>
 				</th>

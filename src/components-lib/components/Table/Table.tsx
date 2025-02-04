@@ -52,6 +52,11 @@ export const Table: React.FC<ITableProps> = ({
 		setSortedData(sorted);
 	};
 
+	const handleClearSort = () => {
+		setActiveSort(null);
+		setSortedData(data);
+	};
+
 	const handleFilter = (accessor: string, rule: unknown) => {
 		if (activeFilter) {
 			setActiveFilter(null);
@@ -89,6 +94,7 @@ export const Table: React.FC<ITableProps> = ({
 									onFilter={() =>
 										col.isFiltrable && handleFilter(col.accessor, null)
 									}
+									onClear={handleClearSort}
 								/>
 							);
 						})}
