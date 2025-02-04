@@ -2,8 +2,7 @@ import { CardProps } from '../../model/CardModel'
 import s from './Card.module.scss'
 import clsx from 'clsx'
 
-export const Card: React.FC<CardProps> = ({ onClick, hoverable = false, title, subtitle, children,
-  header, footer, photoPosition = 'top', img, classNames
+export const Card: React.FC<CardProps> = ({ onClick, hoverable = false, title, subtitle, children, photoPosition = 'top', img, classNames
 }) => {
 
   const photoStyles = clsx(
@@ -18,17 +17,6 @@ export const Card: React.FC<CardProps> = ({ onClick, hoverable = false, title, s
   )
   return (
     <div className={cardStyles} onClick={onClick}>
-      {header &&
-        <div className={s.card_header}>
-          {header.title &&
-            <p className={s.header_title}>{header.title}</p>
-          }
-          {header.subtitle &&
-            <p className={s.header_subtitle}>{header.subtitle}</p>
-          }
-          {header.children}
-        </div>
-      }
       <div className={s.card_content}>
         {img &&
           <div className={photoStyles}>
@@ -43,18 +31,6 @@ export const Card: React.FC<CardProps> = ({ onClick, hoverable = false, title, s
         }
       </div>
       {children}
-
-      {footer &&
-        <div className={s.card_footer}>
-          {footer.title &&
-            <p className={s.footer_title}>{footer.title}</p>
-          }
-          {footer.subtitle &&
-            <p className={s.footer_subtitle}>{footer.subtitle}</p>
-          }
-          {footer.children}
-        </div>
-      }
     </div>
   )
 }
