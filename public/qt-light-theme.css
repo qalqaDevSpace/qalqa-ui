@@ -41,6 +41,13 @@
   --qc-hover-bg-item: #f3f4f6;
   --qc-hover-thumb: #eaeaea;
 
+  --qc-status-border-todo: var(--qc-hover-text-secondary);
+  --qc-status-border-inprogress: var(--qc-hover-accent-primary);
+  --qc-status-border-done: var(--qc-success);
+  --qc-status-border-cancelled: var(--qc-error);
+  --qc-status-border-waitingreview: var(--qc-warning);
+  --qc-status-border-archived: var(--qc-accent-primary);
+
   --qc-active-accent-primary: #6a25e2;
   --qc-active-success: #2fb282;
   --qc-active-warning: #fe9f06;
