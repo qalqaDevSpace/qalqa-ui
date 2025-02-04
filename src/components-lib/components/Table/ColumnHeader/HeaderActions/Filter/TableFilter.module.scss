@@ -4,7 +4,7 @@
   gap: clamp(2px, 1vw, 5px);
   justify-content: end;
   cursor: pointer;
-  padding: 0 20px;
+  padding: 5px 20px;
   border-radius: 5px;
   transition: all 0.2s ease;
   &:hover {
@@ -13,7 +13,6 @@
   }
   .filter-title {
     font-weight: 500;
-    font-size: 12px;
     margin: 0;
   }
   .filter-icon {
