@@ -73,7 +73,6 @@ export interface ITableColumnHeaderComponentProps {
 export interface ITableHeaderMenuProps {
 	children: React.ReactNode;
 	isOpen: boolean;
-	onToggle: () => void;
 }
 
 type ColumnType =
