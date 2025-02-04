@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
 	Data,
 	IActiveFilter,
 	IActiveSort,
+	ITableActions,
 	ITableProps,
 } from '../../model/TableModel';
+import { Button } from '../Button/Button';
 import { TableColumnHeader } from './ColumnHeader/TableColumnHeader';
 import styles from './Table.module.scss';
 
-export const Table: React.FC<ITableProps> = ({
-	columns,
-	data,
-	sortable = false,
-}) => {
+export const Table = ({ columns, data, sortable = false }: ITableProps) => {
 	const [sortedData, setSortedData] = useState<Data[]>([]);
 	const [activeSort, setActiveSort] = useState<IActiveSort | null>(null);
 	const [activeFilter, setActiveFilter] = useState<IActiveFilter | null>(null);
@@ -63,8 +61,6 @@ export const Table: React.FC<ITableProps> = ({
 			return;
 		}
 		setActiveFilter({ accessor, rule });
-		// const filtered = data.filter((item) => item[accessor] === rule);
-		// setSortedData(filtered);
 	};
 
 	return (
@@ -79,12 +75,12 @@ export const Table: React.FC<ITableProps> = ({
 								activeFilter !== null && activeFilter.accessor === col.accessor;
 							const sortOrder = isActiveSort ? activeSort!.order : 'asc';
 							const isSortable = sortable || col.isSortable;
-							const columnType = col.type;
+
 							return (
 								<TableColumnHeader
 									key={index}
 									header={col.header}
-									type={columnType}
+									accessor={col.accessor}
 									isSortable={isSortable}
 									isFiltrable={col.isFiltrable}
 									isActiveSort={isActiveSort}
@@ -103,11 +99,38 @@ export const Table: React.FC<ITableProps> = ({
 				<tbody>
 					{sortedData.map((row, rowIndex) => (
 						<tr className={styles['table-row']} key={rowIndex}>
-							{columns.map((col, colIndex) => (
-								<td key={colIndex} className={styles['table-cell']}>
-									{row[col.accessor]}
-								</td>
-							))}
+							{columns.map((col, colIndex) => {
+								if (col.accessor === 'actions' && row.actions) {
+									const actionsField = row.actions as
+										| ITableActions
+										| ITableActions[];
+									const actions = Array.isArray(actionsField)
+										? actionsField
+										: [actionsField];
+
+									return (
+										<td key={colIndex} className={styles['table-cell']}>
+											{actions.map(
+												(act: ITableActions, actionIndex: number) => (
+													<Button
+														size="sm"
+														label={act.label}
+														type={act.type}
+														key={actionIndex}
+														onClick={() => act.action(row)}
+													/>
+												)
+											)}
+										</td>
+									);
+								}
+
+								return (
+									<td key={colIndex} className={styles['table-cell']}>
+										<>{row[col.accessor]}</>
+									</td>
+								);
+							})}
 						</tr>
 					))}
 				</tbody>

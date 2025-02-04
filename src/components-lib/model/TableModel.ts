@@ -1,3 +1,6 @@
+import { ReactNode } from 'react';
+import { ButtonProps } from './ButtonModel';
+
 export interface ITableProps {
 	columns: IColumn[];
 	data: Data[];
@@ -32,15 +35,20 @@ export interface IClear {
 
 export interface IColumn {
 	header: string;
-	accessor: string;
-	type?: ColumnType;
+	accessor: ColumnType | string;
 	isSortable?: boolean;
 	isFiltrable?: boolean;
 }
 
+export interface ITableActions {
+	label: string;
+	type: ButtonProps['type'];
+	action: (row: Data) => void;
+}
+
 export interface ITableColumnHeaderComponentProps {
 	header: IColumn['header'];
-	type?: IColumn['type'];
+	accessor: IColumn['accessor'];
 	isSortable?: IColumn['isSortable'];
 	isActiveSort?: boolean;
 	isFiltrable?: boolean;
@@ -67,4 +75,6 @@ type ColumnType =
 
 type Order = 'asc' | 'desc';
 
-export type Data = Record<string, React.ReactNode>;
+export interface Data {
+	[key: string]: ReactNode | ITableActions[];
+}

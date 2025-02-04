@@ -14,6 +14,7 @@ import {
 import { CheckboxOption } from '../components-lib/model/CheckboxModel';
 import { IDropdownItem } from '../components-lib/model/DropdownModel';
 import { RadioOption } from '../components-lib/model/RadioModal';
+import { Data, IColumn } from '../components-lib/model/TableModel';
 import styles from './App.module.css';
 
 function App() {
@@ -112,16 +113,41 @@ function App() {
 		console.table(selectedCheckboxes);
 	}, [selectedCheckboxes]);
 
-	const columns = [
+	const columns: IColumn[] = [
 		{ header: 'ID', accessor: 'id' },
 		{ header: 'Name', accessor: 'name' },
-		{ header: 'Email', accessor: 'email', isSortable: true, isFiltrable: true },
+		{
+			header: 'Email',
+			accessor: 'email',
+			isSortable: true,
+			isFiltrable: true,
+		},
+		{
+			header: 'Actions',
+			accessor: 'actions',
+		},
 	];
 
-	const data = [
-		{ id: 1, name: 'Lorem isum', email: 'lorem@example.com' },
-		{ id: 3, name: 'Dolor sit', email: 'dolor@example.com' },
-		{ id: 2, name: 'Amet consectetur', email: 'amet@example.com' },
+	const data: Data[] = [
+		{
+			id: 1,
+			name: 'Lorem Ipsum',
+			email: 'lorem@example.com',
+			actions: [
+				{
+					label: 'Delete',
+					type: 'error',
+					action: (rowData: Data) => console.log(rowData),
+				},
+				{
+					label: 'Log',
+					type: 'success',
+					action: (rowData: Data) => console.log('Logging row:', rowData),
+				},
+			],
+		},
+		{ id: 3, name: 'Dolor Sit', email: 'dolor@example.com' },
+		{ id: 2, name: 'Amet Consectetur', email: 'amet@example.com' },
 	];
 
 	return (

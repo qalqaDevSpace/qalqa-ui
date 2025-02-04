@@ -12,7 +12,7 @@ export const TableColumnHeader = ({
 	sortOrder,
 	isSortable,
 	isFiltrable,
-	type = 'default',
+	accessor,
 	isActiveSort,
 	isActiveFilter,
 	onSort,
@@ -20,17 +20,25 @@ export const TableColumnHeader = ({
 	onClear,
 }: ITableColumnHeaderComponentProps) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	if (accessor === 'actions')
+		return (
+			<th className={clsx(styles['table-headline'])}>
+				<div className={styles['table-headline-container']}>
+					<p className={styles.title}>{header}</p>
+				</div>
+			</th>
+		);
 
 	return (
 		<>
-			{type === 'default' && (
-				<th
-					className={clsx(styles['table-headline'], {
-						[styles.sortable]: isSortable,
-					})}
-				>
-					<div className={styles['table-headline-container']}>
-						<p className={styles.title}>{header}</p>
+			<th
+				className={clsx(styles['table-headline'], {
+					[styles.sortable]: isSortable,
+				})}
+			>
+				<div className={styles['table-headline-container']}>
+					<p className={styles.title}>{header}</p>
+					{(isSortable || isFiltrable) && (
 						<TableHeaderActionsMenu
 							isOpen={isMenuOpen}
 							onToggle={() => setIsMenuOpen(!isMenuOpen)}
@@ -50,9 +58,9 @@ export const TableColumnHeader = ({
 							)}
 							<TableClear isShown={isActiveSort || false} onClear={onClear} />
 						</TableHeaderActionsMenu>
-					</div>
-				</th>
-			)}
+					)}
+				</div>
+			</th>
 		</>
 	);
 };
