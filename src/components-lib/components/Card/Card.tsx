@@ -1,4 +1,5 @@
 import { CardProps } from '../../model/CardModel'
+import { Skeleton } from '../Skeleton/Skeleton'
 import s from './Card.module.scss'
 import clsx from 'clsx'
 
@@ -22,15 +23,21 @@ export const Card: React.FC<CardProps> = ({ onClick, hoverable = false, title, s
   )
 
   return (
-    <div style={style} className={cardStyles} onClick={onClick}>
-        {title &&
-          <p className={titleStyles}>{title}</p>
-        }
-        {subtitle &&
-          <p className={subtitleStyles}>{subtitle}</p>
-        }
-      {children}
-    </div>
+    <>
+      {loading ?
+        <Skeleton />
+        : (
+          <div style={style} className={cardStyles} onClick={onClick}>
+          {title &&
+            <p className={titleStyles}>{title}</p>
+          }
+          {subtitle &&
+            <p className={subtitleStyles}>{subtitle}</p>
+          }
+        {children}
+        </div>
+        )}
+      </>
   )
 }
 

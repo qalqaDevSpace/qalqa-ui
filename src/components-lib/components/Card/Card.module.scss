@@ -9,11 +9,11 @@
 }
 
 .title-sm {
-    @include textStyle(var(--qc-text-primary), var(--qfs-lg), var(--qfw-medium))
+    @include textStyle(var(--qc-text-primary), var(--qfs-base), var(--qfw-medium))
 }
 
 .subtitle-sm {
-    @include textStyle(var(--qc-text-secondary), var(--qfs-sm), var(--qfw-light))
+    @include textStyle(var(--qc-text-secondary), var(--qfs-xs), var(--qfw-light))
 }
 
 .title-md {
@@ -26,11 +26,11 @@
 
 
 .title-xl {
-    @include textStyle(var(--qc-text-primary), var(--qfs-lg), var(--qfw-medium))
+    @include textStyle(var(--qc-text-primary), var(--qfs-xl), var(--qfw-semibold))
 }
 
 .subtitle-xl {
-    @include textStyle(var(--qc-text-secondary), var(--qfs-sm), var(--qfw-light))
+    @include textStyle(var(--qc-text-secondary), var(--qfs-base), var(--qfw-regular))
 }
 
 
