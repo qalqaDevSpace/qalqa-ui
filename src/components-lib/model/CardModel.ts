@@ -1,13 +1,13 @@
 export type CardProps = {
-    onClick?: () => void,
+    onClick?: React.MouseEventHandler,
     hoverable?: boolean,
     title?: string,
     subtitle?: string,
     children?: React.ReactNode,
     classNames?: string,
-    img?: Photo,
-    photoPosition?: PhotoPosition
+    loading?: boolean,
+    size?: CardSize,
+    style?: React.CSSProperties
 }
 
-type PhotoPosition = 'left' | 'right' | 'top' | 'bottom'
-type Photo = { src: string, alt?: string }
+type CardSize = 'sm' | 'md' | 'xl';
