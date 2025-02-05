@@ -1,0 +1,74 @@
+@mixin textStyle($color, $size, $weight) {
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    margin: 0;
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+.title-sm {
+    @include textStyle(var(--qc-text-primary), var(--qfs-base), var(--qfw-medium))
+}
+
+.subtitle-sm {
+    @include textStyle(var(--qc-text-secondary), var(--qfs-xs), var(--qfw-light))
+}
+
+.title-md {
+    @include textStyle(var(--qc-text-primary), var(--qfs-lg), var(--qfw-medium))
+}
+
+.subtitle-md {
+    @include textStyle(var(--qc-text-secondary), var(--qfs-sm), var(--qfw-light))
+}
+
+
+.title-xl {
+    @include textStyle(var(--qc-text-primary), var(--qfs-xl), var(--qfw-semibold))
+}
+
+.subtitle-xl {
+    @include textStyle(var(--qc-text-secondary), var(--qfs-base), var(--qfw-regular))
+}
+
+
+.hoverable:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	transition: box-shadow 0.3s;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--qc-border-primary);
+    font-family: var(--qff-primary);
+}
+
+.size- {
+    &sm {
+        max-width: 240px;
+        max-height: 260px;
+        padding: 18px 8px;
+        gap: 6px;
+    }
+
+    &md {
+        max-width: 300px;
+        max-height: 320px;
+        padding: 24px 12px;
+        gap: 8px;
+    }
+
+    &xl {
+        max-width: 360px;
+        max-height: 380px;
+        padding: 32px 16px;
+        gap: 12px;
+    }
+}
