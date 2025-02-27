@@ -1,6 +1,6 @@
 {
 	"name": "qalqa-ui",
-	"version": "0.0.0",
+	"version": "0.0.3",
 	"main": "dist/components/index.js",
 	"module": "dist/components/index.js",
 	"types": "dist/model/index.d.ts",
